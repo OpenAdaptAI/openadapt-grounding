@@ -22,3 +22,7 @@ demo_output/
 
 # OS
 .DS_Store
+
+# Secrets
+.env
+*.pem

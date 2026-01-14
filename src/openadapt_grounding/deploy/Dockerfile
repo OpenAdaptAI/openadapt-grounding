@@ -14,6 +14,11 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
     rm miniconda.sh
 ENV PATH="/opt/conda/bin:$PATH"
 
+# Accept Conda Terms of Service (required as of late 2024)
+RUN conda config --set solver libmamba && \
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main && \
+    conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+
 RUN conda create -n omni python=3.12 && \
     echo "source activate omni" > ~/.bashrc
 ENV CONDA_DEFAULT_ENV=omni
@@ -32,7 +37,8 @@ RUN . /opt/conda/etc/profile.d/conda.sh && conda activate omni && \
     pip uninstall -y opencv-python opencv-python-headless && \
     pip install --no-cache-dir opencv-python-headless==4.8.1.78 && \
     pip install -r requirements.txt && \
-    pip install huggingface_hub fastapi uvicorn
+    pip install huggingface_hub fastapi uvicorn && \
+    pip install paddleocr==2.8.1 paddlepaddle==2.6.2
 
 # Download V2 weights
 RUN . /opt/conda/etc/profile.d/conda.sh && conda activate omni && \
@@ -44,11 +50,10 @@ RUN . /opt/conda/etc/profile.d/conda.sh && conda activate omni && \
     done && \
     mv weights/icon_caption weights/icon_caption_florence
 
-# Pre-download OCR models during build
+# Pre-download EasyOCR model during build (PaddleOCR downloads at runtime)
 RUN . /opt/conda/etc/profile.d/conda.sh && conda activate omni && \
     cd /app/OmniParser && \
-    python3 -c "import easyocr; reader = easyocr.Reader(['en']); print('Downloaded EasyOCR model')" && \
-    python3 -c "from paddleocr import PaddleOCR; ocr = PaddleOCR(lang='en', use_angle_cls=False, use_gpu=False, show_log=False); print('Downloaded PaddleOCR model')"
+    python3 -c "import easyocr; reader = easyocr.Reader(['en']); print('Downloaded EasyOCR model')"
 
 CMD ["python3", "/app/OmniParser/omnitool/omniparserserver/omniparserserver.py", \
      "--som_model_path", "/app/OmniParser/weights/icon_detect/model.pt", \

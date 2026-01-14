@@ -9,10 +9,11 @@ Usage:
     python -m openadapt_grounding.deploy stop
 
     # From Python
-    from openadapt_grounding.deploy import Deploy
+    from openadapt_grounding.deploy import Deploy, settings
     Deploy.start()
 """
 
+from openadapt_grounding.deploy.config import settings
 from openadapt_grounding.deploy.deploy import Deploy
 
-__all__ = ["Deploy"]
+__all__ = ["Deploy", "settings"]

@@ -19,9 +19,12 @@ Usage:
     python -m openadapt_grounding.deploy stop    # Terminate instance
 """
 
+import io
+import json
 import os
 import subprocess
 import time
+import zipfile
 from pathlib import Path
 from typing import Optional, Tuple
 
@@ -34,57 +37,14 @@ except ImportError:
         "Deploy dependencies not installed. Run: uv pip install openadapt-grounding[deploy]"
     )
 
-try:
-    from pydantic_settings import BaseSettings
-except ImportError:
-    # Fallback for older pydantic
-    from pydantic import BaseSettings
+from openadapt_grounding.deploy.config import settings as config
 
 
 CLEANUP_ON_FAILURE = False
 
-
-class Config(BaseSettings):
-    """Configuration settings for deployment."""
-
-    AWS_ACCESS_KEY_ID: str = ""
-    AWS_SECRET_ACCESS_KEY: str = ""
-    AWS_REGION: str = "us-east-1"
-
-    PROJECT_NAME: str = "omniparser"
-    REPO_URL: str = "https://github.com/microsoft/OmniParser.git"
-    # Deep Learning AMI GPU PyTorch 2.3.1 (Ubuntu 22.04)
-    AWS_EC2_AMI: str = "ami-06835d15c4de57810"
-    AWS_EC2_DISK_SIZE: int = 128  # GB
-    AWS_EC2_INSTANCE_TYPE: str = "g4dn.xlarge"  # T4 16GB $0.526/hr
-    AWS_EC2_USER: str = "ubuntu"
-    PORT: int = 8000  # FastAPI port
-    COMMAND_TIMEOUT: int = 600  # 10 minutes
-
-    class Config:
-        """Pydantic configuration."""
-
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-
-    @property
-    def CONTAINER_NAME(self) -> str:
-        return f"{self.PROJECT_NAME}-container"
-
-    @property
-    def AWS_EC2_KEY_NAME(self) -> str:
-        return f"{self.PROJECT_NAME}-key"
-
-    @property
-    def AWS_EC2_KEY_PATH(self) -> str:
-        return f"./{self.AWS_EC2_KEY_NAME}.pem"
-
-    @property
-    def AWS_EC2_SECURITY_GROUP(self) -> str:
-        return f"{self.PROJECT_NAME}-SecurityGroup"
-
-
-config = Config()
+# Auto-shutdown infrastructure names
+LAMBDA_FUNCTION_NAME = f"{config.PROJECT_NAME}-auto-shutdown"
+IAM_ROLE_NAME = f"{config.PROJECT_NAME}-lambda-role"
 
 
 def _get_dockerfile_path() -> Path:
@@ -381,6 +341,276 @@ def execute_command(ssh_client: paramiko.SSHClient, command: str) -> None:
         raise RuntimeError(f"Command failed with status {exit_status}")
 
 
+def create_auto_shutdown_infrastructure(instance_id: str) -> None:
+    """Create CloudWatch Alarm and Lambda for CPU-based auto-shutdown.
+
+    Sets up infrastructure to automatically stop the EC2 instance when
+    CPU utilization drops below 5% for the configured timeout period.
+    This saves costs when the instance is idle.
+
+    Args:
+        instance_id: The EC2 instance ID to monitor
+    """
+    lambda_client = boto3.client("lambda", region_name=config.AWS_REGION)
+    iam_client = boto3.client("iam", region_name=config.AWS_REGION)
+    cloudwatch_client = boto3.client("cloudwatch", region_name=config.AWS_REGION)
+    sts_client = boto3.client("sts", region_name=config.AWS_REGION)
+
+    alarm_name = f"{config.PROJECT_NAME}-CPU-Low-Alarm-{instance_id}"
+
+    print("Setting up auto-shutdown infrastructure...")
+
+    # Create or get IAM Role for Lambda
+    role_arn = None
+    try:
+        assume_role_policy = {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Principal": {"Service": "lambda.amazonaws.com"},
+                    "Action": "sts:AssumeRole",
+                }
+            ],
+        }
+        try:
+            response = iam_client.create_role(
+                RoleName=IAM_ROLE_NAME,
+                AssumeRolePolicyDocument=json.dumps(assume_role_policy),
+            )
+            role_arn = response["Role"]["Arn"]
+            print(f"Created IAM role: {IAM_ROLE_NAME}")
+
+            # Attach required policies
+            iam_client.attach_role_policy(
+                RoleName=IAM_ROLE_NAME,
+                PolicyArn="arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            )
+            iam_client.attach_role_policy(
+                RoleName=IAM_ROLE_NAME,
+                PolicyArn="arn:aws:iam::aws:policy/AmazonEC2FullAccess",
+            )
+            print("Attached policies to IAM role")
+            print("Waiting for IAM role propagation...")
+            time.sleep(15)
+        except ClientError as e:
+            if e.response["Error"]["Code"] == "EntityAlreadyExists":
+                response = iam_client.get_role(RoleName=IAM_ROLE_NAME)
+                role_arn = response["Role"]["Arn"]
+                print(f"Using existing IAM role: {IAM_ROLE_NAME}")
+            else:
+                raise
+    except Exception as e:
+        print(f"Failed to create/get IAM role: {e}")
+        print("Auto-shutdown will not be configured.")
+        return
+
+    if not role_arn:
+        print("Failed to obtain IAM role ARN. Skipping auto-shutdown setup.")
+        return
+
+    # Lambda function code
+    lambda_code = """
+import boto3
+import os
+import json
+
+INSTANCE_ID = os.environ.get('INSTANCE_ID')
+
+def lambda_handler(event, context):
+    if not INSTANCE_ID:
+        print("Error: INSTANCE_ID environment variable not set.")
+        return {'statusCode': 500, 'body': json.dumps('Configuration error')}
+
+    ec2 = boto3.client('ec2')
+    print(f"Inactivity alarm triggered for instance: {INSTANCE_ID}")
+
+    try:
+        response = ec2.describe_instances(InstanceIds=[INSTANCE_ID])
+        if not response.get('Reservations') or not response['Reservations'][0].get('Instances'):
+            print(f"Instance {INSTANCE_ID} not found.")
+            return {'statusCode': 404, 'body': json.dumps('Instance not found')}
+
+        state = response['Reservations'][0]['Instances'][0]['State']['Name']
+
+        if state == 'running':
+            print(f"Stopping instance {INSTANCE_ID} due to inactivity.")
+            ec2.stop_instances(InstanceIds=[INSTANCE_ID])
+            return {'statusCode': 200, 'body': json.dumps('Instance stop initiated')}
+        else:
+            print(f"Instance {INSTANCE_ID} is in state '{state}'. No action taken.")
+            return {'statusCode': 200, 'body': json.dumps('Instance not running')}
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return {'statusCode': 500, 'body': json.dumps(f'Error: {str(e)}')}
+"""
+
+    # Create or update Lambda function
+    lambda_arn = None
+    try:
+        zip_buffer = io.BytesIO()
+        with zipfile.ZipFile(zip_buffer, "w", zipfile.ZIP_DEFLATED) as zip_file:
+            zip_file.writestr("lambda_function.py", lambda_code.encode("utf-8"))
+        zip_content = zip_buffer.getvalue()
+
+        env_vars = {"Variables": {"INSTANCE_ID": instance_id}}
+
+        try:
+            func_config = lambda_client.get_function_configuration(
+                FunctionName=LAMBDA_FUNCTION_NAME
+            )
+            lambda_arn = func_config["FunctionArn"]
+            print(f"Updating existing Lambda function: {LAMBDA_FUNCTION_NAME}")
+
+            lambda_client.update_function_code(
+                FunctionName=LAMBDA_FUNCTION_NAME, ZipFile=zip_content
+            )
+            waiter = lambda_client.get_waiter("function_updated_v2")
+            waiter.wait(
+                FunctionName=LAMBDA_FUNCTION_NAME,
+                WaiterConfig={"Delay": 5, "MaxAttempts": 12},
+            )
+
+            lambda_client.update_function_configuration(
+                FunctionName=LAMBDA_FUNCTION_NAME,
+                Role=role_arn,
+                Environment=env_vars,
+                Timeout=30,
+                MemorySize=128,
+            )
+        except ClientError as e:
+            if e.response["Error"]["Code"] == "ResourceNotFoundException":
+                print(f"Creating Lambda function: {LAMBDA_FUNCTION_NAME}")
+                response = lambda_client.create_function(
+                    FunctionName=LAMBDA_FUNCTION_NAME,
+                    Runtime="python3.9",
+                    Role=role_arn,
+                    Handler="lambda_function.lambda_handler",
+                    Code={"ZipFile": zip_content},
+                    Timeout=30,
+                    MemorySize=128,
+                    Description=f"Auto-shutdown for {config.PROJECT_NAME}",
+                    Environment=env_vars,
+                    Tags={"Project": config.PROJECT_NAME},
+                )
+                lambda_arn = response["FunctionArn"]
+
+                waiter = lambda_client.get_waiter("function_active_v2")
+                waiter.wait(
+                    FunctionName=LAMBDA_FUNCTION_NAME,
+                    WaiterConfig={"Delay": 2, "MaxAttempts": 15},
+                )
+            else:
+                raise
+
+        if not lambda_arn:
+            raise RuntimeError("Failed to get Lambda ARN")
+
+        # Create CloudWatch Alarm
+        evaluation_periods = max(1, config.INACTIVITY_TIMEOUT_MINUTES // 5)
+        threshold_cpu = 5.0
+
+        print(f"Creating CloudWatch alarm: {alarm_name}")
+        print(f"  Will stop instance if CPU < {threshold_cpu}% for {evaluation_periods * 5} minutes")
+
+        # Delete existing alarm first
+        try:
+            cloudwatch_client.delete_alarms(AlarmNames=[alarm_name])
+        except ClientError:
+            pass
+
+        # Get account ID for alarm ARN
+        account_id = sts_client.get_caller_identity()["Account"]
+        alarm_arn = f"arn:aws:cloudwatch:{config.AWS_REGION}:{account_id}:alarm:{alarm_name}"
+
+        cloudwatch_client.put_metric_alarm(
+            AlarmName=alarm_name,
+            AlarmDescription=f"Stop {instance_id} if CPU < {threshold_cpu}% for {evaluation_periods * 5} mins",
+            ActionsEnabled=True,
+            AlarmActions=[lambda_arn],
+            MetricName="CPUUtilization",
+            Namespace="AWS/EC2",
+            Statistic="Average",
+            Dimensions=[{"Name": "InstanceId", "Value": instance_id}],
+            Period=300,
+            EvaluationPeriods=evaluation_periods,
+            Threshold=threshold_cpu,
+            ComparisonOperator="LessThanThreshold",
+            TreatMissingData="breaching",
+            Tags=[{"Key": "Project", "Value": config.PROJECT_NAME}],
+        )
+
+        # Grant CloudWatch permission to invoke Lambda
+        statement_id = f"AllowCloudWatchAlarm_{alarm_name}"
+        try:
+            lambda_client.remove_permission(
+                FunctionName=LAMBDA_FUNCTION_NAME, StatementId=statement_id
+            )
+        except ClientError:
+            pass
+
+        lambda_client.add_permission(
+            FunctionName=LAMBDA_FUNCTION_NAME,
+            StatementId=statement_id,
+            Action="lambda:InvokeFunction",
+            Principal="cloudwatch.amazonaws.com",
+            SourceArn=alarm_arn,
+        )
+
+        print(f"Auto-shutdown configured: instance will stop after {config.INACTIVITY_TIMEOUT_MINUTES} minutes of low CPU")
+
+    except Exception as e:
+        print(f"Error setting up auto-shutdown: {e}")
+        print("Deployment will continue but auto-shutdown may not work.")
+
+
+def cleanup_auto_shutdown_infrastructure() -> None:
+    """Clean up auto-shutdown Lambda, CloudWatch alarms, and IAM role."""
+    lambda_client = boto3.client("lambda", region_name=config.AWS_REGION)
+    cloudwatch_client = boto3.client("cloudwatch", region_name=config.AWS_REGION)
+    iam_client = boto3.client("iam", region_name=config.AWS_REGION)
+
+    # Delete CloudWatch alarms
+    try:
+        alarm_prefix = f"{config.PROJECT_NAME}-CPU-Low-Alarm-"
+        paginator = cloudwatch_client.get_paginator("describe_alarms")
+        alarms_to_delete = []
+        for page in paginator.paginate(AlarmNamePrefix=alarm_prefix):
+            for alarm in page.get("MetricAlarms", []):
+                alarms_to_delete.append(alarm["AlarmName"])
+
+        if alarms_to_delete:
+            print(f"Deleting CloudWatch alarms: {alarms_to_delete}")
+            cloudwatch_client.delete_alarms(AlarmNames=alarms_to_delete)
+    except Exception as e:
+        print(f"Error deleting CloudWatch alarms: {e}")
+
+    # Delete Lambda function
+    try:
+        lambda_client.delete_function(FunctionName=LAMBDA_FUNCTION_NAME)
+        print(f"Deleted Lambda function: {LAMBDA_FUNCTION_NAME}")
+    except ClientError as e:
+        if e.response["Error"]["Code"] != "ResourceNotFoundException":
+            print(f"Error deleting Lambda: {e}")
+
+    # Delete IAM role
+    try:
+        # Detach policies first
+        attached_policies = iam_client.list_attached_role_policies(
+            RoleName=IAM_ROLE_NAME
+        ).get("AttachedPolicies", [])
+        for policy in attached_policies:
+            iam_client.detach_role_policy(
+                RoleName=IAM_ROLE_NAME, PolicyArn=policy["PolicyArn"]
+            )
+
+        iam_client.delete_role(RoleName=IAM_ROLE_NAME)
+        print(f"Deleted IAM role: {IAM_ROLE_NAME}")
+    except ClientError as e:
+        if e.response["Error"]["Code"] != "NoSuchEntity":
+            print(f"Error deleting IAM role: {e}")
+
+
 class Deploy:
     """OmniParser deployment manager."""
 
@@ -469,6 +699,10 @@ class Deploy:
                 server_url = f"http://{instance_ip}:{config.PORT}"
                 print(f"\nDeployment complete!")
                 print(f"Server URL: {server_url}")
+
+                # Set up auto-shutdown to save costs
+                create_auto_shutdown_infrastructure(instance_id)
+
                 return server_url
 
             finally:
@@ -500,6 +734,14 @@ class Deploy:
 
         if not found:
             print("No instances found")
+
+        # Check auto-shutdown status
+        lambda_client = boto3.client("lambda", region_name=config.AWS_REGION)
+        try:
+            lambda_client.get_function(FunctionName=LAMBDA_FUNCTION_NAME)
+            print(f"Auto-shutdown: Enabled ({config.INACTIVITY_TIMEOUT_MINUTES} min timeout)")
+        except ClientError:
+            print("Auto-shutdown: Not configured")
 
     @staticmethod
     def ssh(non_interactive: bool = False) -> None:
@@ -549,6 +791,9 @@ class Deploy:
         """Terminate instance and cleanup."""
         ec2 = boto3.resource("ec2", region_name=config.AWS_REGION)
         ec2_client = boto3.client("ec2", region_name=config.AWS_REGION)
+
+        # Clean up auto-shutdown infrastructure first
+        cleanup_auto_shutdown_infrastructure()
 
         instances = ec2.instances.filter(
             Filters=[
