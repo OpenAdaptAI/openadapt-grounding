@@ -142,6 +142,63 @@ At runtime, we use OCR to find text on screen, then match against the registry:
 # → Return those coordinates with high confidence
 ```
 
+## OmniParser Integration
+
+Use with [OmniParser](https://github.com/microsoft/OmniParser) for real UI element detection:
+
+### Deploy OmniParser Server
+
+```bash
+# Install deploy dependencies
+uv pip install openadapt-grounding[deploy]
+
+# Set AWS credentials
+export AWS_ACCESS_KEY_ID=...
+export AWS_SECRET_ACCESS_KEY=...
+export AWS_REGION=us-east-1
+
+# Deploy to EC2 (g4dn.xlarge with T4 GPU)
+python -m openadapt_grounding.deploy start
+
+# Check status
+python -m openadapt_grounding.deploy status
+
+# Stop when done
+python -m openadapt_grounding.deploy stop
+```
+
+### Use OmniParser with Temporal Smoothing
+
+```python
+from openadapt_grounding import OmniParserClient, collect_frames
+from PIL import Image
+
+# Connect to deployed server
+client = OmniParserClient("http://<server-ip>:8000")
+
+# Take a screenshot
+screenshot = Image.open("screen.png")
+
+# Run parser 10 times, keep elements in >50% of frames
+registry = collect_frames(client, screenshot, num_frames=10, min_stability=0.5)
+registry.save("stable_elements.json")
+
+print(f"Found {len(registry)} stable elements")
+```
+
+### Analyze Detection Stability
+
+```python
+from openadapt_grounding import OmniParserClient, analyze_stability
+
+client = OmniParserClient("http://<server-ip>:8000")
+stats = analyze_stability(client, screenshot, num_frames=10)
+
+print(f"Average stability: {stats['avg_stability']:.0%}")
+for elem in stats['elements']:
+    print(f"  {elem['text']}: {elem['stability']:.0%}")
+```
+
 ## API
 
 ### `RegistryBuilder`
@@ -157,6 +214,17 @@ At runtime, we use OCR to find text on screen, then match against the registry:
 - `x, y: float` - Normalized coordinates (0-1)
 - `confidence: float` - Match confidence
 - `to_pixels(w, h)` - Convert to pixel coordinates
+
+### `OmniParserClient`
+- `is_available()` - Check if server is running
+- `parse(image)` - Parse screenshot, return elements
+- `parse_with_metadata(image)` - Parse with latency info
+
+### `collect_frames(parser, image, num_frames, min_stability)`
+- Run parser multiple times, build stable registry
+
+### `analyze_stability(parser, image, num_frames)`
+- Report per-element detection stability
 
 ## Development
 
