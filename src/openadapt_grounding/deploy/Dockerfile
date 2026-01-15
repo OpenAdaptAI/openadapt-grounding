@@ -38,7 +38,8 @@ RUN . /opt/conda/etc/profile.d/conda.sh && conda activate omni && \
     pip install --no-cache-dir opencv-python-headless==4.8.1.78 && \
     pip install -r requirements.txt && \
     pip install huggingface_hub fastapi uvicorn && \
-    pip install paddleocr==2.8.1 paddlepaddle==2.6.2
+    pip install paddleocr==2.8.1 paddlepaddle==2.6.2 && \
+    pip install transformers==4.44.2
 
 # Download V2 weights
 RUN . /opt/conda/etc/profile.d/conda.sh && conda activate omni && \

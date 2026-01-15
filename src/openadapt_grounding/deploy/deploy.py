@@ -17,6 +17,11 @@ Usage:
     python -m openadapt_grounding.deploy status  # Check status
     python -m openadapt_grounding.deploy ssh     # SSH into instance
     python -m openadapt_grounding.deploy stop    # Terminate instance
+    python -m openadapt_grounding.deploy logs    # Show container logs
+    python -m openadapt_grounding.deploy ps      # Show container status
+    python -m openadapt_grounding.deploy build   # Build Docker image
+    python -m openadapt_grounding.deploy run     # Start container
+    python -m openadapt_grounding.deploy test    # Test endpoint
 """
 
 import io
@@ -814,6 +819,144 @@ class Deploy:
         except ClientError as e:
             if e.response["Error"]["Code"] != "InvalidGroup.NotFound":
                 print(f"Error deleting security group: {e}")
+
+    @staticmethod
+    def _get_instance_ip() -> Optional[str]:
+        """Get public IP of running instance."""
+        ec2 = boto3.resource("ec2", region_name=config.AWS_REGION)
+        instances = ec2.instances.filter(
+            Filters=[
+                {"Name": "tag:Name", "Values": [config.PROJECT_NAME]},
+                {"Name": "instance-state-name", "Values": ["running"]},
+            ]
+        )
+        instance = next(iter(instances), None)
+        if not instance:
+            print("No running instance found")
+            return None
+        return instance.public_ip_address
+
+    @staticmethod
+    def _run_ssh_command(command: str, timeout: int = 60) -> Optional[str]:
+        """Run command on remote instance via SSH."""
+        ip = Deploy._get_instance_ip()
+        if not ip:
+            return None
+        if not os.path.exists(config.AWS_EC2_KEY_PATH):
+            print(f"Key file not found: {config.AWS_EC2_KEY_PATH}")
+            return None
+        result = subprocess.run(
+            [
+                "ssh",
+                "-i", config.AWS_EC2_KEY_PATH,
+                "-o", "StrictHostKeyChecking=no",
+                "-o", "ConnectTimeout=10",
+                f"{config.AWS_EC2_USER}@{ip}",
+                command,
+            ],
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+        )
+        if result.returncode != 0 and result.stderr:
+            print(f"Error: {result.stderr}")
+        return result.stdout
+
+    @staticmethod
+    def logs(lines: int = 50) -> None:
+        """Show container logs.
+
+        Args:
+            lines: Number of lines to show (default 50)
+        """
+        print(f"Fetching last {lines} lines of container logs...")
+        output = Deploy._run_ssh_command(
+            f"sudo docker logs {config.CONTAINER_NAME} 2>&1 | tail -{lines}"
+        )
+        if output:
+            print(output)
+
+    @staticmethod
+    def ps() -> None:
+        """Show Docker container status."""
+        output = Deploy._run_ssh_command("sudo docker ps -a")
+        if output:
+            print(output)
+
+    @staticmethod
+    def build() -> None:
+        """Build Docker image on remote instance."""
+        ip = Deploy._get_instance_ip()
+        if not ip:
+            return
+
+        dockerfile_path = _get_dockerfile_path()
+        dockerignore_path = _get_dockerignore_path()
+
+        # Copy Dockerfile
+        for filepath in [dockerfile_path, dockerignore_path]:
+            if filepath.exists():
+                print(f"Copying {filepath.name}...")
+                subprocess.run(
+                    [
+                        "scp",
+                        "-i", config.AWS_EC2_KEY_PATH,
+                        "-o", "StrictHostKeyChecking=no",
+                        str(filepath),
+                        f"{config.AWS_EC2_USER}@{ip}:~/OmniParser/",
+                    ],
+                    check=True,
+                )
+
+        print("Building Docker image (this may take several minutes)...")
+        cmd = f"cd ~/OmniParser && sudo docker build --progress=plain -t {config.PROJECT_NAME}:latest ."
+        subprocess.run(
+            [
+                "ssh",
+                "-i", config.AWS_EC2_KEY_PATH,
+                "-o", "StrictHostKeyChecking=no",
+                f"{config.AWS_EC2_USER}@{ip}",
+                cmd,
+            ],
+            check=False,
+        )
+
+    @staticmethod
+    def run() -> None:
+        """Start the Docker container."""
+        print(f"Starting container {config.CONTAINER_NAME}...")
+        Deploy._run_ssh_command(f"sudo docker rm -f {config.CONTAINER_NAME} || true")
+        output = Deploy._run_ssh_command(
+            f"sudo docker run -d --name {config.CONTAINER_NAME} --gpus all "
+            f"-p {config.PORT}:{config.PORT} {config.PROJECT_NAME}:latest"
+        )
+        if output:
+            print(f"Container started: {output.strip()}")
+        Deploy.ps()
+
+    @staticmethod
+    def test() -> None:
+        """Test the OmniParser endpoint."""
+        ip = Deploy._get_instance_ip()
+        if not ip:
+            return
+
+        url = f"http://{ip}:{config.PORT}"
+        print(f"Testing endpoint: {url}")
+
+        # Try health/probe endpoints
+        for endpoint in ["/probe/", "/health", "/"]:
+            try:
+                import requests
+                response = requests.get(f"{url}{endpoint}", timeout=30)
+                print(f"{endpoint}: {response.status_code} - {response.text[:200]}")
+                if response.status_code == 200:
+                    print("Server is healthy!")
+                    return
+            except Exception as e:
+                print(f"{endpoint}: {e}")
+
+        print("Server may not be ready yet. Check logs with: deploy logs")
 
 
 def main():
