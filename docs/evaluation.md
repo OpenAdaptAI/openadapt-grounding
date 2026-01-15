@@ -307,43 +307,47 @@ def calculate_iou(bbox1, bbox2) -> float:
 
 ```bash
 # Generate synthetic dataset
-uv run python -m openadapt_grounding.eval generate --type synthetic --count 100
+uv run python -m openadapt_grounding.eval generate --type synthetic --count 500
 
-# Run baseline (single OmniParser call)
-uv run python -m openadapt_grounding.eval run --detector baseline --dataset synthetic
+# Run OmniParser baseline
+uv run python -m openadapt_grounding.eval run --method omniparser --dataset synthetic
 
-# Run robust detector
-uv run python -m openadapt_grounding.eval run --detector robust --dataset synthetic
+# Run OmniParser with ScreenSeekeR cropping
+uv run python -m openadapt_grounding.eval run --method omniparser-screenseeker --dataset synthetic
 
-# Compare results
-uv run python -m openadapt_grounding.eval compare baseline robust
+# Run UI-TARS baseline
+uv run python -m openadapt_grounding.eval run --method uitars --dataset synthetic
+
+# Compare all methods
+uv run python -m openadapt_grounding.eval compare --output results/comparison.json
 ```
 
 ## 7. Expected Output
 
 ```
 ============================================================
-Evaluation Results: robust vs baseline
+Evaluation Results: OmniParser vs UI-TARS
 ============================================================
 
-Dataset: synthetic (100 samples, 487 elements)
+Dataset: synthetic (500 samples)
 
-                    Baseline    Robust      Δ
-Detection Rate      72.3%       94.1%      +21.8%
-Mean IoU            0.81        0.83       +0.02
-Mean Attempts       1.0         3.2        +2.2
-Mean Latency        245ms       890ms      +645ms
+Method                      Accuracy    Latency
+─────────────────────────────────────────────────────
+OmniParser (baseline)       ~40%        250ms
+OmniParser + ScreenSeekeR   ~55%        1200ms
+UI-TARS 1.5 (baseline)      ~62%        350ms
+UI-TARS + ScreenSeekeR      ~70%+       1500ms
 
-Transform Effectiveness (Robust):
-  original          72.3%
-  crop_200_2x       12.4%
-  crop_300          5.8%
-  brightness_1.2    2.1%
-  grayscale         1.5%
+By Element Size:
+  Size          OmniParser    UI-TARS
+  <32px         ~15%          ~35%
+  32-100px      ~45%          ~65%
+  >100px        ~70%          ~85%
 
 Failure Analysis:
-  - 29 elements not detected by either method
-  - Common failure cases: <16px icons, low contrast text
+  - Small icons (<32px) remain hardest
+  - Text elements detected more reliably than icons
+  - ScreenSeekeR cropping helps most on small elements
 ```
 
 ## 8. Curation Workflow Summary
