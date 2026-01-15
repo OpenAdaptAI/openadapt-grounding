@@ -1,0 +1,46 @@
+{
+  "summary": {
+    "total_methods": 2,
+    "total_datasets": 1,
+    "best_overall": "OmniParser + baseline",
+    "best_overall_rate": 0.9739776951672863,
+    "fastest_method": "OmniParser + baseline",
+    "fastest_latency_ms": 724.2447836284
+  },
+  "best_per_dataset": {
+    "synthetic": {
+      "method": "OmniParser + baseline",
+      "detection_rate": 0.9739776951672863,
+      "latency_ms": 724.2447836284
+    }
+  },
+  "ranking_by_detection_rate": [
+    {
+      "method": "OmniParser + baseline",
+      "dataset": "synthetic",
+      "rate": 0.9739776951672863
+    },
+    {
+      "method": "UI-TARS + baseline",
+      "dataset": "synthetic",
+      "rate": 0.36059479553903345
+    }
+  ],
+  "ranking_by_latency": [
+    {
+      "method": "OmniParser + baseline",
+      "dataset": "synthetic",
+      "latency_ms": 724.2447836284
+    },
+    {
+      "method": "UI-TARS + baseline",
+      "dataset": "synthetic",
+      "latency_ms": 2724.03892984728
+    }
+  ],
+  "size_analysis": {
+    "small_best": "OmniParser + baseline",
+    "medium_best": "OmniParser + baseline",
+    "large_best": "OmniParser + baseline"
+  }
+}
