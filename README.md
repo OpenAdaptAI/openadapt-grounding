@@ -253,6 +253,66 @@ for elem in stats['elements']:
     print(f"  {elem['text']}: {elem['stability']:.0%}")
 ```
 
+## UI-TARS Integration
+
+[UI-TARS 1.5](https://github.com/bytedance/UI-TARS) is ByteDance's SOTA UI grounding model (61.6% on ScreenSpot-Pro). Use it for direct element localization by instruction.
+
+### Deploy UI-TARS Server
+
+```bash
+# Install dependencies
+uv pip install openadapt-grounding[deploy,uitars]
+
+# Deploy to EC2 (g6.2xlarge with L4 GPU)
+uv run python -m openadapt_grounding.deploy.uitars start
+
+# Check status
+uv run python -m openadapt_grounding.deploy.uitars status
+
+# Test grounding
+uv run python -m openadapt_grounding.deploy.uitars test
+
+# Stop when done
+uv run python -m openadapt_grounding.deploy.uitars stop
+```
+
+### Use UI-TARS for Grounding
+
+```python
+from openadapt_grounding import UITarsClient
+from PIL import Image
+
+# Connect to deployed server
+client = UITarsClient("http://<server-ip>:8001/v1")
+
+# Load screenshot
+screenshot = Image.open("screen.png")
+
+# Ground element by instruction
+result = client.ground(screenshot, "Click on the Login button")
+
+if result.found:
+    # Normalized coordinates (0-1)
+    print(f"Found at ({result.x:.2f}, {result.y:.2f})")
+
+    # Convert to pixels
+    px, py = result.to_pixels(width=1920, height=1080)
+    print(f"Click at ({px}, {py})")
+
+    # Optional: View model's reasoning
+    if result.thought:
+        print(f"Thought: {result.thought}")
+```
+
+### OmniParser vs UI-TARS
+
+| Feature | OmniParser | UI-TARS |
+|---------|------------|---------|
+| Approach | Parse all elements | Ground by query |
+| Output | List of bboxes | Single click point |
+| Best for | Enumeration, registry building | Direct element finding |
+| Accuracy (ScreenSpot-Pro) | ~40% | ~62% |
+
 ## API
 
 ### `RegistryBuilder`
@@ -274,6 +334,17 @@ for elem in stats['elements']:
 - `parse(image)` - Parse screenshot, return elements
 - `parse_with_metadata(image)` - Parse with latency info
 
+### `UITarsClient`
+- `is_available()` - Check if server is running
+- `ground(image, instruction)` - Find element by instruction, return `GroundingResult`
+
+### `GroundingResult`
+- `found: bool` - Whether element was found
+- `x, y: float` - Normalized coordinates (0-1)
+- `confidence: float` - Match confidence
+- `thought: str` - Model's reasoning (if include_thought=True)
+- `to_pixels(w, h)` - Convert to pixel coordinates
+
 ### `collect_frames(parser, image, num_frames, min_stability)`
 - Run parser multiple times, build stable registry
 
@@ -287,6 +358,7 @@ for elem in stats['elements']:
 | [Literature Review](docs/literature_review.md) | SOTA analysis: UI-TARS (61.6%), OmniParser (39.6%), ScreenSeekeR cropping |
 | [Experiment Plan](docs/experiment_plan.md) | Comparison methodology: 6 methods, 3 datasets, evaluation metrics |
 | [Evaluation Harness](docs/evaluation.md) | Benchmarking framework, dataset formats, CLI usage |
+| [UI-TARS Deployment](docs/uitars_deployment_design.md) | UI-TARS deployment design, vLLM setup, API format |
 
 ### Key Findings
 
