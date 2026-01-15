@@ -291,8 +291,12 @@ class UITarsClient:
             thought = thought_match.group(1).strip()
 
         # Extract point coordinates
-        # Format: click(point='<point>x y</point>')
+        # Format 1: click(point='<point>x y</point>')
+        # Format 2: click(start_box='(x,y)') - UI-TARS 1.5 format
         point_match = re.search(r"<point>(\d+)\s+(\d+)</point>", raw_response)
+        if not point_match:
+            # Try start_box format
+            point_match = re.search(r"start_box=['\"]?\((\d+),\s*(\d+)\)['\"]?", raw_response)
         if not point_match:
             return GroundingResult(
                 found=False,
