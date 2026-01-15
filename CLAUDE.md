@@ -1,5 +1,15 @@
 # Claude Code Instructions
 
+## CRITICAL: Non-Interactive Operations
+
+**ALL operations MUST be fully programmatic with NO interactive prompts.**
+
+- SSH commands must use `-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null`
+- Never use `tail -f` or other blocking commands that require Ctrl+C
+- Use `timeout` wrapper or `--timeout` flags for potentially long operations
+- Run long operations in background and poll for status
+- All CLI tools must accept all required input via arguments/flags
+
 ## Deployment Commands
 
 ALWAYS use the CLI commands in `openadapt_grounding.deploy` for deployment operations. NEVER run raw SSH/docker commands directly.

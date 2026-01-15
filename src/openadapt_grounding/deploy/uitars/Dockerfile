@@ -3,34 +3,23 @@
 
 FROM vllm/vllm-openai:v0.7.3
 
-# Set environment variables
+# Model will be downloaded at runtime to /root/.cache/huggingface
 ENV HF_HOME=/root/.cache/huggingface
-ENV MODEL_ID=ByteDance-Seed/UI-TARS-1.5-7B
-ENV PORT=8000
-ENV MAX_MODEL_LEN=32768
-ENV GPU_MEMORY_UTILIZATION=0.90
+ENV MODEL_NAME=ByteDance-Seed/UI-TARS-1.5-7B
 
-# Install huggingface_hub for model download
-RUN pip install --no-cache-dir huggingface_hub
+EXPOSE 8000
 
-# Pre-download model weights (speeds up container startup)
-# This adds ~15GB to the image but avoids download on every start
-RUN huggingface-cli download ${MODEL_ID} --local-dir /models/${MODEL_ID}
+# Health check - start period allows for model download
+HEALTHCHECK --interval=30s --timeout=10s --start-period=600s --retries=10 \
+    CMD curl -f http://localhost:8000/health || exit 1
 
-EXPOSE ${PORT}
-
-# Health check endpoint
-HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
-    CMD curl -f http://localhost:${PORT}/health || exit 1
-
-# Start vLLM server with OpenAI-compatible API
-# Using local model path to avoid re-downloading
-CMD python -m vllm.entrypoints.openai.api_server \
-    --model /models/${MODEL_ID} \
-    --served-model-name ${MODEL_ID} \
-    --host 0.0.0.0 \
-    --port ${PORT} \
-    --max-model-len ${MAX_MODEL_LEN} \
-    --gpu-memory-utilization ${GPU_MEMORY_UTILIZATION} \
-    --trust-remote-code \
-    --limit-mm-per-prompt '{"image":1,"video":0}'
+# Start vLLM server - model downloaded at first start
+# Note: vllm-openai image has ENTRYPOINT that runs api_server, so CMD is just args
+CMD ["--model", "ByteDance-Seed/UI-TARS-1.5-7B", \
+     "--served-model-name", "ByteDance-Seed/UI-TARS-1.5-7B", \
+     "--host", "0.0.0.0", \
+     "--port", "8000", \
+     "--max-model-len", "8192", \
+     "--gpu-memory-utilization", "0.90", \
+     "--trust-remote-code", \
+     "--limit-mm-per-prompt", "image=1"]

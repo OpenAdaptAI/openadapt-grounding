@@ -835,17 +835,34 @@ class Deploy:
 
     @staticmethod
     def logs(lines: int = 50) -> None:
-        """Show container logs.
+        """Show container logs (stdout and stderr combined).
 
         Args:
             lines: Number of lines to show (default 50)
         """
+        ip = Deploy._get_instance_ip()
+        if not ip:
+            return
+
         print(f"Fetching last {lines} lines of container logs...")
-        output = Deploy._run_ssh_command(
-            f"sudo docker logs {config.CONTAINER_NAME} 2>&1 | tail -{lines}"
+        result = subprocess.run(
+            [
+                "ssh",
+                "-i", config.AWS_EC2_KEY_PATH,
+                "-o", "StrictHostKeyChecking=no",
+                "-o", "UserKnownHostsFile=/dev/null",
+                "-o", "ConnectTimeout=10",
+                f"{config.AWS_EC2_USER}@{ip}",
+                f"sudo docker logs --tail {lines} {config.CONTAINER_NAME} 2>&1",
+            ],
+            capture_output=True,
+            text=True,
+            timeout=60,
         )
-        if output:
-            print(output)
+        if result.stdout:
+            print(result.stdout)
+        if result.returncode != 0 and result.stderr and "Warning:" not in result.stderr:
+            print(f"Error: {result.stderr}")
 
     @staticmethod
     def ps() -> None:
@@ -855,11 +872,29 @@ class Deploy:
             print(output)
 
     @staticmethod
-    def build() -> None:
-        """Build Docker image on remote instance."""
+    def cleanup() -> None:
+        """Clean up Docker system on remote instance (images, containers, cache)."""
+        print("Cleaning up Docker system...")
+        output = Deploy._run_ssh_command(
+            "sudo docker system prune -af --volumes && df -h /",
+            timeout=120,
+        )
+        if output:
+            print(output)
+
+    @staticmethod
+    def build(clean: bool = False) -> None:
+        """Build Docker image on remote instance.
+
+        Args:
+            clean: If True, run docker system prune first
+        """
         ip = Deploy._get_instance_ip()
         if not ip:
             return
+
+        if clean:
+            Deploy.cleanup()
 
         dockerfile_path = _get_dockerfile_path()
 
@@ -870,19 +905,22 @@ class Deploy:
                     "scp",
                     "-i", config.AWS_EC2_KEY_PATH,
                     "-o", "StrictHostKeyChecking=no",
+                    "-o", "UserKnownHostsFile=/dev/null",
                     str(dockerfile_path),
                     f"{config.AWS_EC2_USER}@{ip}:~/Dockerfile",
                 ],
                 check=True,
+                capture_output=True,
             )
 
-        print("Building Docker image (this may take several minutes)...")
+        print("Building Docker image...")
         cmd = f"sudo docker build --progress=plain -t {config.PROJECT_NAME}:latest -f ~/Dockerfile ~/"
         subprocess.run(
             [
                 "ssh",
                 "-i", config.AWS_EC2_KEY_PATH,
                 "-o", "StrictHostKeyChecking=no",
+                "-o", "UserKnownHostsFile=/dev/null",
                 f"{config.AWS_EC2_USER}@{ip}",
                 cmd,
             ],
@@ -901,6 +939,66 @@ class Deploy:
         if output:
             print(f"Container started: {output.strip()}")
         Deploy.ps()
+
+    @staticmethod
+    def wait(timeout: int = 600, interval: int = 10) -> bool:
+        """Wait for server to be healthy.
+
+        Args:
+            timeout: Maximum wait time in seconds (default 600 = 10 minutes)
+            interval: Poll interval in seconds (default 10)
+
+        Returns:
+            True if server is healthy, False if timeout
+        """
+        import requests
+
+        ip = Deploy._get_instance_ip()
+        if not ip:
+            return False
+
+        url = f"http://{ip}:{config.PORT}/health"
+        print(f"Waiting for server at {url} (timeout={timeout}s)...")
+
+        elapsed = 0
+        while elapsed < timeout:
+            try:
+                response = requests.get(url, timeout=5)
+                if response.status_code == 200:
+                    print(f"\nServer is healthy! (took {elapsed}s)")
+                    return True
+            except Exception:
+                pass
+
+            print(f"  [{elapsed}s] Not ready, waiting {interval}s...")
+            time.sleep(interval)
+            elapsed += interval
+
+        print(f"\nTimeout after {timeout}s - server not healthy")
+        return False
+
+    @staticmethod
+    def setup_autoshutdown() -> None:
+        """Set up auto-shutdown infrastructure for the running instance.
+
+        Creates CloudWatch alarm and Lambda function to stop instance
+        when CPU drops below 5% for the configured timeout period.
+        """
+        ec2 = boto3.resource("ec2", region_name=config.AWS_REGION)
+        instances = ec2.instances.filter(
+            Filters=[
+                {"Name": "tag:Name", "Values": [config.PROJECT_NAME]},
+                {"Name": "instance-state-name", "Values": ["running"]},
+            ]
+        )
+
+        instance = next(iter(instances), None)
+        if not instance:
+            print("No running instance found")
+            return
+
+        print(f"Setting up auto-shutdown for instance {instance.id}...")
+        create_auto_shutdown_infrastructure(instance.id)
 
     @staticmethod
     def test(save_output: bool = False) -> None:
