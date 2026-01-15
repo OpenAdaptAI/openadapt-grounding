@@ -331,7 +331,18 @@ Evaluated on synthetic dataset (100 samples, 1922 UI elements):
 | UI-TARS + fixed | 66.9% | - | 6891ms | 2.4 |
 | UI-TARS baseline | 36.1% | - | 2724ms | 1.0 |
 
-**Key Finding:** Cropping strategies dramatically improve UI-TARS accuracy (+96% with screenseeker) but have minimal effect on OmniParser which already performs well on full images.
+**On Harder Synthetic Data** (48 samples, 1035 elements - more dense, smaller targets):
+
+| Method | Detection Rate | Change from Standard |
+|--------|---------------|----------------------|
+| **OmniParser + fixed** | **98.2%** | +0.1% |
+| OmniParser + screenseeker | 96.6% | -2.7% |
+| OmniParser baseline | 90.1% | -7.3% |
+
+**Key Findings:**
+1. Cropping strategies dramatically improve UI-TARS accuracy (+96% with screenseeker) but have minimal effect on OmniParser on standard data
+2. On harder data, **cropping becomes essential** - OmniParser baseline drops 7.3% but fixed cropping maintains 98%+ accuracy
+3. OmniParser is 3.8-5x faster than UI-TARS while being significantly more accurate
 
 ### Detection Rate by Method
 
@@ -433,6 +444,7 @@ See [Evaluation Documentation](docs/evaluation.md) for methodology and metrics.
 
 | Document | Description |
 |----------|-------------|
+| [Evaluation Findings](docs/evaluation_findings.md) | Analysis of why OmniParser outperforms UI-TARS on our task |
 | [Literature Review](docs/literature_review.md) | SOTA analysis: UI-TARS (61.6%), OmniParser (39.6%), ScreenSeekeR cropping |
 | [Experiment Plan](docs/experiment_plan.md) | Comparison methodology: 6 methods, 3 datasets, evaluation metrics |
 | [Evaluation Harness](docs/evaluation.md) | Benchmarking framework, dataset formats, CLI usage |
@@ -442,10 +454,13 @@ See [Evaluation Documentation](docs/evaluation.md) for methodology and metrics.
 
 From our benchmark on synthetic UI data:
 
-- **OmniParser + screenseeker** achieves **99.3%** detection rate (best overall)
-- **Cropping strategies** improve UI-TARS by +96% (36.1% → 70.6%) but have minimal effect on OmniParser
-- **OmniParser** is 4-5x faster than UI-TARS while being more accurate
+- **OmniParser dominates on our task**: 97-99% detection vs UI-TARS's 36-70%
+- **Cropping becomes essential on harder data**: OmniParser baseline drops to 90%, but fixed cropping maintains 98%+
+- **OmniParser is 3.8-5x faster** than UI-TARS while being more accurate
+- **Literature benchmarks don't transfer directly**: UI-TARS leads on ScreenSpot-Pro (complex instruction-following) but OmniParser wins on element detection
 - **Small elements** (<32px) remain hardest for UI-TARS (28.6% baseline → 50% with cropping)
+
+See [Evaluation Findings](docs/evaluation_findings.md) for analysis of why results differ from literature benchmarks.
 
 ## Development
 
