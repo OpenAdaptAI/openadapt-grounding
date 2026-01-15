@@ -33,8 +33,14 @@ deploy = [
 uitars = [
     "openai>=1.0.0",
 ]
+eval = [
+    "matplotlib>=3.7.0",
+    "tqdm>=4.65.0",
+    "fire>=0.5.0",
+    "pydantic-settings>=2.0.0",
+]
 all = [
-    "openadapt-grounding[dev,deploy,uitars]",
+    "openadapt-grounding[dev,deploy,uitars,eval]",
 ]
 
 [tool.hatch.build.targets.wheel]

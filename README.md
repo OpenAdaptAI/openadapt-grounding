@@ -313,6 +313,61 @@ if result.found:
 | Best for | Enumeration, registry building | Direct element finding |
 | Accuracy (ScreenSpot-Pro) | ~40% | ~62% |
 
+## Evaluation & Benchmarking
+
+Compare OmniParser and UI-TARS methods across datasets:
+
+### Install Evaluation Dependencies
+
+```bash
+uv pip install openadapt-grounding[eval]
+```
+
+### Generate Synthetic Dataset
+
+```bash
+# Generate 500 synthetic UI screenshots with ground truth
+uv run python -m openadapt_grounding.eval generate --type synthetic --count 500
+
+# Quick test with fewer samples
+uv run python -m openadapt_grounding.eval generate --type synthetic --count 10
+```
+
+### Run Evaluation
+
+```bash
+# List available methods
+uv run python -m openadapt_grounding.eval list
+
+# Run evaluation (requires deployed servers)
+uv run python -m openadapt_grounding.eval run --method omniparser --dataset synthetic
+uv run python -m openadapt_grounding.eval run --method uitars --dataset synthetic
+
+# With cropping strategies
+uv run python -m openadapt_grounding.eval run --method omniparser-fixed --dataset synthetic
+uv run python -m openadapt_grounding.eval run --method uitars-screenseeker --dataset synthetic
+```
+
+### Compare Results
+
+```bash
+# Generate comparison table and charts
+uv run python -m openadapt_grounding.eval compare --charts-dir evaluation/charts
+```
+
+### Available Methods
+
+| Method | Description |
+|--------|-------------|
+| `omniparser` | OmniParser baseline (full image) |
+| `omniparser-fixed` | OmniParser + fixed cropping |
+| `omniparser-screenseeker` | OmniParser + ScreenSeekeR-style cropping |
+| `uitars` | UI-TARS baseline (full image) |
+| `uitars-fixed` | UI-TARS + fixed cropping |
+| `uitars-screenseeker` | UI-TARS + ScreenSeekeR-style cropping |
+
+See [Evaluation Documentation](docs/evaluation.md) for methodology and metrics.
+
 ## API
 
 ### `RegistryBuilder`
