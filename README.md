@@ -152,28 +152,54 @@ Use with [OmniParser](https://github.com/microsoft/OmniParser) for real UI eleme
 # Install deploy dependencies
 uv pip install openadapt-grounding[deploy]
 
-# Set AWS credentials
-export AWS_ACCESS_KEY_ID=...
-export AWS_SECRET_ACCESS_KEY=...
-export AWS_REGION=us-east-1
+# Set AWS credentials (or use .env file)
+cp .env.example .env
+# Edit .env with your AWS credentials
 
-# Deploy to EC2 (g4dn.xlarge with T4 GPU)
+# Deploy to EC2 (g6.xlarge with L4 GPU)
 uv run python -m openadapt_grounding.deploy start
 
-# Check status
-uv run python -m openadapt_grounding.deploy status
+# Stop when done (terminates instance)
+uv run python -m openadapt_grounding.deploy stop
+```
 
-# Container operations
-uv run python -m openadapt_grounding.deploy ps      # Show container status
-uv run python -m openadapt_grounding.deploy logs    # Show container logs
+### Monitor Deployment
+
+```bash
+# Check instance and server status
+$ uv run python -m openadapt_grounding.deploy status
+Instance: i-0f57529053cb507ca | State: running | URL: http://98.92.234.13:8000
+Auto-shutdown: Enabled (60 min timeout)
+
+# Show container status
+$ uv run python -m openadapt_grounding.deploy ps
+CONTAINER ID   IMAGE               CREATED          STATUS          PORTS                    NAMES
+c9343a65e85b   omniparser:latest   2 hours ago      Up 2 hours      0.0.0.0:8000->8000/tcp   omniparser-container
+
+# View container logs
+$ uv run python -m openadapt_grounding.deploy logs --lines=5
+INFO:     99.230.67.57:61252 - "POST /parse/ HTTP/1.1" 200 OK
+start parsing...
+image size: (1200, 779)
+len(filtered_boxes): 160 124
+time: 4.438266754150391
+
+# Test endpoint with synthetic image
+$ uv run python -m openadapt_grounding.deploy test
+Server is healthy!
+Sending test image to server...
+Found 5 elements:
+  - [text] "Login" at ['0.08', '0.10', '0.38', '0.23']
+  - [text] "Cancel" at ['0.08', '0.30', '0.38', '0.43']
+  ...
+```
+
+### Other Commands
+
+```bash
 uv run python -m openadapt_grounding.deploy build   # Rebuild Docker image
 uv run python -m openadapt_grounding.deploy run     # Start container
-
-# Test the deployment
-uv run python -m openadapt_grounding.deploy test --save_output
-
-# Stop when done
-uv run python -m openadapt_grounding.deploy stop
+uv run python -m openadapt_grounding.deploy ssh     # SSH into instance
 ```
 
 ### Test Results
