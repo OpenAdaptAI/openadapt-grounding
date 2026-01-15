@@ -935,8 +935,12 @@ class Deploy:
         Deploy.ps()
 
     @staticmethod
-    def test() -> None:
-        """Test the OmniParser endpoint."""
+    def test(save_output: bool = False) -> None:
+        """Test OmniParser endpoint with a synthetic image.
+
+        Args:
+            save_output: If True, save test image and results to assets/
+        """
         ip = Deploy._get_instance_ip()
         if not ip:
             return
@@ -944,19 +948,105 @@ class Deploy:
         url = f"http://{ip}:{config.PORT}"
         print(f"Testing endpoint: {url}")
 
-        # Try health/probe endpoints
-        for endpoint in ["/probe/", "/health", "/"]:
-            try:
-                import requests
-                response = requests.get(f"{url}{endpoint}", timeout=30)
-                print(f"{endpoint}: {response.status_code} - {response.text[:200]}")
-                if response.status_code == 200:
-                    print("Server is healthy!")
-                    return
-            except Exception as e:
-                print(f"{endpoint}: {e}")
+        # Check health first
+        try:
+            import requests
+            response = requests.get(f"{url}/probe/", timeout=10)
+            if response.status_code != 200:
+                print(f"Server not ready: {response.status_code}")
+                return
+            print("Server is healthy!")
+        except Exception as e:
+            print(f"Health check failed: {e}")
+            return
 
-        print("Server may not be ready yet. Check logs with: deploy logs")
+        # Generate test image
+        try:
+            from PIL import Image, ImageDraw, ImageFont
+            import base64
+            import io
+
+            img = Image.new('RGB', (400, 300), '#f0f0f0')
+            draw = ImageDraw.Draw(img)
+
+            # Draw UI elements
+            draw.rectangle([30, 30, 150, 70], fill='#007bff', outline='#0056b3')
+            draw.text((55, 42), 'Login', fill='white')
+
+            draw.rectangle([30, 90, 150, 130], fill='#6c757d', outline='#545b62')
+            draw.text((55, 102), 'Cancel', fill='white')
+
+            draw.rectangle([200, 30, 370, 70], fill='#28a745', outline='#1e7e34')
+            draw.text((240, 42), 'Submit', fill='white')
+
+            draw.rectangle([200, 90, 370, 130], fill='#dc3545', outline='#bd2130')
+            draw.text((245, 102), 'Delete', fill='white')
+
+            draw.rectangle([30, 180, 370, 220], fill='white', outline='#ced4da')
+            draw.text((40, 192), 'Enter username...', fill='#6c757d')
+
+            # Encode image
+            buffer = io.BytesIO()
+            img.save(buffer, format='PNG')
+            b64 = base64.b64encode(buffer.getvalue()).decode()
+
+            # Send to server
+            print("Sending test image to server...")
+            response = requests.post(
+                f"{url}/parse/",
+                json={'base64_image': b64},
+                timeout=120
+            )
+
+            if response.status_code != 200:
+                print(f"Parse failed: {response.status_code} - {response.text[:200]}")
+                return
+
+            data = response.json()
+            elements = data.get('parsed_content_list', [])
+            print(f"\nFound {len(elements)} elements:")
+            for elem in elements:
+                content = elem.get('content', '').strip()
+                bbox = elem.get('bbox', [])
+                elem_type = elem.get('type', 'unknown')
+                print(f"  - [{elem_type}] \"{content}\" at {[f'{b:.2f}' for b in bbox]}")
+
+            if save_output:
+                # Save test image and results
+                assets_dir = Path(__file__).parent.parent.parent.parent / "assets"
+                assets_dir.mkdir(exist_ok=True)
+
+                img.save(assets_dir / "test_input.png")
+                print(f"\nSaved test image to assets/test_input.png")
+
+                # Draw bounding boxes on image
+                img_annotated = img.copy()
+                draw = ImageDraw.Draw(img_annotated)
+                w, h = img.size
+                colors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#00ffff']
+                for i, elem in enumerate(elements):
+                    bbox = elem.get('bbox', [])
+                    if len(bbox) == 4:
+                        x1, y1, x2, y2 = bbox[0]*w, bbox[1]*h, bbox[2]*w, bbox[3]*h
+                        color = colors[i % len(colors)]
+                        draw.rectangle([x1, y1, x2, y2], outline=color, width=2)
+                        content = elem.get('content', '').strip()[:20]
+                        draw.text((x1, y1-15), content, fill=color)
+
+                img_annotated.save(assets_dir / "test_output.png")
+                print(f"Saved annotated output to assets/test_output.png")
+
+                # Save JSON results
+                import json
+                with open(assets_dir / "test_results.json", 'w') as f:
+                    json.dump(data, f, indent=2)
+                print(f"Saved results to assets/test_results.json")
+
+        except ImportError as e:
+            print(f"Missing dependency: {e}")
+            print("Install with: uv pip install pillow requests")
+        except Exception as e:
+            print(f"Test failed: {e}")
 
 
 def main():

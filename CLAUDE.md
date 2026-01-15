@@ -4,23 +4,25 @@
 
 ALWAYS use the CLI commands in `openadapt_grounding.deploy` for deployment operations. NEVER run raw SSH/docker commands directly.
 
+Use `uv run` to execute commands:
+
 ```bash
 # Full deployment
-python -m openadapt_grounding.deploy start
+uv run python -m openadapt_grounding.deploy start
 
 # Check status
-python -m openadapt_grounding.deploy status
+uv run python -m openadapt_grounding.deploy status
 
 # Container operations
-python -m openadapt_grounding.deploy ps      # Show container status
-python -m openadapt_grounding.deploy logs    # Show container logs (--lines=N)
-python -m openadapt_grounding.deploy run     # Start container
-python -m openadapt_grounding.deploy build   # Build Docker image
-python -m openadapt_grounding.deploy test    # Test endpoint
+uv run python -m openadapt_grounding.deploy ps      # Show container status
+uv run python -m openadapt_grounding.deploy logs    # Show container logs (--lines=N)
+uv run python -m openadapt_grounding.deploy run     # Start container
+uv run python -m openadapt_grounding.deploy build   # Build Docker image
+uv run python -m openadapt_grounding.deploy test    # Test endpoint
 
 # Instance operations
-python -m openadapt_grounding.deploy ssh     # SSH into instance
-python -m openadapt_grounding.deploy stop    # Terminate instance
+uv run python -m openadapt_grounding.deploy ssh     # SSH into instance
+uv run python -m openadapt_grounding.deploy stop    # Terminate instance
 ```
 
 ## Adding New Operations

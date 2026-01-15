@@ -158,13 +158,41 @@ export AWS_SECRET_ACCESS_KEY=...
 export AWS_REGION=us-east-1
 
 # Deploy to EC2 (g4dn.xlarge with T4 GPU)
-python -m openadapt_grounding.deploy start
+uv run python -m openadapt_grounding.deploy start
 
 # Check status
-python -m openadapt_grounding.deploy status
+uv run python -m openadapt_grounding.deploy status
+
+# Container operations
+uv run python -m openadapt_grounding.deploy ps      # Show container status
+uv run python -m openadapt_grounding.deploy logs    # Show container logs
+uv run python -m openadapt_grounding.deploy build   # Rebuild Docker image
+uv run python -m openadapt_grounding.deploy run     # Start container
+
+# Test the deployment
+uv run python -m openadapt_grounding.deploy test --save_output
 
 # Stop when done
-python -m openadapt_grounding.deploy stop
+uv run python -m openadapt_grounding.deploy stop
+```
+
+### Test Results
+
+**Real screenshot parsed by OmniParser:**
+
+| Input | Output (160 elements detected) |
+|-------|--------|
+| ![Screenshot Input](assets/screenshot_input.png) | ![Screenshot Output](assets/screenshot_output.png) |
+
+**Synthetic UI test:**
+
+| Input | Output |
+|-------|--------|
+| ![Test Input](assets/test_input.png) | ![Test Output](assets/test_output.png) |
+
+```bash
+# Run test with synthetic UI
+uv run python -m openadapt_grounding.deploy test --save_output
 ```
 
 ### Use OmniParser with Temporal Smoothing
@@ -225,6 +253,20 @@ for elem in stats['elements']:
 
 ### `analyze_stability(parser, image, num_frames)`
 - Report per-element detection stability
+
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Literature Review](docs/literature_review.md) | SOTA analysis: UI-TARS (61.6%), OmniParser (39.6%), ScreenSeekeR cropping |
+| [Experiment Plan](docs/experiment_plan.md) | Comparison methodology: 6 methods, 3 datasets, evaluation metrics |
+| [Evaluation Harness](docs/evaluation.md) | Benchmarking framework, dataset formats, CLI usage |
+
+### Key Findings
+
+- **UI-TARS 1.5** achieves 61.6% on ScreenSpot-Pro (vs OmniParser's 39.6%)
+- **Progressive cropping** (ScreenSeekeR) improves accuracy by +254%
+- **Small icons** (<32px) remain the hardest challenge
 
 ## Development
 
