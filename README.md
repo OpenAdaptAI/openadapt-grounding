@@ -299,7 +299,7 @@ for elem in stats['elements']:
 ```bash
 git clone https://github.com/OpenAdaptAI/openadapt-grounding
 cd openadapt-grounding
-uv venv && uv pip install -e ".[dev]"
+uv sync
 uv run pytest
 ```
 
