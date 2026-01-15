@@ -1,0 +1,4052 @@
+{
+  "method_name": "OmniParser + fixed_crop",
+  "dataset_name": "synthetic",
+  "detection_rate": 0.9814126394052045,
+  "mean_iou": 0.6806097588578799,
+  "mean_latency_ms": 1486.3248986690166,
+  "mean_attempts": 2.193308550185874,
+  "detection_rate_small": 1.0,
+  "detection_rate_medium": 0.9765258215962441,
+  "detection_rate_large": 1.0,
+  "detection_rate_by_type": {
+    "text": 1.0,
+    "button": 1.0,
+    "icon": 0.9814814814814815,
+    "link": 0.9024390243902439,
+    "text_field": 1.0
+  },
+  "total_elements": 269,
+  "detected_elements": 264,
+  "results": [
+    {
+      "sample_id": "synthetic_0000",
+      "element_id": "synthetic_0000_elem_000",
+      "found": true,
+      "iou": 0.47554935182975233,
+      "latency_ms": 2103.996833000565,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013251334447828857,
+      "method_info": {
+        "matched_text": "Password ",
+        "score": 0.7689236846058378
+      }
+    },
+    {
+      "sample_id": "synthetic_0000",
+      "element_id": "synthetic_0000_elem_001",
+      "found": true,
+      "iou": 0.04123714074645901,
+      "latency_ms": 2053.771583006892,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.002966669831076613,
+      "method_info": {
+        "matched_text": "Title",
+        "score": 0.3397538058309207
+      }
+    },
+    {
+      "sample_id": "synthetic_0000",
+      "element_id": "synthetic_0000_elem_002",
+      "found": true,
+      "iou": 0.8686521924824521,
+      "latency_ms": 641.2157920058235,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 8.443765748722565e-05,
+      "method_info": {
+        "matched_text": "Stop ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_000",
+      "found": true,
+      "iou": 0.45407366908347824,
+      "latency_ms": 2074.7741669983952,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.01776589333478467,
+      "method_info": {
+        "matched_text": "Description ",
+        "score": 0.7451907224160859
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_001",
+      "found": true,
+      "iou": 0.13450998175608134,
+      "latency_ms": 1759.9926670009154,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0012114915208305131,
+      "method_info": {
+        "matched_text": "Email",
+        "score": 0.4339042359956661
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_002",
+      "found": true,
+      "iou": 0.1289168853710637,
+      "latency_ms": 1854.1330000007292,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0014282933919958236,
+      "method_info": {
+        "matched_text": "Name ",
+        "score": 0.42820273867506575
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_003",
+      "found": true,
+      "iou": 0.8589800366850332,
+      "latency_ms": 607.4680419987999,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.000454737287663083,
+      "method_info": {
+        "matched_text": "Undo ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0002",
+      "element_id": "synthetic_0002_elem_000",
+      "found": true,
+      "iou": 0.4626882974854964,
+      "latency_ms": 2185.9032919965102,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.001588759605627121,
+      "method_info": {
+        "matched_text": "Message ",
+        "score": 0.7618939176826828
+      }
+    },
+    {
+      "sample_id": "synthetic_0002",
+      "element_id": "synthetic_0002_elem_001",
+      "found": true,
+      "iou": 0.8854978258955083,
+      "latency_ms": 772.9019999969751,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.000791464916692925,
+      "method_info": {
+        "matched_text": "Open ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0002",
+      "element_id": "synthetic_0002_elem_002",
+      "found": true,
+      "iou": 0.8828846648835019,
+      "latency_ms": 1028.5012090025702,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0010889249223870164,
+      "method_info": {
+        "matched_text": "Share ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_000",
+      "found": true,
+      "iou": 0.8870857655039452,
+      "latency_ms": 849.1227910053567,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0007692602313861647,
+      "method_info": {
+        "matched_text": "Undo ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_001",
+      "found": true,
+      "iou": 0.8594337018052814,
+      "latency_ms": 997.214041002735,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0006644166230992817,
+      "method_info": {
+        "matched_text": "OK ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_002",
+      "found": true,
+      "iou": 0.4829364359703172,
+      "latency_ms": 2419.0236249996815,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.017782194078134833,
+      "method_info": {
+        "matched_text": "Description ",
+        "score": 0.7740453389312498
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_003",
+      "found": true,
+      "iou": 0.9131670270123752,
+      "latency_ms": 1126.7308329988737,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.001567721475437379,
+      "method_info": {
+        "matched_text": "a button to close the \"s\" or \"a\" function.",
+        "score": 0.9123831662746564
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_004",
+      "found": true,
+      "iou": 0.8710918854357423,
+      "latency_ms": 1024.480083004164,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0005778705363989824,
+      "method_info": {
+        "matched_text": "Edit ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_005",
+      "found": true,
+      "iou": 0.9039047681950025,
+      "latency_ms": 899.5673340032226,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.000985713306018334,
+      "method_info": {
+        "matched_text": "Open ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_000",
+      "found": true,
+      "iou": 0.9078104963939394,
+      "latency_ms": 1027.658541999699,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.001858315187455953,
+      "method_info": {
+        "matched_text": "a dropdown menu or option to select the first item or page.",
+        "score": 0.9068813388002114
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_001",
+      "found": true,
+      "iou": 0.92594377159502,
+      "latency_ms": 1147.1769999989192,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.003432531497523989,
+      "method_info": {
+        "matched_text": "a button to close or close an item.",
+        "score": 0.9242275058462579
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_002",
+      "found": true,
+      "iou": 0.9238038178066557,
+      "latency_ms": 893.0397090007318,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0015170338940253658,
+      "method_info": {
+        "matched_text": "a navigation or list option.",
+        "score": 0.923045300859643
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_003",
+      "found": true,
+      "iou": 0.2534447360788867,
+      "latency_ms": 2112.9942500047036,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0008709080547379053,
+      "method_info": {
+        "matched_text": "Read more ",
+        "score": 0.5530092820515177
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_004",
+      "found": true,
+      "iou": 0.9229988598835576,
+      "latency_ms": 1004.5539579950855,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.003184231936766382,
+      "method_info": {
+        "matched_text": "a close or close button.",
+        "score": 0.9214067439151744
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_005",
+      "found": true,
+      "iou": 0.5692242580071567,
+      "latency_ms": 2396.085166001285,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.012219193344553176,
+      "method_info": {
+        "matched_text": "Address ",
+        "score": 0.8631146613348801
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_006",
+      "found": true,
+      "iou": 0.20447076910066928,
+      "latency_ms": 2439.7078340043663,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0013186259798559084,
+      "method_info": {
+        "matched_text": "Log in ",
+        "score": 0.5038114561107413
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_007",
+      "found": true,
+      "iou": 0.9406645910358105,
+      "latency_ms": 942.4436670014984,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.002231425042283625,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.9395488785146686
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_000",
+      "found": true,
+      "iou": 0.83017660572166,
+      "latency_ms": 825.9212090051733,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00016277816331213574,
+      "method_info": {
+        "matched_text": "Enter name__ ",
+        "score": 0.9800952166400039
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_001",
+      "found": true,
+      "iou": 0.9166251266655111,
+      "latency_ms": 838.5332909965655,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0013895058386331806,
+      "method_info": {
+        "matched_text": "u.",
+        "score": 0.9159303737461945
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_002",
+      "found": true,
+      "iou": 0.8667612177994133,
+      "latency_ms": 621.0760000030859,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0006353184833892584,
+      "method_info": {
+        "matched_text": "Update ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 1912.17741699802,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "best_score": 0.24074401232852402
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_004",
+      "found": true,
+      "iou": 0.3995314756256385,
+      "latency_ms": 2192.288209000253,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013007519027862024,
+      "method_info": {
+        "matched_text": "Comment ",
+        "score": 0.6930277161117075
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_005",
+      "found": true,
+      "iou": 0.9221743797473446,
+      "latency_ms": 579.9665829981677,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.00202935965741759,
+      "method_info": {
+        "matched_text": "R",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_006",
+      "found": true,
+      "iou": 0.4707557036895216,
+      "latency_ms": 2585.263749999285,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.01742081413101048,
+      "method_info": {
+        "matched_text": "Description ",
+        "score": 0.7620452966240164
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_000",
+      "found": true,
+      "iou": 0.815199221542111,
+      "latency_ms": 901.4115829995717,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00024617965901767004,
+      "method_info": {
+        "matched_text": "Start ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_001",
+      "found": true,
+      "iou": 0.8428754501640915,
+      "latency_ms": 705.4861249998794,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00039338107561243444,
+      "method_info": {
+        "matched_text": "Pause ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_002",
+      "found": true,
+      "iou": 0.8855727459351668,
+      "latency_ms": 669.7990829998162,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003045861632793888,
+      "method_info": {
+        "matched_text": "Continue ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_003",
+      "found": true,
+      "iou": 0.8788126082700608,
+      "latency_ms": 793.8613329970394,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003857471198977243,
+      "method_info": {
+        "matched_text": "Update ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_004",
+      "found": true,
+      "iou": 0.32201663027807825,
+      "latency_ms": 2326.6733330019633,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.04065854215416766,
+      "method_info": {
+        "matched_text": "Title ",
+        "score": 0.6016873592009945
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_005",
+      "found": true,
+      "iou": 0.8917779518335094,
+      "latency_ms": 631.8068749969825,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0005822806817333006,
+      "method_info": {
+        "matched_text": "Apply ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_000",
+      "found": true,
+      "iou": 0.8810137829519598,
+      "latency_ms": 983.0796250025742,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00039159785123468244,
+      "method_info": {
+        "matched_text": "Redo ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_001",
+      "found": true,
+      "iou": 0.48513550610030787,
+      "latency_ms": 2125.6028750067344,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0004506460210931585,
+      "method_info": {
+        "matched_text": "View details ",
+        "score": 0.7849101830897612
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_002",
+      "found": true,
+      "iou": 0.9370517760345429,
+      "latency_ms": 1004.7536659985781,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0021173061332946247,
+      "method_info": {
+        "matched_text": "a button to close or close a user profile.",
+        "score": 0.9359931229678956
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_003",
+      "found": true,
+      "iou": 0.2130670495892497,
+      "latency_ms": 2487.1661249999306,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0010623609347999764,
+      "method_info": {
+        "matched_text": "Try it free",
+        "score": 0.5125358691218498
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_004",
+      "found": true,
+      "iou": 0.4212132006383855,
+      "latency_ms": 2400.496749993181,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013681922888687054,
+      "method_info": {
+        "matched_text": "Username ",
+        "score": 0.714372239194042
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_005",
+      "found": true,
+      "iou": 0.8175167122573225,
+      "latency_ms": 1072.6170409980114,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0005680034823072476,
+      "method_info": {
+        "matched_text": "Enter title. ",
+        "score": 0.9672327105161689
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_006",
+      "found": true,
+      "iou": 0.821477019663546,
+      "latency_ms": 802.3758749986882,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0004900098774619558,
+      "method_info": {
+        "matched_text": "Enter address _ ",
+        "score": 0.971232014724815
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_007",
+      "found": true,
+      "iou": 0.8357254970278908,
+      "latency_ms": 720.5351250013337,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00023226276418489796,
+      "method_info": {
+        "matched_text": "Enter description__ ",
+        "score": 0.9856093656457984
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_000",
+      "found": true,
+      "iou": 0.8727125929658571,
+      "latency_ms": 645.1778330010711,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003671812926234611,
+      "method_info": {
+        "matched_text": "Cancel ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_001",
+      "found": true,
+      "iou": 0.8847981718768073,
+      "latency_ms": 819.670083001256,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0008803032738556542,
+      "method_info": {
+        "matched_text": "Share ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_002",
+      "found": true,
+      "iou": 0.8469640194778314,
+      "latency_ms": 722.8851250038133,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003327269022064359,
+      "method_info": {
+        "matched_text": "Stop ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_003",
+      "found": true,
+      "iou": 0.49516741910017276,
+      "latency_ms": 1942.5986249989364,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013439631236401652,
+      "method_info": {
+        "matched_text": "Comment ",
+        "score": 0.788447603481972
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_000",
+      "found": true,
+      "iou": 0.3780316104150894,
+      "latency_ms": 2681.144750000385,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013007519027862024,
+      "method_info": {
+        "matched_text": "Comment ",
+        "score": 0.6715278509011584
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_001",
+      "found": true,
+      "iou": 0.2806628338975861,
+      "latency_ms": 2142.5319580012,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.017077256486807475,
+      "method_info": {
+        "matched_text": "Name ",
+        "score": 0.5721242056541823
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_002",
+      "found": true,
+      "iou": 0.8642865438990873,
+      "latency_ms": 718.7785419955617,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00022647754566786107,
+      "method_info": {
+        "matched_text": "Copy ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_003",
+      "found": true,
+      "iou": 0.8414102606948949,
+      "latency_ms": 672.605667001335,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00041419382082848085,
+      "method_info": {
+        "matched_text": "Stop ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_004",
+      "found": true,
+      "iou": 0.8158233240714462,
+      "latency_ms": 829.3052919980255,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0005723362169519527,
+      "method_info": {
+        "matched_text": "Enter address. ",
+        "score": 0.9655371559629703
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_005",
+      "found": true,
+      "iou": 0.8266865719671267,
+      "latency_ms": 890.1669170008972,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0006425160699056822,
+      "method_info": {
+        "matched_text": "Copy ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_006",
+      "found": true,
+      "iou": 0.9138939146287096,
+      "latency_ms": 1041.0678749976796,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0029546068114972286,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.912416611222961
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_000",
+      "found": true,
+      "iou": 0.16784462482547416,
+      "latency_ms": 2102.17100000591,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0011227736559043275,
+      "method_info": {
+        "matched_text": "Sign out ",
+        "score": 0.467283237997522
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_001",
+      "found": true,
+      "iou": 0.8249953118921401,
+      "latency_ms": 668.7269579997519,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004195323235309148,
+      "method_info": {
+        "matched_text": "Delete ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_002",
+      "found": true,
+      "iou": 0.8890988992283748,
+      "latency_ms": 747.6066250019358,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004072351927478335,
+      "method_info": {
+        "matched_text": "Resume ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_003",
+      "found": true,
+      "iou": 0.9212503258787845,
+      "latency_ms": 639.5451249991311,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0016653860891848117,
+      "method_info": {
+        "matched_text": "a button to close the B.",
+        "score": 0.9204176328341921
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_004",
+      "found": true,
+      "iou": 0.3476615848896757,
+      "latency_ms": 1927.2344169949065,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0007515635656583534,
+      "method_info": {
+        "matched_text": "Log ",
+        "score": 0.49728580310684656
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_005",
+      "found": true,
+      "iou": 0.2549160603460231,
+      "latency_ms": 2467.861625002115,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.00046296197016611055,
+      "method_info": {
+        "matched_text": "Message",
+        "score": 0.55468457936094
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_006",
+      "found": true,
+      "iou": 0.15486498818491923,
+      "latency_ms": 1852.9458749981131,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0012114821671821542,
+      "method_info": {
+        "matched_text": "Email",
+        "score": 0.45425924710132815
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_007",
+      "found": true,
+      "iou": 0.9283223007722106,
+      "latency_ms": 713.096041996323,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0036328641322009867,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.9265058687061101
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_000",
+      "found": true,
+      "iou": 0.8869352531243674,
+      "latency_ms": 596.3517919954029,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00046998785383339076,
+      "method_info": {
+        "matched_text": "Undo ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_001",
+      "found": true,
+      "iou": 0.21950729423855814,
+      "latency_ms": 2580.3192499952274,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0014130880303753956,
+      "method_info": {
+        "matched_text": "Message",
+        "score": 0.5188007502233705
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_002",
+      "found": true,
+      "iou": 0.1305821583165751,
+      "latency_ms": 2304.202166997129,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.00028247976293072866,
+      "method_info": {
+        "matched_text": "Sign out ",
+        "score": 0.43044091843510973
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_003",
+      "found": true,
+      "iou": 0.8298000057793607,
+      "latency_ms": 835.1159999947413,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0006846746695005903,
+      "method_info": {
+        "matched_text": "Enter email_ ",
+        "score": 0.9794576684446105
+      }
+    },
+    {
+      "sample_id": "synthetic_0012",
+      "element_id": "synthetic_0012_elem_000",
+      "found": true,
+      "iou": 0.904323276966671,
+      "latency_ms": 587.2262499979115,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00041020631285011,
+      "method_info": {
+        "matched_text": "Apply ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0012",
+      "element_id": "synthetic_0012_elem_001",
+      "found": true,
+      "iou": 0.9145955810715625,
+      "latency_ms": 783.4488329972373,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0008262698443267746,
+      "method_info": {
+        "matched_text": "Share ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0012",
+      "element_id": "synthetic_0012_elem_002",
+      "found": true,
+      "iou": 0.18343532215414637,
+      "latency_ms": 2153.2752080020146,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0025380634334672635,
+      "method_info": {
+        "matched_text": "Get started ",
+        "score": 0.4821662904374127
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_000",
+      "found": true,
+      "iou": 0.8638712989274268,
+      "latency_ms": 861.9187090007472,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003538312939515432,
+      "method_info": {
+        "matched_text": "Share ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_001",
+      "found": true,
+      "iou": 0.8035225219664497,
+      "latency_ms": 868.2919579950976,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0005613306977598165,
+      "method_info": {
+        "matched_text": "Enter title __ ",
+        "score": 0.9532418566175698
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_002",
+      "found": true,
+      "iou": 0.4447224790491968,
+      "latency_ms": 1768.5324999984005,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.012343664163750781,
+      "method_info": {
+        "matched_text": "Username ",
+        "score": 0.7385506469673214
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_003",
+      "found": true,
+      "iou": 0.8730866905978356,
+      "latency_ms": 874.0529170027003,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003718797772366547,
+      "method_info": {
+        "matched_text": "Edit ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_000",
+      "found": true,
+      "iou": 0.9005443038425435,
+      "latency_ms": 1619.946541999525,
+      "attempts": 4,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.00395055495982854,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.8985690263626293
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_001",
+      "found": true,
+      "iou": 0.8107289943676795,
+      "latency_ms": 911.7519579958753,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00012653549202294828,
+      "method_info": {
+        "matched_text": "Enter address. ",
+        "score": 0.960665726621668
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_002",
+      "found": true,
+      "iou": 0.7952728993779495,
+      "latency_ms": 728.8000000044121,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0007470714079626195,
+      "method_info": {
+        "matched_text": "Upload ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_003",
+      "found": true,
+      "iou": 0.05132637142909358,
+      "latency_ms": 2616.6349170016474,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.00219576091488824,
+      "method_info": {
+        "matched_text": "Phone ",
+        "score": 0.35022849097164943
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_004",
+      "found": true,
+      "iou": 0.8210063795999741,
+      "latency_ms": 1025.32316599536,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0022501853081568456,
+      "method_info": {
+        "matched_text": "R",
+        "score": 0.9698812869458957
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_005",
+      "found": true,
+      "iou": 0.05931782740150791,
+      "latency_ms": 2028.4554999961983,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0013937030003416768,
+      "method_info": {
+        "matched_text": "Title",
+        "score": 0.35862097590133707
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_006",
+      "found": true,
+      "iou": 0.107508663779242,
+      "latency_ms": 2057.549790995836,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0014505083950624483,
+      "method_info": {
+        "matched_text": "Title ",
+        "score": 0.4067834095817108
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_000",
+      "found": true,
+      "iou": 0.76416776699867,
+      "latency_ms": 1011.100957999588,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0006673477517929634,
+      "method_info": {
+        "matched_text": "Address ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_001",
+      "found": true,
+      "iou": 0.8946866070318238,
+      "latency_ms": 986.1940000046161,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0005308401799713457,
+      "method_info": {
+        "matched_text": "Pause ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_002",
+      "found": true,
+      "iou": 0.9048713506248419,
+      "latency_ms": 792.3359999986133,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0031071673857723326,
+      "method_info": {
+        "matched_text": "a navigation or list option.",
+        "score": 0.9033177669319558
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_003",
+      "found": true,
+      "iou": 0.0605463582850492,
+      "latency_ms": 2384.033707996423,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0005311697435991891,
+      "method_info": {
+        "matched_text": "Sign up",
+        "score": 0.3602807734132496
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_004",
+      "found": true,
+      "iou": 0.9268388505876235,
+      "latency_ms": 1524.2145840020385,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.001320967535496717,
+      "method_info": {
+        "matched_text": "OK ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_005",
+      "found": true,
+      "iou": 0.1415855052608364,
+      "latency_ms": 2522.9303750020335,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0010424637820345135,
+      "method_info": {
+        "matched_text": "Username ",
+        "score": 0.4410642733698191
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_006",
+      "found": true,
+      "iou": 0.8856284843917451,
+      "latency_ms": 781.4741670008516,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0008832301333333915,
+      "method_info": {
+        "matched_text": "OK ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_000",
+      "found": true,
+      "iou": 0.04010023240158826,
+      "latency_ms": 2905.8461250024266,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.001393700737373529,
+      "method_info": {
+        "matched_text": "Title",
+        "score": 0.3394033820329015
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_001",
+      "found": true,
+      "iou": 0.8874965644139392,
+      "latency_ms": 654.5449999975972,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0007857548573787942,
+      "method_info": {
+        "matched_text": "Download ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_002",
+      "found": true,
+      "iou": 0.43071607220504976,
+      "latency_ms": 2727.961458003847,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0005009486610602058,
+      "method_info": {
+        "matched_text": "Click here ",
+        "score": 0.7304655978745197
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_003",
+      "found": true,
+      "iou": 0.9111397614903524,
+      "latency_ms": 656.1789160041371,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0010586764517889545,
+      "method_info": {
+        "matched_text": "the \"M\" button in a user interface.",
+        "score": 0.9106104232644578
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_004",
+      "found": true,
+      "iou": 0.9297854050925543,
+      "latency_ms": 973.734749997675,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0039881038014558095,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.9277913531918264
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_005",
+      "found": true,
+      "iou": 0.12594722391993815,
+      "latency_ms": 2422.876125005132,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0005311628560646527,
+      "method_info": {
+        "matched_text": "Message",
+        "score": 0.42568164249190577
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_006",
+      "found": true,
+      "iou": 0.9470704967817926,
+      "latency_ms": 923.3740420022514,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0030927252520518964,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.9455241341557666
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_007",
+      "found": true,
+      "iou": 0.9399196264712362,
+      "latency_ms": 871.0410839994438,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0033075424090407337,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.9382658552667158
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_000",
+      "found": true,
+      "iou": 0.8632264614633782,
+      "latency_ms": 695.9782920021098,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00021593896202669734,
+      "method_info": {
+        "matched_text": "New ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_001",
+      "found": true,
+      "iou": 0.8878060197829538,
+      "latency_ms": 729.9889999994775,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003057749393298843,
+      "method_info": {
+        "matched_text": "Delete ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_002",
+      "found": true,
+      "iou": 0.9302258733710456,
+      "latency_ms": 699.8880829996779,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0005448934076535335,
+      "method_info": {
+        "matched_text": "a button to the \"B\" or \"B\".",
+        "score": 0.9299534266672188
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_003",
+      "found": true,
+      "iou": 0.9353850657528298,
+      "latency_ms": 853.5035829991102,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0027709487225775473,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.933999591391541
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_004",
+      "found": true,
+      "iou": 0.16357826796804656,
+      "latency_ms": 2464.405792001344,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 7.077795779759557e-05,
+      "method_info": {
+        "matched_text": "Learn more ",
+        "score": 0.46354287898914776
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_005",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 2143.102166999597,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "best_score": 0.29581623173476407
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_006",
+      "found": true,
+      "iou": 0.8616321893849712,
+      "latency_ms": 742.8108749954845,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0004180534213786384,
+      "method_info": {
+        "matched_text": "Enter title ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_007",
+      "found": true,
+      "iou": 0.9177940019593217,
+      "latency_ms": 656.7539579991717,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0036781168894385987,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.9159549435146024
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_000",
+      "found": true,
+      "iou": 0.8528523129674423,
+      "latency_ms": 829.4838330039056,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 6.467524622993751e-05,
+      "method_info": {
+        "matched_text": "Resume ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_001",
+      "found": true,
+      "iou": 0.11638321137047758,
+      "latency_ms": 2458.517540995672,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0010623435036003442,
+      "method_info": {
+        "matched_text": "Message",
+        "score": 0.4158520396186774
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_002",
+      "found": true,
+      "iou": 0.8975961430383024,
+      "latency_ms": 786.5903749989229,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0008242104039807707,
+      "method_info": {
+        "matched_text": "Submit ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_003",
+      "found": true,
+      "iou": 0.8777782049562851,
+      "latency_ms": 783.4506250001141,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0002532308675853922,
+      "method_info": {
+        "matched_text": "Address ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_000",
+      "found": true,
+      "iou": 0.860757736736868,
+      "latency_ms": 611.7694999993546,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0005520647338803308,
+      "method_info": {
+        "matched_text": "Redo ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_001",
+      "found": true,
+      "iou": 0.11849963504627843,
+      "latency_ms": 2014.458666999417,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0005012268973512268,
+      "method_info": {
+        "matched_text": "Sign up ",
+        "score": 0.4182490215976028
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_002",
+      "found": true,
+      "iou": 0.929215357283589,
+      "latency_ms": 961.4086660003522,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.003418740005267588,
+      "method_info": {
+        "matched_text": "a radio button.",
+        "score": 0.9275059872809551
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_003",
+      "found": true,
+      "iou": 0.09338768510794529,
+      "latency_ms": 2303.1945830007317,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0014130736446392334,
+      "method_info": {
+        "matched_text": "Username",
+        "score": 0.39268114828562567
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_004",
+      "found": true,
+      "iou": 0.8475100481164257,
+      "latency_ms": 593.8402079991647,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0004008217844590492,
+      "method_info": {
+        "matched_text": "Enter email. ",
+        "score": 0.9973096372241962
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_000",
+      "found": true,
+      "iou": 0.9584667551506056,
+      "latency_ms": 995.4676660054247,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.000754164914377245,
+      "method_info": {
+        "matched_text": "Dictation.",
+        "score": 0.958089672693417
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_001",
+      "found": true,
+      "iou": 0.5090818490147622,
+      "latency_ms": 2367.916041999706,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0025383922410459774,
+      "method_info": {
+        "matched_text": "Clickhere",
+        "score": 0.5078126528942392
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_002",
+      "found": true,
+      "iou": 0.17393926378590366,
+      "latency_ms": 2851.533459004713,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.001885706071715864,
+      "method_info": {
+        "matched_text": "Address ",
+        "score": 0.4729964107500457
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_003",
+      "found": true,
+      "iou": 0.7503716489093379,
+      "latency_ms": 713.3464590006042,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.00034867915223037795,
+      "method_info": {
+        "matched_text": "Export] ",
+        "score": 0.9001973093332227
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_004",
+      "found": true,
+      "iou": 0.9513207350597569,
+      "latency_ms": 913.6165829986567,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0020712184501145113,
+      "method_info": {
+        "matched_text": "a button to close or close a user profile.",
+        "score": 0.9502851258346996
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_005",
+      "found": true,
+      "iou": 0.8364387957685084,
+      "latency_ms": 752.5537500041537,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003325984109208053,
+      "method_info": {
+        "matched_text": "Stop ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_006",
+      "found": true,
+      "iou": 0.3889978737078682,
+      "latency_ms": 2680.183874996146,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0007475614424098168,
+      "method_info": {
+        "matched_text": "View details ",
+        "score": 0.6886240929866633
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_007",
+      "found": true,
+      "iou": 0.9154196241278538,
+      "latency_ms": 740.9683750011027,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0011286335346729814,
+      "method_info": {
+        "matched_text": "R",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_008",
+      "found": true,
+      "iou": 0.8628330601709281,
+      "latency_ms": 1077.246709006431,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00015983227259334026,
+      "method_info": {
+        "matched_text": "Apply ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_009",
+      "found": true,
+      "iou": 0.17977736686955037,
+      "latency_ms": 2671.123542000714,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.03544976565928742,
+      "method_info": {
+        "matched_text": "Title ",
+        "score": 0.4620524840399067
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_000",
+      "found": true,
+      "iou": 0.8092670635271509,
+      "latency_ms": 2421.3576249967446,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.006873883744271999,
+      "method_info": {
+        "matched_text": "Navigator",
+        "score": 0.805830121655015
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_001",
+      "found": true,
+      "iou": 0.3761977001186796,
+      "latency_ms": 2692.09058299748,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0007900815341483689,
+      "method_info": {
+        "matched_text": "Seeall ",
+        "score": 0.3758026593516054
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_002",
+      "found": true,
+      "iou": 0.7241258515211695,
+      "latency_ms": 1133.803666998574,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004940038282787233,
+      "method_info": {
+        "matched_text": "OK ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 2560.156374995131,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "best_score": 0.27937137310463267
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_004",
+      "found": true,
+      "iou": 0.43369344328989456,
+      "latency_ms": 3182.0003329994506,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0015935551647665214,
+      "method_info": {
+        "matched_text": "Email",
+        "score": 0.7328966657075112
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_005",
+      "found": true,
+      "iou": 0.8612673277523933,
+      "latency_ms": 2082.145041000331,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.001792821938695346,
+      "method_info": {
+        "matched_text": "D",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_006",
+      "found": true,
+      "iou": 0.4649455564164852,
+      "latency_ms": 2451.166999999259,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0010717232097111882,
+      "method_info": {
+        "matched_text": "View details ",
+        "score": 0.7644096948116296
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_007",
+      "found": true,
+      "iou": 0.7798507287738916,
+      "latency_ms": 1254.7847919995547,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0009945644297658855,
+      "method_info": {
+        "matched_text": "Enter description__ ",
+        "score": 0.9293534465590086
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_008",
+      "found": true,
+      "iou": 0.4260711664665281,
+      "latency_ms": 3074.3101249972824,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013687951203235679,
+      "method_info": {
+        "matched_text": "Username ",
+        "score": 0.7192271908649102
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_009",
+      "found": true,
+      "iou": 0.7797170225685036,
+      "latency_ms": 808.5730409948155,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.00045786614837792266,
+      "method_info": {
+        "matched_text": "Copy ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_010",
+      "found": true,
+      "iou": 0.8955691889697645,
+      "latency_ms": 2380.194625002332,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0023604235386677553,
+      "method_info": {
+        "matched_text": "a dropdown menu or option to select the first item or page.",
+        "score": 0.8943889772004305
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_011",
+      "found": true,
+      "iou": 0.8712309742478329,
+      "latency_ms": 1814.727707998827,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0012597047139375373,
+      "method_info": {
+        "matched_text": "Open ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_012",
+      "found": true,
+      "iou": 0.8486727159089492,
+      "latency_ms": 1108.7525420007296,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0002969644952228522,
+      "method_info": {
+        "matched_text": "Open ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_013",
+      "found": true,
+      "iou": 0.38530036351581887,
+      "latency_ms": 2718.4764579942566,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0004712320246482987,
+      "method_info": {
+        "matched_text": "Message ",
+        "score": 0.6850647475034947
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_014",
+      "found": true,
+      "iou": 0.30374684230363685,
+      "latency_ms": 2241.951291995065,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0013888897719250505,
+      "method_info": {
+        "matched_text": "Phone",
+        "score": 0.6030523974176744
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_015",
+      "found": true,
+      "iou": 0.9000717371544892,
+      "latency_ms": 1250.4540829977486,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.002490467574979082,
+      "method_info": {
+        "matched_text": "C",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_016",
+      "found": true,
+      "iou": 0.837842756568729,
+      "latency_ms": 1399.0148750017397,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0017687753752864807,
+      "method_info": {
+        "matched_text": "Delete ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_017",
+      "found": true,
+      "iou": 0.8656151047291717,
+      "latency_ms": 1525.9309579996625,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0014179850264429508,
+      "method_info": {
+        "matched_text": "Back ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_018",
+      "found": true,
+      "iou": 0.8327365737466308,
+      "latency_ms": 1223.1180840026354,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0014095253897767812,
+      "method_info": {
+        "matched_text": "Save ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_000",
+      "found": true,
+      "iou": 0.882350549040508,
+      "latency_ms": 1145.798666999326,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004223394674006593,
+      "method_info": {
+        "matched_text": "Delete ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_001",
+      "found": true,
+      "iou": 0.8037865181935395,
+      "latency_ms": 950.9181660032482,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00012022256629849035,
+      "method_info": {
+        "matched_text": "Enter title_ ",
+        "score": 0.9537264069103903
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_002",
+      "found": true,
+      "iou": 0.33806219599731885,
+      "latency_ms": 2249.0246669985936,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.003484100425079705,
+      "method_info": {
+        "matched_text": "Message ",
+        "score": 0.636320145784779
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_003",
+      "found": true,
+      "iou": 0.9025931857773566,
+      "latency_ms": 882.3412080018898,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.002301179845857428,
+      "method_info": {
+        "matched_text": "Bold",
+        "score": 0.9014425958544279
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_004",
+      "found": true,
+      "iou": 0.8118432898428021,
+      "latency_ms": 1426.311708004505,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0012567355407315948,
+      "method_info": {
+        "matched_text": "Download ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_005",
+      "found": true,
+      "iou": 0.47284253410771865,
+      "latency_ms": 1795.886583000538,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0013013106682481011,
+      "method_info": {
+        "matched_text": "Email ",
+        "score": 0.7721918787735946
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_006",
+      "found": true,
+      "iou": 0.8584890675189697,
+      "latency_ms": 1138.3787080048933,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0002628901796488336,
+      "method_info": {
+        "matched_text": "Copy ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_007",
+      "found": true,
+      "iou": 0.8688851892755524,
+      "latency_ms": 1135.4272080061492,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0015043547924457638,
+      "method_info": {
+        "matched_text": "Next ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_008",
+      "found": true,
+      "iou": 0.43694477626176265,
+      "latency_ms": 2510.7021660005557,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.012756769101449674,
+      "method_info": {
+        "matched_text": "Comment ",
+        "score": 0.7305663917110379
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_009",
+      "found": true,
+      "iou": 0.42176759043731626,
+      "latency_ms": 2618.18404099904,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.011999265937086402,
+      "method_info": {
+        "matched_text": "Address ",
+        "score": 0.715767957468773
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_010",
+      "found": true,
+      "iou": 0.8047112897599829,
+      "latency_ms": 2934.775957997772,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0013242688486884726,
+      "method_info": {
+        "matched_text": "Seeall ",
+        "score": 0.8040491553356386
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_011",
+      "found": true,
+      "iou": 0.5266152132602852,
+      "latency_ms": 2812.190290998842,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.001293140602665544,
+      "method_info": {
+        "matched_text": "Description ",
+        "score": 0.8259686429589523
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_012",
+      "found": true,
+      "iou": 0.3804743528757583,
+      "latency_ms": 2396.6484170014155,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.015244631062974011,
+      "method_info": {
+        "matched_text": "Message ",
+        "score": 0.6728520373442713
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_013",
+      "found": true,
+      "iou": 0.947452857073072,
+      "latency_ms": 1359.8998329980532,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0006781239968991698,
+      "method_info": {
+        "matched_text": "Bold",
+        "score": 0.9471137950746225
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_014",
+      "found": true,
+      "iou": 0.3192909813435785,
+      "latency_ms": 2531.1159169941675,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013484951411077384,
+      "method_info": {
+        "matched_text": "Phone ",
+        "score": 0.6125485056380399
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_000",
+      "found": true,
+      "iou": 0.8251301799286137,
+      "latency_ms": 894.8869170053513,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00017734298790588897,
+      "method_info": {
+        "matched_text": "Enter comment_ ",
+        "score": 0.9750415084346608
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_001",
+      "found": true,
+      "iou": 0.7832777328049056,
+      "latency_ms": 894.7928330017021,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 8.429601873947676e-05,
+      "method_info": {
+        "matched_text": "Pause ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_002",
+      "found": true,
+      "iou": 0.8494494985358011,
+      "latency_ms": 904.8744169995189,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0005847260799992935,
+      "method_info": {
+        "matched_text": "Enter description__ ",
+        "score": 0.9991571354958014
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_003",
+      "found": true,
+      "iou": 0.8317901419606032,
+      "latency_ms": 768.7882090031053,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00040693835391336853,
+      "method_info": {
+        "matched_text": "Enter name_ ",
+        "score": 0.9815866727836465
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_004",
+      "found": true,
+      "iou": 0.4414614445161766,
+      "latency_ms": 2683.2645409958786,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.000961854553395319,
+      "method_info": {
+        "matched_text": "Description",
+        "score": 0.7409805172394789
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_005",
+      "found": true,
+      "iou": 0.8662462299250565,
+      "latency_ms": 1109.8871669964865,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00022997715512652233,
+      "method_info": {
+        "matched_text": "Cancel ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_006",
+      "found": true,
+      "iou": 0.8156292644253383,
+      "latency_ms": 895.2454169993871,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0004634683796002055,
+      "method_info": {
+        "matched_text": "Download ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_007",
+      "found": true,
+      "iou": 0.5055558247626432,
+      "latency_ms": 2417.269417004718,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.000696860081288421,
+      "method_info": {
+        "matched_text": "Privacy Policy",
+        "score": 0.8052073947219989
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_008",
+      "found": true,
+      "iou": 0.8213896022543739,
+      "latency_ms": 912.6232499984326,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00037533650233450335,
+      "method_info": {
+        "matched_text": "Back ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_009",
+      "found": true,
+      "iou": 0.7808152782275385,
+      "latency_ms": 742.5464159969124,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0001274912347104574,
+      "method_info": {
+        "matched_text": "Sign out ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_010",
+      "found": true,
+      "iou": 0.8614397686205112,
+      "latency_ms": 1070.514250000997,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 4.856641233802244e-05,
+      "method_info": {
+        "matched_text": "Pause ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_011",
+      "found": true,
+      "iou": 0.4269663048325432,
+      "latency_ms": 2546.1008330021286,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0028261841482187283,
+      "method_info": {
+        "matched_text": "Learn more",
+        "score": 0.7255532127584339
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_012",
+      "found": true,
+      "iou": 0.5940117276115832,
+      "latency_ms": 2447.8352919977624,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0018700653393865813,
+      "method_info": {
+        "matched_text": "Password",
+        "score": 0.8930766949418898
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_013",
+      "found": true,
+      "iou": 0.9395426678848942,
+      "latency_ms": 1080.340166001406,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.00075564239153682,
+      "method_info": {
+        "matched_text": "Dictation.",
+        "score": 0.9391648466891257
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_014",
+      "found": true,
+      "iou": 0.8293823165324188,
+      "latency_ms": 1033.9410419983324,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0004649720670029303,
+      "method_info": {
+        "matched_text": "Enter title_ ",
+        "score": 0.9791498304989174
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_015",
+      "found": true,
+      "iou": 0.40295839793925553,
+      "latency_ms": 2429.7264169945265,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0004136617341349127,
+      "method_info": {
+        "matched_text": "Log ",
+        "score": 0.5527515670721881
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_016",
+      "found": true,
+      "iou": 0.9373763183279925,
+      "latency_ms": 1115.7907910019276,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0014599779576812877,
+      "method_info": {
+        "matched_text": "a dropdown menu.",
+        "score": 0.9366463293491518
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_000",
+      "found": true,
+      "iou": 0.31292081959798246,
+      "latency_ms": 2694.6615829947405,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0026230276802670966,
+      "method_info": {
+        "matched_text": "Get started ",
+        "score": 0.611609305757849
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_001",
+      "found": true,
+      "iou": 0.9154138368990282,
+      "latency_ms": 723.0292079984793,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.004141567049257529,
+      "method_info": {
+        "matched_text": "a button to close or close a user profile.",
+        "score": 0.9133430533743995
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_002",
+      "found": true,
+      "iou": 0.14447949865234339,
+      "latency_ms": 2689.901582998573,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0009259345355198342,
+      "method_info": {
+        "matched_text": "Log in",
+        "score": 0.44401653138458347
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_003",
+      "found": true,
+      "iou": 0.9482185664381216,
+      "latency_ms": 899.5130000039353,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0015182817061638076,
+      "method_info": {
+        "matched_text": "PowerPoint.",
+        "score": 0.9474594255850397
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_004",
+      "found": true,
+      "iou": 0.9155825376914186,
+      "latency_ms": 803.934332994686,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.002109115668213546,
+      "method_info": {
+        "matched_text": "Skype",
+        "score": 0.9145279798573118
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_005",
+      "found": true,
+      "iou": 0.3449272968487557,
+      "latency_ms": 2725.784999995085,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.001870080618111689,
+      "method_info": {
+        "matched_text": "Username",
+        "score": 0.6439922565396998
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_006",
+      "found": true,
+      "iou": 0.8451708047000589,
+      "latency_ms": 869.8544159997255,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00042580787360085366,
+      "method_info": {
+        "matched_text": "Pause ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_007",
+      "found": true,
+      "iou": 0.9179527757398538,
+      "latency_ms": 705.9936250007013,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "icon",
+      "distance_from_target": 0.0008686482562322738,
+      "method_info": {
+        "matched_text": "u",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_008",
+      "found": true,
+      "iou": 0.8564784128565527,
+      "latency_ms": 1032.3794590003672,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004734731986154215,
+      "method_info": {
+        "matched_text": "Save ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_009",
+      "found": true,
+      "iou": 0.764235098581609,
+      "latency_ms": 731.5349169948604,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0004965610671295225,
+      "method_info": {
+        "matched_text": "Enter email_ ",
+        "score": 0.9139868180480443
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_010",
+      "found": true,
+      "iou": 0.812693072883229,
+      "latency_ms": 972.9211250014487,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.000356143078734617,
+      "method_info": {
+        "matched_text": "Share ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_011",
+      "found": true,
+      "iou": 0.46020517997076515,
+      "latency_ms": 2292.259957997885,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.002403146968334003,
+      "method_info": {
+        "matched_text": "Get started ",
+        "score": 0.7590036064865981
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_000",
+      "found": true,
+      "iou": 0.843748371117539,
+      "latency_ms": 1019.8392500024056,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0009618630473318485,
+      "method_info": {
+        "matched_text": "Export",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_001",
+      "found": true,
+      "iou": 0.794965294306664,
+      "latency_ms": 1022.1982500006561,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0004875067902113652,
+      "method_info": {
+        "matched_text": "Enter password_ ",
+        "score": 0.9447215409115584
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_002",
+      "found": true,
+      "iou": 0.15572796001241407,
+      "latency_ms": 2402.0827500062296,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0013713418337141054,
+      "method_info": {
+        "matched_text": "Log in ",
+        "score": 0.455042289095557
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_003",
+      "found": true,
+      "iou": 0.6163180109987098,
+      "latency_ms": 712.4247920000926,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0018700687551139621,
+      "method_info": {
+        "matched_text": "Address",
+        "score": 0.9153829766211528
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_004",
+      "found": true,
+      "iou": 0.9199674369326357,
+      "latency_ms": 984.9525409954367,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.002264780427716428,
+      "method_info": {
+        "matched_text": "B",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_005",
+      "found": true,
+      "iou": 0.35303377883871007,
+      "latency_ms": 2145.09750000434,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0018700757607720492,
+      "method_info": {
+        "matched_text": "Password",
+        "score": 0.652098740958324
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_006",
+      "found": true,
+      "iou": 0.46196393789985657,
+      "latency_ms": 2154.311875005078,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0004077591593506405,
+      "method_info": {
+        "matched_text": "Description ",
+        "score": 0.7617600583201813
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_007",
+      "found": true,
+      "iou": 0.8119932048006849,
+      "latency_ms": 1162.3529579956084,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00040344329440599754,
+      "method_info": {
+        "matched_text": "Enter address ",
+        "score": 0.961791483153482
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_008",
+      "found": true,
+      "iou": 0.919566327160774,
+      "latency_ms": 1110.1701660008985,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0029723725754291406,
+      "method_info": {
+        "matched_text": "u.",
+        "score": 0.9180801408730594
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_009",
+      "found": true,
+      "iou": 0.7471262210113582,
+      "latency_ms": 762.9031250035041,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0017361115967798825,
+      "method_info": {
+        "matched_text": "Comment",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_010",
+      "found": true,
+      "iou": 0.8642056465295903,
+      "latency_ms": 870.9246660000645,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.000485387242116837,
+      "method_info": {
+        "matched_text": "Share ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_011",
+      "found": true,
+      "iou": 0.8746189741349967,
+      "latency_ms": 696.7149999982212,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00022181963230412895,
+      "method_info": {
+        "matched_text": "New ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_012",
+      "found": true,
+      "iou": 0.43765106300909545,
+      "latency_ms": 2789.053166998201,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.001870069236809656,
+      "method_info": {
+        "matched_text": "Username",
+        "score": 0.7367160283906906
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_013",
+      "found": true,
+      "iou": 0.7878651760049914,
+      "latency_ms": 941.0084170012851,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.000684779582686866,
+      "method_info": {
+        "matched_text": "Enter comment _. ",
+        "score": 0.937522786213648
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_014",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 2230.047459001071,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "best_score": 0.17009265593204942
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_015",
+      "found": true,
+      "iou": 0.21917873301828822,
+      "latency_ms": 2847.8089580021333,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0018518620067343283,
+      "method_info": {
+        "matched_text": "Phone",
+        "score": 0.5182528020149211
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_000",
+      "found": true,
+      "iou": 0.9575468762146894,
+      "latency_ms": 819.0994579999824,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0019014035738245648,
+      "method_info": {
+        "matched_text": "a button to close or close a user profile.",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_001",
+      "found": true,
+      "iou": 0.3581796958021047,
+      "latency_ms": 3544.0607919954346,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.018391853920656263,
+      "method_info": {
+        "matched_text": "Description ",
+        "score": 0.6489837688417766
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_002",
+      "found": true,
+      "iou": 0.8661004658458793,
+      "latency_ms": 833.7172499959706,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00019649014263744066,
+      "method_info": {
+        "matched_text": "Export ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_003",
+      "found": true,
+      "iou": 0.7140922524571773,
+      "latency_ms": 1206.437000000733,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0005548145225422077,
+      "method_info": {
+        "matched_text": "Upload ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_004",
+      "found": true,
+      "iou": 0.22508030885166988,
+      "latency_ms": 2832.8584999981103,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0013745775037286537,
+      "method_info": {
+        "matched_text": "Help ",
+        "score": 0.5243930200998056
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_005",
+      "found": true,
+      "iou": 0.3964900222467717,
+      "latency_ms": 2549.1890000048443,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0022736703983016466,
+      "method_info": {
+        "matched_text": "Get started ",
+        "score": 0.6953531870476208
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_006",
+      "found": true,
+      "iou": 0.8670766454387644,
+      "latency_ms": 1023.5961669968674,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00033865120899190124,
+      "method_info": {
+        "matched_text": "OK ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_007",
+      "found": true,
+      "iou": 0.38636308013322135,
+      "latency_ms": 2603.34016699926,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0019236945096765168,
+      "method_info": {
+        "matched_text": "Read more",
+        "score": 0.6854012328783831
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_008",
+      "found": true,
+      "iou": 0.8094496587598959,
+      "latency_ms": 1318.5856249983772,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0009434588009118238,
+      "method_info": {
+        "matched_text": "Enter address__. ",
+        "score": 0.95897792935944
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_009",
+      "found": true,
+      "iou": 0.9511207723181154,
+      "latency_ms": 1176.3651660003234,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.001679516843023875,
+      "method_info": {
+        "matched_text": "a button to close or close a user profile.",
+        "score": 0.9502810138966035
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_010",
+      "found": true,
+      "iou": 0.8246476699662733,
+      "latency_ms": 1260.7659169952967,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0004721194153148041,
+      "method_info": {
+        "matched_text": "Print ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_011",
+      "found": true,
+      "iou": 0.877148600675299,
+      "latency_ms": 2337.9868749980233,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0010447763909951164,
+      "method_info": {
+        "matched_text": "Pause ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_012",
+      "found": true,
+      "iou": 0.7955369577087433,
+      "latency_ms": 837.0059169974411,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0003101737595926964,
+      "method_info": {
+        "matched_text": "Enter email_ ",
+        "score": 0.945381870828947
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_013",
+      "found": true,
+      "iou": 0.8390462118858528,
+      "latency_ms": 1196.7201250008657,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.00041903041717222805,
+      "method_info": {
+        "matched_text": "Save ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_014",
+      "found": true,
+      "iou": 0.5975111625857219,
+      "latency_ms": 2506.877749998239,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0004963327411161644,
+      "method_info": {
+        "matched_text": "Read more ",
+        "score": 0.8972629962151638
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_015",
+      "found": true,
+      "iou": 0.8052830864345799,
+      "latency_ms": 854.4571659949725,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00024967328194800445,
+      "method_info": {
+        "matched_text": "Enter email. ",
+        "score": 0.955158249793606
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_016",
+      "found": true,
+      "iou": 0.32763541768404625,
+      "latency_ms": 2564.0180000045802,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0021247162984342808,
+      "method_info": {
+        "matched_text": "Seeall",
+        "score": 0.3265730595348291
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_017",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 1879.836666994379,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "best_score": 0.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_018",
+      "found": true,
+      "iou": 0.911349376119632,
+      "latency_ms": 1361.6771250017337,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.001648904114832422,
+      "method_info": {
+        "matched_text": "Skype",
+        "score": 0.9105249240622157
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_019",
+      "found": true,
+      "iou": 0.9463457230892504,
+      "latency_ms": 1171.3366660042084,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.000995816445749856,
+      "method_info": {
+        "matched_text": "the \"E\" function.",
+        "score": 0.9458478148663755
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_000",
+      "found": true,
+      "iou": 0.8416168161097886,
+      "latency_ms": 931.9132910022745,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00024343832869371963,
+      "method_info": {
+        "matched_text": "Upload ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_001",
+      "found": true,
+      "iou": 0.8374065511043359,
+      "latency_ms": 865.6530420048512,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.000756827400147729,
+      "method_info": {
+        "matched_text": "OK ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_002",
+      "found": true,
+      "iou": 0.8592566820598356,
+      "latency_ms": 1141.197959004785,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004310702080676065,
+      "method_info": {
+        "matched_text": "Paste ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_003",
+      "found": true,
+      "iou": 0.31600298744542266,
+      "latency_ms": 2355.85862500011,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0012754989197028455,
+      "method_info": {
+        "matched_text": "Log ",
+        "score": 0.4653652379855713
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_004",
+      "found": true,
+      "iou": 0.8964083851068426,
+      "latency_ms": 2394.666000000143,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.004744371962077272,
+      "method_info": {
+        "matched_text": "Navigation",
+        "score": 0.894036199125804
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_005",
+      "found": true,
+      "iou": 0.8436915042176001,
+      "latency_ms": 899.1906669980381,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00016513193254692548,
+      "method_info": {
+        "matched_text": "Start ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_006",
+      "found": true,
+      "iou": 0.6304727730769836,
+      "latency_ms": 1555.112249996455,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0019237006490984774,
+      "method_info": {
+        "matched_text": "Continue",
+        "score": 0.9295109227524343
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_007",
+      "found": true,
+      "iou": 0.4433326718544776,
+      "latency_ms": 3172.8766660016845,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0009618521825518664,
+      "method_info": {
+        "matched_text": "Message",
+        "score": 0.7428517457632017
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_008",
+      "found": true,
+      "iou": 0.3753999884002264,
+      "latency_ms": 2243.4317500010366,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0025383893731087447,
+      "method_info": {
+        "matched_text": "Comment",
+        "score": 0.674130793713672
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_009",
+      "found": true,
+      "iou": 0.8666228008343206,
+      "latency_ms": 1223.4085830059485,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00012423028851465265,
+      "method_info": {
+        "matched_text": "Copy ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_010",
+      "found": true,
+      "iou": 0.5635834685620764,
+      "latency_ms": 2049.4411250037956,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0018700806009447875,
+      "method_info": {
+        "matched_text": "Title",
+        "score": 0.862648428261604
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_011",
+      "found": true,
+      "iou": 0.4511429273863604,
+      "latency_ms": 2560.299666998617,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.013251334447828871,
+      "method_info": {
+        "matched_text": "Password ",
+        "score": 0.7445172601624459
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_012",
+      "found": true,
+      "iou": 0.7931866811291796,
+      "latency_ms": 1827.8476249979576,
+      "attempts": 3,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0013582210611178475,
+      "method_info": {
+        "matched_text": "Stop ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_013",
+      "found": true,
+      "iou": 0.900749193927716,
+      "latency_ms": 835.2607909982908,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.001748627681811919,
+      "method_info": {
+        "matched_text": "u",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_014",
+      "found": true,
+      "iou": 0.8895269058713595,
+      "latency_ms": 1940.2661249987432,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0023248831404075435,
+      "method_info": {
+        "matched_text": "a dropdown menu.",
+        "score": 0.8883644643011558
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_015",
+      "found": true,
+      "iou": 0.4041332443053345,
+      "latency_ms": 2620.353750004142,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0028261794438052086,
+      "method_info": {
+        "matched_text": "Phone",
+        "score": 0.702720154583432
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_016",
+      "found": true,
+      "iou": 0.916641347675747,
+      "latency_ms": 1363.8792080018902,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0027269624318839096,
+      "method_info": {
+        "matched_text": "a navigation or list option.",
+        "score": 0.915277866459805
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_017",
+      "found": true,
+      "iou": 0.8447238935251501,
+      "latency_ms": 859.0241670026444,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0002921006237444365,
+      "method_info": {
+        "matched_text": "Delete ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_000",
+      "found": true,
+      "iou": 0.529420610878198,
+      "latency_ms": 2962.231999998039,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0017471519458711407,
+      "method_info": {
+        "matched_text": "Clickhere ",
+        "score": 0.5285470349052624
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_001",
+      "found": true,
+      "iou": 0.9361110924231535,
+      "latency_ms": 1076.9376249954803,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0011810398535625419,
+      "method_info": {
+        "matched_text": "PowerPoint",
+        "score": 0.9355205724963722
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_002",
+      "found": true,
+      "iou": 0.2216747555407374,
+      "latency_ms": 2586.6474580034264,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0013937030003416354,
+      "method_info": {
+        "matched_text": "Title",
+        "score": 0.5209779040405665
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_003",
+      "found": true,
+      "iou": 0.4496052990964836,
+      "latency_ms": 2836.785500003316,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0018919002523452822,
+      "method_info": {
+        "matched_text": "Contact 48 ",
+        "score": 0.44865934897031096
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_004",
+      "found": true,
+      "iou": 0.768684624708673,
+      "latency_ms": 1019.1102500029956,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0006889503481861155,
+      "method_info": {
+        "matched_text": "Back ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_005",
+      "found": true,
+      "iou": 0.2785715518253054,
+      "latency_ms": 2783.698874998663,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0019237017671790491,
+      "method_info": {
+        "matched_text": "Sign up",
+        "score": 0.5776097009417158
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_006",
+      "found": true,
+      "iou": 0.45309745147165426,
+      "latency_ms": 2630.6540410005255,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0010623609347999764,
+      "method_info": {
+        "matched_text": "Try it free",
+        "score": 0.7525662710042542
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_007",
+      "found": true,
+      "iou": 0.21534751607598393,
+      "latency_ms": 2232.9395419947105,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0014130942142181273,
+      "method_info": {
+        "matched_text": "Message",
+        "score": 0.5146409689688749
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_008",
+      "found": true,
+      "iou": 0.866280635216726,
+      "latency_ms": 601.610375000746,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0001420225256328252,
+      "method_info": {
+        "matched_text": "Submit ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_000",
+      "found": true,
+      "iou": 0.6582276887447411,
+      "latency_ms": 1569.2314999978407,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0005983029512404392,
+      "method_info": {
+        "matched_text": "Try tree ",
+        "score": 0.6579285372691209
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_001",
+      "found": true,
+      "iou": 0.8153186753886367,
+      "latency_ms": 776.2113749995478,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004137445584698408,
+      "method_info": {
+        "matched_text": "Update ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_002",
+      "found": true,
+      "iou": 0.8287223047291282,
+      "latency_ms": 986.1342500007595,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0016596549986683804,
+      "method_info": {
+        "matched_text": "Next ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_003",
+      "found": true,
+      "iou": 0.8553299901297342,
+      "latency_ms": 780.5463339973358,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003040230630885442,
+      "method_info": {
+        "matched_text": "Start ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_004",
+      "found": true,
+      "iou": 0.6764708026105888,
+      "latency_ms": 772.3260419952567,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.002372682693587379,
+      "method_info": {
+        "matched_text": "Resume",
+        "score": 0.9752844612637951
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_005",
+      "found": true,
+      "iou": 0.8327022259275693,
+      "latency_ms": 771.5763329979382,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004568553153111969,
+      "method_info": {
+        "matched_text": "Next ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_006",
+      "found": true,
+      "iou": 0.862663500522672,
+      "latency_ms": 863.7974169978406,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00019025004048948786,
+      "method_info": {
+        "matched_text": "Apply ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_007",
+      "found": true,
+      "iou": 0.8642043426345902,
+      "latency_ms": 775.037457999133,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003527573101898642,
+      "method_info": {
+        "matched_text": "Resume ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_008",
+      "found": true,
+      "iou": 0.8432169703687816,
+      "latency_ms": 768.6178750009276,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003519807318191817,
+      "method_info": {
+        "matched_text": "Open ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_009",
+      "found": true,
+      "iou": 0.7880237333372486,
+      "latency_ms": 770.8359579992248,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0001771043005237336,
+      "method_info": {
+        "matched_text": "Enter address __ ",
+        "score": 0.9379351811869868
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_010",
+      "found": true,
+      "iou": 0.7849393054367957,
+      "latency_ms": 771.6312499978812,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0005273542369188111,
+      "method_info": {
+        "matched_text": "Close ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_011",
+      "found": true,
+      "iou": 0.924708755783724,
+      "latency_ms": 891.1076250005863,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0025360849886427173,
+      "method_info": {
+        "matched_text": "a button to close or close an item.",
+        "score": 0.9234407132894027
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_012",
+      "found": true,
+      "iou": 0.9368002201622199,
+      "latency_ms": 890.0969590031309,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.002475749285266424,
+      "method_info": {
+        "matched_text": "a dropdown menu or option to close the menu.",
+        "score": 0.9355623455195866
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_013",
+      "found": true,
+      "iou": 0.7918778534197393,
+      "latency_ms": 909.6122080009081,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00018972211767667363,
+      "method_info": {
+        "matched_text": "Enter comment _. ",
+        "score": 0.9417829923609009
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_014",
+      "found": true,
+      "iou": 0.9505609533534303,
+      "latency_ms": 807.0703339981264,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0014029169419390922,
+      "method_info": {
+        "matched_text": "a button to close the \"H\" function.",
+        "score": 0.9498594948824607
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_015",
+      "found": true,
+      "iou": 0.7421336216579377,
+      "latency_ms": 831.5976660014712,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.00048322326556551366,
+      "method_info": {
+        "matched_text": "Stop ",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_016",
+      "found": true,
+      "iou": 0.5658947447636408,
+      "latency_ms": 1535.374041995965,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0009529314669179031,
+      "method_info": {
+        "matched_text": "Forgot password? ",
+        "score": 0.8654182790301818
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_017",
+      "found": true,
+      "iou": 0.9109264833451044,
+      "latency_ms": 775.4387499953737,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0018190110842499158,
+      "method_info": {
+        "matched_text": "u",
+        "score": 1.0
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_018",
+      "found": true,
+      "iou": 0.6751906126360191,
+      "latency_ms": 773.616291997314,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0014833326916739772,
+      "method_info": {
+        "matched_text": "Password",
+        "score": 0.9744489462901821
+      }
+    }
+  ]
+}

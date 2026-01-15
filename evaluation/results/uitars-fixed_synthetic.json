@@ -1,0 +1,3968 @@
+{
+  "method_name": "UI-TARS + fixed_crop",
+  "dataset_name": "synthetic",
+  "detection_rate": 0.6691449814126395,
+  "mean_iou": 0.0,
+  "mean_latency_ms": 6891.023215137554,
+  "mean_attempts": 2.386617100371747,
+  "detection_rate_small": 0.5476190476190477,
+  "detection_rate_medium": 0.6901408450704225,
+  "detection_rate_large": 0.7142857142857143,
+  "detection_rate_by_type": {
+    "text": 0.9666666666666667,
+    "button": 0.42696629213483145,
+    "icon": 0.6481481481481481,
+    "link": 0.5853658536585366,
+    "text_field": 1.0
+  },
+  "total_elements": 269,
+  "detected_elements": 180,
+  "results": [
+    {
+      "sample_id": "synthetic_0000",
+      "element_id": "synthetic_0000_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6138.312249997398,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.02666606389475597,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Password'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0000",
+      "element_id": "synthetic_0000_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5048.386875001597,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029651931592817465,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0000",
+      "element_id": "synthetic_0000_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9189.213165998808,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Stop' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6088.196000004245,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.032097167976316614,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Description'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5672.804125002585,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.03143491801778224,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Email'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5115.099707996706,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029651931592817513,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Name'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0001",
+      "element_id": "synthetic_0001_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9359.55595899577,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Undo' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0002",
+      "element_id": "synthetic_0002_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5709.16729199962,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.02905540031281587,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0002",
+      "element_id": "synthetic_0002_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9812.84829100332,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Open' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0002",
+      "element_id": "synthetic_0002_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 12522.907166996447,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.043406370909066676,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Share' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 8951.259415996901,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Undo' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9100.213708996307,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'OK' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5672.736499996972,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.03143491801778227,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Description'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11996.551082993392,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the search icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9766.359332999855,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Edit' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0003",
+      "element_id": "synthetic_0003_elem_005",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10494.881458995224,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Open' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3564.0474580068258,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0020489762438235803,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the paste icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5998.3374170042225,
+      "attempts": 2,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.012141243221353045,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the heart icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3186.694042000454,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.011281134327462328,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the search icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3544.044374997611,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0006248929707859673,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Read more' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10786.064874999283,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the settings icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4269.172332999005,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0012293189779215266,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Address'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_006",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10584.284000004118,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Log in' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0004",
+      "element_id": "synthetic_0004_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7465.105124996626,
+      "attempts": 2,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.01118029342784917,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the star icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3681.6130410006735,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00026741739471693594,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Name text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7952.828749999753,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.018110033173720827,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the upload icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3070.3658329948667,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0014255132123275843,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Update' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 13669.100334001996,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Log in' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4210.158874993795,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0005291895277843511,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Comment'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3248.8449160009623,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0013070430216248678,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the remove icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0005",
+      "element_id": "synthetic_0005_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3705.0197499993374,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.007109018877017418,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Description'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3172.177667001961,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0005803192328533498,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Start' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 12549.458333000075,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Pause' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4241.602166002849,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0007727146012732037,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Continue' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3260.5261670032633,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.001339815080620854,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Update' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6044.709000001603,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.007777001797465081,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0006",
+      "element_id": "synthetic_0006_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3173.45383400243,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.001560798525613538,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Apply' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4241.763541998807,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0010162011845221551,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Redo' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4197.912417002954,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0007134240311424107,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'View details' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4242.10804199538,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0034599405510767735,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the share icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4292.602166999131,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.007980907436358901,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Try it free' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4299.467917000584,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.007933951459610249,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Username'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4301.629250003316,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0006584183781852985,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Title text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4242.91958300455,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0007236408043186998,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Address text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0007",
+      "element_id": "synthetic_0007_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4422.6312920000055,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0068570124268107335,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Description text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4413.853916994412,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0002711076918238489,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Cancel' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4368.063417001395,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0010703815743837723,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Share' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4288.479458002257,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0008098178220908551,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Stop' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0008",
+      "element_id": "synthetic_0008_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4308.447499999602,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.006733779072240374,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Comment'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6968.368499998178,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029485768184508786,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Comment'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6988.497874997847,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029651931592817465,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Name'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 13286.841083005129,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0509256682795828,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Copy' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3552.845457998046,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0014690853925879953,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Stop' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3233.3795000013197,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0003973418327558676,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Address text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4385.830250001163,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.02517225969905866,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Copy' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0009",
+      "element_id": "synthetic_0009_elem_006",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9803.267125003913,
+      "attempts": 4,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the copy icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11671.195167000405,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Sign out' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9331.450582998514,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Delete' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9510.542625001108,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Resume' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7812.684375006938,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.03035310805338264,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the bookmark icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3143.345666001551,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.022339554695073306,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Log in' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4262.991499999771,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.023053313500052054,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3531.5930420038057,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.01683773341594588,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Email'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0010",
+      "element_id": "synthetic_0010_elem_007",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10386.559667000256,
+      "attempts": 4,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the close icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4194.001832998765,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.051162701976916504,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Undo' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6889.66624999739,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029396362602824723,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9198.327792000782,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Sign out' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0011",
+      "element_id": "synthetic_0011_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6580.962249994627,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.02780925402331832,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Email text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0012",
+      "element_id": "synthetic_0012_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 12226.844999997411,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Apply' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0012",
+      "element_id": "synthetic_0012_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9670.782125002006,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Share' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0012",
+      "element_id": "synthetic_0012_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9283.296207999228,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Get started' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 14797.286499997426,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Share' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6220.202832999348,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0329945274516415,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Title text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10364.99195900251,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the text 'Username'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0013",
+      "element_id": "synthetic_0013_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9984.296041999187,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Edit' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9866.010333003942,
+      "attempts": 4,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the redo icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7739.809500002593,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.03127822803533087,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Address text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10750.003875000402,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Upload' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5279.157541001041,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.00925925925925919,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Phone'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10041.447125004197,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the refresh icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6457.808083003329,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029651931592817465,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0014",
+      "element_id": "synthetic_0014_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5938.594915998692,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029651931592817513,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3619.5062499973574,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.001231397342072877,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Address'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3186.510083003668,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0018453692769738097,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Pause' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10832.904167000379,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the delete icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4230.817000003299,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0012706604575414872,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Sign up' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4327.963791998627,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0006218228737163259,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'OK' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6192.541791999247,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0005472235650443427,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Username'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0015",
+      "element_id": "synthetic_0015_elem_006",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 12441.419041002518,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'OK' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4399.890207998396,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029995341321333756,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 13634.697125002276,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Download' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9628.838417003863,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Click here' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4343.555583000125,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0011400639816033099,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the menu icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3391.0431250042166,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0034210127893077092,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the paste icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5599.571166996611,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.028859530015395325,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4461.296832996595,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0008457849530391223,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the delete icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0016",
+      "element_id": "synthetic_0016_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4455.508749997534,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.002469595683194904,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the copy icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 12097.294833998603,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'New' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10487.552124999638,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Delete' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6330.901790999633,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.00609758231302443,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the bookmark icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3028.6708749990794,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0007645707197403237,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the remove icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10200.393708000774,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Learn more' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_005",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9751.474333999795,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Learn more' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4245.209000000614,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.00032864853926082075,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Title text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0017",
+      "element_id": "synthetic_0017_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4283.3269580005435,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0008763952843793243,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the share icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4226.227874998585,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0012282440031300959,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Resume' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4223.345582999173,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0013901895164801607,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4404.708125002799,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0005302574908806445,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Submit' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0018",
+      "element_id": "synthetic_0018_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4274.854792005499,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0014413286322579146,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Address'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4434.181541997532,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0009010738855567523,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Redo' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4328.034459002083,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0010348607215294374,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Sign up' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 10616.656541998964,
+      "attempts": 4,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.03064825264602243,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the share icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6952.961957998923,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.03246664193115417,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Username'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0019",
+      "element_id": "synthetic_0019_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3813.9899999951012,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.000474446173620787,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Email text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11589.413417001197,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the download icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3123.473957995884,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.02209298433013442,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Click here' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 12567.68245800049,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.006946645780148734,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Address'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 8879.662250001275,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Export' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9640.812917001313,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the share icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_005",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10617.801874999714,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Stop' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3511.171333004313,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.03965386160478423,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'View details' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_007",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10095.549624995328,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the refresh icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_008",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10182.058958002017,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Apply' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0020",
+      "element_id": "synthetic_0020_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5799.377708994143,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.026390392325743108,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5338.210167006764,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.006829449312011083,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the paste icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 8988.400624999485,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0009258402609841277,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'See all' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10446.218082994164,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'OK' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9961.52779199474,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'See all' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11381.572083002538,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the text 'Email'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7919.866583004477,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.007159305695033993,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the download icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3186.7186249946826,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.024686547806687584,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'View details' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3620.2964170006453,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0001007995421222708,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Description text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_008",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5973.16820800188,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.030353108053382562,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Username'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_009",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9652.135582997289,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Copy' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_010",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5349.700083999778,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.009240879723492712,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the paste icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_011",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9623.872249998385,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Open' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_012",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 9083.852541996748,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.00029394473838917357,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Open' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_013",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7609.455666999565,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.026479802946123183,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_014",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5114.351250005711,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.016281968691750942,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Phone'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_015",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9756.393832998583,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the close icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_016",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10718.789958002162,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Delete' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_017",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9556.097084001522,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Back' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0021",
+      "element_id": "synthetic_0021_elem_018",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10740.967666999495,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Save' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4257.76979100192,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0269348011036487,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Delete' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3636.9410840052296,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.001188181803169401,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Title text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5881.2123329989845,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029396362602824737,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4457.414791999327,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.008555601909307072,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the bookmark icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4414.424583999789,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0010152142872947101,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Download' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5803.735624998808,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.029651931592817538,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Email'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4424.859957995068,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0003631786703248293,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Copy' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_007",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10028.97608299827,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Next' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_008",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5315.695667006366,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.02948576818450881,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Comment'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3112.8408329968806,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.000708314938494001,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Address'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_010",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4280.129083002976,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0006533845937850745,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'See all' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_011",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4296.13304099621,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.0263329710423241,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Description'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_012",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7005.1924159997725,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.026666063894755964,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_013",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 11054.12937499932,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0018371592652240128,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the bookmark icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0022",
+      "element_id": "synthetic_0022_elem_014",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5846.213750002789,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.03035310805338264,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Phone'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4330.878916000074,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0005117142863185456,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Comment text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10327.278708005906,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Pause' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4312.711833001231,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.02131622414356448,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Description text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3712.17341600277,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0007587727158156841,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Name text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7326.863542002684,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.014739468432449786,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Description'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_005",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10863.803250002093,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Cancel' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4378.673042003356,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0004433198106350458,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Download' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3620.112042000983,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0008207173244750502,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Privacy Policy' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_008",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11393.527707994508,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Back' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4346.367124999233,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.001229816028096674,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Sign out' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_010",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3143.674250000913,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004062222112417795,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Pause' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_011",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3597.2330840013456,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.001318525954279718,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Learn more' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_012",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5930.455124995206,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.030353108053382618,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Password'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_013",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4456.123999996635,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.000777406069712392,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the delete icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_014",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4384.921458004101,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0005671333656421018,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Title text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_015",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4754.119459001231,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0014724154572079348,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Log in' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0023",
+      "element_id": "synthetic_0023_elem_016",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9109.39470899757,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the close icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10170.990416998393,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Get started' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6047.0754580019275,
+      "attempts": 2,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.03035310805338259,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the upload icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9227.20699999627,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Log in' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6038.1952919997275,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.011180293427849118,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the paste icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 8810.929584004043,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the share icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6048.600958005409,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.02965193159281749,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Username'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 9748.205541996867,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.023320532453774204,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Pause' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_007",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9376.309292005317,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the undo icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_008",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9178.506249998463,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Save' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3085.8229589939583,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0008097708748424387,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Email text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_010",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10613.187458002358,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Share' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0024",
+      "element_id": "synthetic_0024_elem_011",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3878.8953330004006,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0012277046949050472,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Get started' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11314.016125004855,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Export' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7719.558374999906,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.026536689381005563,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Password text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9528.41150000313,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Log in' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6286.230417004845,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.029323383282045822,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Address'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6439.244542001688,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.014895642367136521,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the bookmark icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5364.771832995757,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.025793650793650813,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Password'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_006",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6082.2107499989215,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.027481432107464742,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Description'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6365.59379100072,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.03217468964628218,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Address text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_008",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5280.184250004822,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.030353108053382618,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the upload icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6011.4089589988,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.029485768184508786,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Comment'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_010",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10841.635000004317,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Share' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_011",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3660.961542002042,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.02696063145080311,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'New' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_012",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6460.447290999582,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.009528458686656078,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Username'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_013",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5223.600292003539,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.01615714649625715,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Comment text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_014",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7859.0037079993635,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.020816538736699485,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'See all' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0025",
+      "element_id": "synthetic_0025_elem_015",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5125.607249996392,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.015377039685995129,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Phone'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_000",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10439.15316699713,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the close icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5060.507374997542,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.032097167976316614,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Description'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10732.723375003843,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Export' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9674.23158299789,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Upload' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3084.7813340005814,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.001150779275958762,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Help' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4442.1985000008135,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0007848651617455824,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Get started' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_006",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9625.745084005757,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'OK' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_007",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10021.64766700298,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Read more' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_008",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3810.2763749993755,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.001373942309732547,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Address text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6036.7602499973145,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.015176554026691337,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the star icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_010",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10080.394415999763,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Print' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_011",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9506.136834002973,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Pause' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_012",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3599.5345000046655,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.005793439812669481,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Email text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_013",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3333.3646249957383,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0012651334681363325,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Save' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_014",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4318.698666000273,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0003222709824195186,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Read more' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_015",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5780.610165995313,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.03240827734936729,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Email text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_016",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4544.759417003661,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0006180821439653389,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'See all' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_017",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7222.222374999546,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.009240879723492754,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the remove icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_018",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 6554.40195799747,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.005619413101676802,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the star icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0026",
+      "element_id": "synthetic_0026_elem_019",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 10476.057166997634,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0025132275132274673,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the edit icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4337.149291997775,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0008963412091066352,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Upload' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10440.119375001814,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'OK' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9204.599749995396,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Paste' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10029.738290999376,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Log in' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_004",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 7675.875249995443,
+      "attempts": 3,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.01448671066184174,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the settings icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4328.37962499616,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0014578934126081035,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Start' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_006",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9664.30141699675,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Continue' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5980.381208995823,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.03209716797631664,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_008",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5322.286500006157,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.03207671957671965,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Comment'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4478.817915995023,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0016221167972207773,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Copy' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_010",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4905.34658300021,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.029063396974782243,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_011",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5873.546499999065,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.026666063894756023,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Password'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_012",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10861.767750000581,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Stop' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_013",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9494.676125003025,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the upload icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_014",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5600.497416002327,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.009965528417291475,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the paste icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_015",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5875.917749996006,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.0108788254957645,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Phone'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_016",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 8823.633583000628,
+      "attempts": 4,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the menu icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0027",
+      "element_id": "synthetic_0027_elem_017",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4274.257917000796,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0004495077896159929,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Delete' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 8011.568249996344,
+      "attempts": 3,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0009018759018759592,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Click here' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_001",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10721.329666004749,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the paste icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_002",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5254.283791000489,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.029651931592817437,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Title'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_003",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9565.640832995996,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Contact us' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10650.03812500072,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Back' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_005",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9599.216458002047,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Sign up' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_006",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10324.806083001022,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "link",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Try it free' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5914.886375001515,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "text",
+      "distance_from_target": 0.029055400312815824,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Message'"
+      }
+    },
+    {
+      "sample_id": "synthetic_0028",
+      "element_id": "synthetic_0028_elem_008",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 9365.497166996647,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Submit' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_000",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4323.476249999658,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0005396853344194172,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Try it free' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_001",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3163.724332996935,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0008710288220231221,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Update' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_002",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11872.189749999961,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Next' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_003",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3555.6305840000277,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0005783813886336302,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Start' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_004",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10067.922083006124,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Resume' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_005",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3230.8487500049523,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0011172171597370944,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Next' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_006",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 10455.140374993789,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Apply' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_007",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3669.233209002414,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0017500122873447231,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Resume' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_008",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 2943.973791996541,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "button",
+      "distance_from_target": 0.0007206187925530957,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Open' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_009",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4287.858582996705,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.0006795122199096694,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Address text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_010",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11373.837540995737,
+      "attempts": 4,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the 'Close' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_011",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3604.309166003077,
+      "attempts": 1,
+      "size_category": "large",
+      "element_type": "icon",
+      "distance_from_target": 0.008943151467748036,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the home icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_012",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5935.904457997822,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.012141243221353045,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the edit icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_013",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4308.2772080015275,
+      "attempts": 1,
+      "size_category": "medium",
+      "element_type": "text_field",
+      "distance_from_target": 0.007812302081525322,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the Comment text field"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_014",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5818.839540996123,
+      "attempts": 2,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.01441772632535672,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the heart icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_015",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 4403.078833995096,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "button",
+      "distance_from_target": 0.0062813999632735824,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Stop' button"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_016",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 3624.8847089955234,
+      "attempts": 1,
+      "size_category": "small",
+      "element_type": "link",
+      "distance_from_target": 0.0005416540476900739,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the 'Forgot password?' link"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_017",
+      "found": false,
+      "iou": 0.0,
+      "latency_ms": 11759.723416995257,
+      "attempts": 4,
+      "size_category": "medium",
+      "element_type": "icon",
+      "distance_from_target": 0.0,
+      "method_info": {
+        "instruction": "Click on the upload icon"
+      }
+    },
+    {
+      "sample_id": "synthetic_0029",
+      "element_id": "synthetic_0029_elem_018",
+      "found": true,
+      "iou": 0.0,
+      "latency_ms": 5309.528666002734,
+      "attempts": 2,
+      "size_category": "small",
+      "element_type": "text",
+      "distance_from_target": 0.02920743051157613,
+      "method_info": {
+        "thought": "",
+        "instruction": "Click on the text 'Password'"
+      }
+    }
+  ]
+}

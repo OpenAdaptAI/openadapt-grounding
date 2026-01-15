@@ -311,47 +311,70 @@ if result.found:
 | Approach | Parse all elements | Ground by query |
 | Output | List of bboxes | Single click point |
 | Best for | Enumeration, registry building | Direct element finding |
-| Accuracy (ScreenSpot-Pro) | ~40% | ~62% |
+| **Detection Rate** (our benchmark) | **99.3%** | 70.6% |
+| **Latency** (per element) | **~1.4s** | ~6.9s |
 
 ## Evaluation & Benchmarking
 
-Compare OmniParser and UI-TARS methods across datasets:
+We provide a comprehensive evaluation framework to compare UI grounding methods.
 
-### Install Evaluation Dependencies
+### Benchmark Results
+
+Evaluated on synthetic dataset (100 samples, 1922 UI elements):
+
+| Method | Detection Rate | IoU | Latency | Attempts |
+|--------|---------------|-----|---------|----------|
+| **OmniParser + screenseeker** | **99.3%** | 0.690 | 1418ms | 2.0 |
+| OmniParser + fixed | 98.1% | 0.681 | 1486ms | 2.2 |
+| OmniParser baseline | 97.4% | 0.648 | 724ms | 1.0 |
+| UI-TARS + screenseeker | 70.6% | - | 6914ms | 2.3 |
+| UI-TARS + fixed | 66.9% | - | 6891ms | 2.4 |
+| UI-TARS baseline | 36.1% | - | 2724ms | 1.0 |
+
+**Key Finding:** Cropping strategies dramatically improve UI-TARS accuracy (+96% with screenseeker) but have minimal effect on OmniParser which already performs well on full images.
+
+### Detection Rate by Method
+
+![Detection Rate by Method](assets/detection_rate_overall.png)
+
+### Detection Rate by Element Size
+
+![Detection Rate by Size](assets/detection_rate_by_size.png)
+
+Small elements (<32px) are hardest for UI-TARS (28.6% → 50% with cropping), while OmniParser maintains ~100% across all sizes.
+
+### Accuracy vs Latency Tradeoff
+
+![Accuracy vs Latency](assets/accuracy_vs_latency.png)
+
+OmniParser offers the best accuracy-latency tradeoff, with near-perfect detection at <1.5s per element.
+
+### Synthetic Dataset Samples
+
+The evaluation uses programmatically generated UI screenshots with ground truth:
+
+| Easy (3-8 elements) | Hard (20-50 elements, dark theme) |
+|---------------------|-----------------------------------|
+| ![Easy Sample](assets/synthetic_sample_easy.png) | ![Hard Sample](assets/synthetic_sample_hard.png) |
+
+### Run Your Own Evaluation
 
 ```bash
+# Install dependencies
 uv pip install openadapt-grounding[eval]
-```
 
-### Generate Synthetic Dataset
-
-```bash
-# Generate 500 synthetic UI screenshots with ground truth
-uv run python -m openadapt_grounding.eval generate --type synthetic --count 500
-
-# Quick test with fewer samples
-uv run python -m openadapt_grounding.eval generate --type synthetic --count 10
-```
-
-### Run Evaluation
-
-```bash
-# List available methods
-uv run python -m openadapt_grounding.eval list
+# Generate synthetic dataset
+uv run python -m openadapt_grounding.eval generate --type synthetic --count 100
 
 # Run evaluation (requires deployed servers)
 uv run python -m openadapt_grounding.eval run --method omniparser --dataset synthetic
 uv run python -m openadapt_grounding.eval run --method uitars --dataset synthetic
 
 # With cropping strategies
-uv run python -m openadapt_grounding.eval run --method omniparser-fixed --dataset synthetic
+uv run python -m openadapt_grounding.eval run --method omniparser-screenseeker --dataset synthetic
 uv run python -m openadapt_grounding.eval run --method uitars-screenseeker --dataset synthetic
-```
 
-### Compare Results
-
-```bash
-# Generate comparison table and charts
+# Generate comparison charts
 uv run python -m openadapt_grounding.eval compare --charts-dir evaluation/charts
 ```
 
@@ -360,11 +383,11 @@ uv run python -m openadapt_grounding.eval compare --charts-dir evaluation/charts
 | Method | Description |
 |--------|-------------|
 | `omniparser` | OmniParser baseline (full image) |
-| `omniparser-fixed` | OmniParser + fixed cropping |
-| `omniparser-screenseeker` | OmniParser + ScreenSeekeR-style cropping |
+| `omniparser-fixed` | OmniParser + fixed cropping (200, 300, 500px) |
+| `omniparser-screenseeker` | OmniParser + heuristic UI region cropping |
 | `uitars` | UI-TARS baseline (full image) |
 | `uitars-fixed` | UI-TARS + fixed cropping |
-| `uitars-screenseeker` | UI-TARS + ScreenSeekeR-style cropping |
+| `uitars-screenseeker` | UI-TARS + heuristic UI region cropping |
 
 See [Evaluation Documentation](docs/evaluation.md) for methodology and metrics.
 
@@ -417,9 +440,12 @@ See [Evaluation Documentation](docs/evaluation.md) for methodology and metrics.
 
 ### Key Findings
 
-- **UI-TARS 1.5** achieves 61.6% on ScreenSpot-Pro (vs OmniParser's 39.6%)
-- **Progressive cropping** (ScreenSeekeR) improves accuracy by +254%
-- **Small icons** (<32px) remain the hardest challenge
+From our benchmark on synthetic UI data:
+
+- **OmniParser + screenseeker** achieves **99.3%** detection rate (best overall)
+- **Cropping strategies** improve UI-TARS by +96% (36.1% → 70.6%) but have minimal effect on OmniParser
+- **OmniParser** is 4-5x faster than UI-TARS while being more accurate
+- **Small elements** (<32px) remain hardest for UI-TARS (28.6% baseline → 50% with cropping)
 
 ## Development
 

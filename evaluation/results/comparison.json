@@ -1,24 +1,44 @@
 {
   "summary": {
-    "total_methods": 2,
+    "total_methods": 6,
     "total_datasets": 1,
-    "best_overall": "OmniParser + baseline",
-    "best_overall_rate": 0.9739776951672863,
+    "best_overall": "OmniParser + screenseeker",
+    "best_overall_rate": 0.9925650557620818,
     "fastest_method": "OmniParser + baseline",
     "fastest_latency_ms": 724.2447836284
   },
   "best_per_dataset": {
     "synthetic": {
-      "method": "OmniParser + baseline",
-      "detection_rate": 0.9739776951672863,
-      "latency_ms": 724.2447836284
+      "method": "OmniParser + screenseeker",
+      "detection_rate": 0.9925650557620818,
+      "latency_ms": 1418.4232468816447
     }
   },
   "ranking_by_detection_rate": [
     {
+      "method": "OmniParser + screenseeker",
+      "dataset": "synthetic",
+      "rate": 0.9925650557620818
+    },
+    {
+      "method": "OmniParser + fixed_crop",
+      "dataset": "synthetic",
+      "rate": 0.9814126394052045
+    },
+    {
       "method": "OmniParser + baseline",
       "dataset": "synthetic",
       "rate": 0.9739776951672863
+    },
+    {
+      "method": "UI-TARS + screenseeker",
+      "dataset": "synthetic",
+      "rate": 0.7063197026022305
+    },
+    {
+      "method": "UI-TARS + fixed_crop",
+      "dataset": "synthetic",
+      "rate": 0.6691449814126395
     },
     {
       "method": "UI-TARS + baseline",
@@ -33,14 +53,34 @@
       "latency_ms": 724.2447836284
     },
     {
+      "method": "OmniParser + screenseeker",
+      "dataset": "synthetic",
+      "latency_ms": 1418.4232468816447
+    },
+    {
+      "method": "OmniParser + fixed_crop",
+      "dataset": "synthetic",
+      "latency_ms": 1486.3248986690166
+    },
+    {
       "method": "UI-TARS + baseline",
       "dataset": "synthetic",
       "latency_ms": 2724.03892984728
+    },
+    {
+      "method": "UI-TARS + fixed_crop",
+      "dataset": "synthetic",
+      "latency_ms": 6891.023215137554
+    },
+    {
+      "method": "UI-TARS + screenseeker",
+      "dataset": "synthetic",
+      "latency_ms": 6914.085839223343
     }
   ],
   "size_analysis": {
-    "small_best": "OmniParser + baseline",
-    "medium_best": "OmniParser + baseline",
-    "large_best": "OmniParser + baseline"
+    "small_best": "OmniParser + screenseeker",
+    "medium_best": "OmniParser + screenseeker",
+    "large_best": "OmniParser + screenseeker"
   }
 }
