@@ -39,8 +39,21 @@ eval = [
     "fire>=0.5.0",
     "pydantic-settings>=2.0.0",
 ]
+# VLM API providers
+providers-anthropic = [
+    "anthropic>=0.40.0",
+]
+providers-openai = [
+    "openai>=1.0.0",
+]
+providers-google = [
+    "google-generativeai>=0.8.0",
+]
+providers = [
+    "openadapt-grounding[providers-anthropic,providers-openai,providers-google]",
+]
 all = [
-    "openadapt-grounding[dev,deploy,uitars,eval]",
+    "openadapt-grounding[dev,deploy,uitars,eval,providers]",
 ]
 
 [tool.hatch.build.targets.wheel]
