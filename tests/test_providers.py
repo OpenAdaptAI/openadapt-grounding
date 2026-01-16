@@ -418,8 +418,9 @@ class TestGoogleIntegration:
         provider = GoogleProvider()
         client = provider.create_client(google_api_key)
         assert client is not None
-        assert "genai" in client
-        assert "api_key" in client
+        # The new google-genai SDK returns a Client object, not a dict
+        # Verify it has the expected models attribute
+        assert hasattr(client, "models")
 
     def test_send_message_text_only(self, google_api_key):
         """Test sending a simple text message."""

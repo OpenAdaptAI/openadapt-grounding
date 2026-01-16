@@ -10,7 +10,8 @@ from openadapt_grounding.providers.base import BaseAPIProvider
 class GoogleProvider(BaseAPIProvider):
     """Provider for Google's Gemini API.
 
-    Supports Gemini models for vision-language tasks.
+    Supports Gemini models for vision-language tasks using the new
+    unified google-genai SDK.
 
     Example:
         >>> provider = GoogleProvider()
@@ -41,42 +42,33 @@ class GoogleProvider(BaseAPIProvider):
         return "google"
 
     def create_client(self, api_key: str, **kwargs: Any) -> Any:
-        """Create a Google Generative AI client.
+        """Create a Google GenAI client.
 
         Args:
             api_key: Google AI API key. MUST be passed explicitly.
             **kwargs: Additional options (reserved for future use).
 
         Returns:
-            A dict containing the configured API key and settings.
-            Note: google.generativeai uses a configure() pattern rather
-            than a client object, so we wrap the configuration.
+            A google.genai.Client instance configured with the API key.
 
         Raises:
-            ImportError: If google-generativeai package is not installed.
+            ImportError: If google-genai package is not installed.
             ValueError: If api_key is empty.
         """
         if not api_key or not api_key.strip():
             raise ValueError("API key must be provided and non-empty")
 
         try:
-            import google.generativeai as genai
+            from google import genai
         except ImportError:
             raise ImportError(
-                "google-generativeai package is not installed. "
-                "Install with: pip install google-generativeai"
+                "google-genai package is not installed. "
+                "Install with: pip install google-genai"
             )
 
-        # Configure the library with the API key
-        genai.configure(api_key=api_key)
-
-        # Return a wrapper dict that holds the module reference and config
-        # This allows multiple clients with different keys if needed
-        return {
-            "genai": genai,
-            "api_key": api_key,
-            **kwargs,
-        }
+        # Create client with API key
+        client = genai.Client(api_key=api_key)
+        return client
 
     def send_message(
         self,
@@ -91,8 +83,8 @@ class GoogleProvider(BaseAPIProvider):
         """Send a message to Gemini and get a response.
 
         Args:
-            client: Client dict from create_client().
-            model: Model identifier (e.g., "gemini-3-pro").
+            client: Client from create_client() (google.genai.Client).
+            model: Model identifier (e.g., "gemini-2.5-pro").
             system: System prompt to set context/behavior.
             content: List of content blocks. Supported types:
                 - {"type": "text", "text": "..."}
@@ -111,26 +103,24 @@ class GoogleProvider(BaseAPIProvider):
         self.validate_model(model)
 
         try:
-            genai = client["genai"]
+            from google.genai import types
 
-            # Configure generation settings
-            generation_config = genai.types.GenerationConfig(
+            # Configure generation settings with system instruction
+            config = types.GenerateContentConfig(
+                system_instruction=system,
                 max_output_tokens=max_tokens,
                 temperature=temperature,
             )
 
-            # Create the model with system instruction
-            gemini_model = genai.GenerativeModel(
-                model_name=model,
-                system_instruction=system,
-                generation_config=generation_config,
-            )
-
-            # Convert content to Gemini format
+            # Convert content to Gemini format (list of parts)
             gemini_content = self._convert_content(content)
 
-            # Generate response
-            response = gemini_model.generate_content(gemini_content)
+            # Generate response using the new API
+            response = client.models.generate_content(
+                model=model,
+                contents=gemini_content,
+                config=config,
+            )
 
             # Extract text from response
             if response.text:
@@ -175,6 +165,8 @@ class GoogleProvider(BaseAPIProvider):
 
         Returns:
             List of content items in Gemini's expected format.
+            The new google-genai SDK accepts PIL images directly
+            and text strings as parts of the content list.
         """
         gemini_content = []
 
@@ -182,7 +174,7 @@ class GoogleProvider(BaseAPIProvider):
             if item.get("type") == "text":
                 gemini_content.append(item["text"])
             elif item.get("type") == "image":
-                # Gemini accepts PIL Images directly
+                # The new google-genai SDK accepts PIL Images directly
                 gemini_content.append(item["image"])
 
         return gemini_content
