@@ -1,5 +1,11 @@
 # OpenAdapt Grounding
 
+[![Build Status](https://github.com/OpenAdaptAI/openadapt-grounding/workflows/Publish%20to%20PyPI/badge.svg?branch=main)](https://github.com/OpenAdaptAI/openadapt-grounding/actions)
+[![PyPI version](https://img.shields.io/pypi/v/openadapt-grounding.svg)](https://pypi.org/project/openadapt-grounding/)
+[![Downloads](https://img.shields.io/pypi/dm/openadapt-grounding.svg)](https://pypi.org/project/openadapt-grounding/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/downloads/)
+
 **Robust UI element localization for automation.**
 
 Turn flakey single-frame detections into stable, reliable element coordinates.
