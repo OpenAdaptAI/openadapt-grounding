@@ -19,7 +19,7 @@ class GoogleProvider(BaseAPIProvider):
         >>> image = Image.open("screenshot.png")
         >>> response = provider.send_message(
         ...     client=client,
-        ...     model="gemini-2.5-pro",
+        ...     model="gemini-3-pro",
         ...     system="Describe UI elements in the image.",
         ...     content=[
         ...         {"type": "text", "text": "What buttons are visible?"},
@@ -29,11 +29,11 @@ class GoogleProvider(BaseAPIProvider):
     """
 
     SUPPORTED_MODELS: List[str] = [
+        "gemini-3-pro",
+        "gemini-3-flash",
         "gemini-2.5-pro",
         "gemini-2.5-flash",
-        "gemini-2.0-flash",
-        "gemini-1.5-pro",
-        "gemini-1.5-flash",
+        "gemini-2.5-flash-lite",
     ]
 
     @property
@@ -84,7 +84,7 @@ class GoogleProvider(BaseAPIProvider):
 
         Args:
             client: Client from create_client() (google.genai.Client).
-            model: Model identifier (e.g., "gemini-2.5-pro").
+            model: Model identifier (e.g., "gemini-3-pro").
             system: System prompt to set context/behavior.
             content: List of content blocks. Supported types:
                 - {"type": "text", "text": "..."}

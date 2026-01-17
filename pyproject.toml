@@ -12,6 +12,21 @@ license = "MIT"
 authors = [
     {name = "Richard Abrich", email = "richard@openadapt.ai"}
 ]
+maintainers = [
+    {name = "OpenAdaptAI", email = "info@openadapt.ai"}
+]
+keywords = ["grounding", "ui", "localization", "automation", "vlm", "vision", "ocr", "omniparser"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 
 dependencies = [
     "pillow>=10.0.0",
@@ -55,6 +70,13 @@ providers = [
 all = [
     "openadapt-grounding[dev,deploy,uitars,eval,providers]",
 ]
+
+[project.urls]
+Homepage = "https://github.com/OpenAdaptAI/openadapt-grounding"
+Repository = "https://github.com/OpenAdaptAI/openadapt-grounding"
+Documentation = "https://github.com/OpenAdaptAI/openadapt-grounding#readme"
+Issues = "https://github.com/OpenAdaptAI/openadapt-grounding/issues"
+Changelog = "https://github.com/OpenAdaptAI/openadapt-grounding/releases"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/openadapt_grounding"]

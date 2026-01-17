@@ -271,9 +271,9 @@ class TestGoogleProvider:
         """Test supported models list."""
         provider = GoogleProvider()
         models = provider.get_supported_models()
+        assert "gemini-3-pro" in models
         assert "gemini-2.5-pro" in models
         assert "gemini-2.5-flash" in models
-        assert "gemini-2.0-flash" in models
 
     def test_is_model_supported(self):
         """Test model support check."""
@@ -499,7 +499,7 @@ class TestErrorHandling:
         with pytest.raises(RuntimeError, match="Google AI API call failed"):
             provider.send_message(
                 client=client,
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash",
                 system="Test",
                 content=[{"type": "text", "text": "Test"}],
             )
