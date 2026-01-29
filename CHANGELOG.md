@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.1.2 (2026-01-29)
+
+### Bug Fixes
+
+- Use filename-based GitHub Actions badge URL
+  ([#2](https://github.com/OpenAdaptAI/openadapt-grounding/pull/2),
+  [`0d58eee`](https://github.com/OpenAdaptAI/openadapt-grounding/commit/0d58eee7dd0bbeb97ab485d74e937a438b72333e))
+
+The workflow-name-based badge URL was showing "no status" because GitHub requires workflow runs on
+  the specified branch. Using the filename-based URL format
+  (actions/workflows/publish.yml/badge.svg) is more reliable and works regardless of when the
+  workflow last ran.
+
+Co-authored-by: Claude Sonnet 4.5 <noreply@anthropic.com>
+
+
 ## v0.1.1 (2026-01-29)
 
 ### Bug Fixes
