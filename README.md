@@ -1,7 +1,7 @@
 # OpenAdapt Grounding
 
 > [!IMPORTANT]
-> **Status: Research — not required by the product.** This package explores
+> **Status: Research. Not required by the product.** This package explores
 > making grounding-model detections stable for GUI element localization. Healthy
 > compiled replays make no model calls; a grounding model is an optional,
 > explicitly enabled fallback rung, and this research is not part of that
@@ -24,7 +24,47 @@
 
 **Robust UI element localization for automation.**
 
-Turn flakey single-frame detections into stable, reliable element coordinates.
+Turn flaky single-frame detections into stable, reliable element coordinates.
+
+## Where it fits
+
+A compiled OpenAdapt workflow replays deterministically and makes no model calls
+on the healthy path. Grounding is only needed when a target must be relocated,
+and it is arranged as a ladder from cheapest to most expensive:
+
+1. **OCR text-anchoring (primary local rung).** `ElementLocator` matches an
+   element by its OCR text against a registry of stable elements. It runs
+   locally on the CPU through Tesseract, needs no paid API and no GPU, and is
+   resolution-independent because it anchors on text rather than pixels. This is
+   the rung this package leads with.
+2. **Optional model grounders (explicitly enabled fallback).** When text
+   anchoring is not enough you can enable a grounding model: a self-hosted
+   [OmniParser](https://github.com/microsoft/OmniParser) or
+   [UI-TARS](https://github.com/bytedance/UI-TARS) server (each needs a GPU), or
+   a hosted VLM provider (`get_provider("anthropic" | "openai" | "google")`,
+   each needs a paid API key). Temporal smoothing stabilizes their otherwise
+   flaky frame-to-frame detections.
+
+## The OpenAdapt stack
+
+OpenAdapt is a governed demonstration compiler: record a workflow once, compile
+the recording into a deterministic program, and replay that program with zero
+model calls on the healthy path. When the live screen does not match what was
+demonstrated it halts instead of guessing, using identity gates and independent
+effect verification. Every substrate is first-class: web and desktop recording
+are validated, RDP and Windows replay are early, and Citrix is exploratory.
+
+| Package | Role |
+| --- | --- |
+| [`openadapt`](https://github.com/OpenAdaptAI/OpenAdapt) | Launcher and installer (`pip install openadapt`) |
+| [`openadapt-flow`](https://github.com/OpenAdaptAI/openadapt-flow) | Records, compiles, verifies, and replays workflows |
+| [`openadapt-capture`](https://github.com/OpenAdaptAI/openadapt-capture) | Cross-platform local desktop recording |
+| [`openadapt-types`](https://github.com/OpenAdaptAI/openadapt-types) | Canonical action and UI-state schema |
+| **`openadapt-grounding`** | Local OCR text-anchoring plus optional model grounding (this package) |
+| [`openadapt-privacy`](https://github.com/OpenAdaptAI/openadapt-privacy) | PHI/PII detection and redaction |
+
+Documentation for the whole stack lives at
+[docs.openadapt.ai](https://docs.openadapt.ai).
 
 ## The Problem
 
@@ -71,8 +111,13 @@ Vision models like OmniParser miss elements randomly frame-to-frame ("flickering
 ## Quick Start
 
 ```bash
-uv pip install openadapt-grounding
+pip install openadapt-grounding
 ```
+
+The local OCR rung uses [Tesseract](https://github.com/tesseract-ocr/tesseract)
+through `pytesseract`, so install the Tesseract binary as well (for example
+`brew install tesseract` on macOS or `apt-get install tesseract-ocr` on Debian
+or Ubuntu). No GPU or paid API key is required for this rung.
 
 ### Build a Registry (Offline)
 
