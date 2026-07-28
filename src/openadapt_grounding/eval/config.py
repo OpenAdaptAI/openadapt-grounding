@@ -1,6 +1,6 @@
 """Configuration settings for evaluation."""
 
-from pathlib import Path
+import logging
 from functools import lru_cache
 
 try:
@@ -9,6 +9,8 @@ except ImportError:
     raise ImportError(
         "pydantic-settings not installed. Run: uv pip install openadapt-grounding[eval]"
     )
+
+logger = logging.getLogger(__name__)
 
 
 def _discover_instance_url(project_name: str, port: int) -> str | None:
@@ -119,7 +121,19 @@ def get_settings() -> EvalSettings:
     """Get evaluation settings, creating with defaults if pydantic unavailable."""
     try:
         return EvalSettings()
-    except Exception:
+    except Exception as exc:
+        # Logged, not swallowed. This fallback exists for "pydantic-settings is
+        # not installed", but it also caught a ValidationError from a malformed
+        # .env -- silently reverting every setting to its default, including
+        # DEFAULT_IOU_THRESHOLD, which decides the detection rate the run then
+        # reports. The operator saw no sign their configuration was ignored.
+        logger.warning(
+            "Could not load EvalSettings (%s: %s); falling back to built-in "
+            "defaults. Any configured values are being ignored.",
+            type(exc).__name__,
+            exc,
+        )
+
         # Return object with defaults if settings can't be loaded
         class DefaultSettings:
             @property

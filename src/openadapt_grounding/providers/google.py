@@ -1,6 +1,6 @@
 """Google AI API provider for Gemini models."""
 
-from typing import Any, Dict, List, Optional
+from typing import Any, ClassVar
 
 from PIL import Image
 
@@ -28,13 +28,13 @@ class GoogleProvider(BaseAPIProvider):
         ... )
     """
 
-    SUPPORTED_MODELS: List[str] = [
+    SUPPORTED_MODELS: ClassVar[tuple[str, ...]] = (
         "gemini-3-pro",
         "gemini-3-flash",
         "gemini-2.5-pro",
         "gemini-2.5-flash",
         "gemini-2.5-flash-lite",
-    ]
+    )
 
     @property
     def name(self) -> str:
@@ -75,7 +75,7 @@ class GoogleProvider(BaseAPIProvider):
         client: Any,
         model: str,
         system: str,
-        content: List[Dict[str, Any]],
+        content: list[dict[str, Any]],
         max_tokens: int = 1024,
         temperature: float = 0.0,
         **kwargs: Any,
@@ -134,7 +134,7 @@ class GoogleProvider(BaseAPIProvider):
         self,
         image: Image.Image,
         media_type: str = "image/png",
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Encode a PIL Image for the Gemini API.
 
         Args:
@@ -157,7 +157,7 @@ class GoogleProvider(BaseAPIProvider):
             "media_type": media_type,
         }
 
-    def _convert_content(self, content: List[Dict[str, Any]]) -> List[Any]:
+    def _convert_content(self, content: list[dict[str, Any]]) -> list[Any]:
         """Convert our generic content format to Gemini format.
 
         Args:

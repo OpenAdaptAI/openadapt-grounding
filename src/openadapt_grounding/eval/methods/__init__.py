@@ -2,19 +2,19 @@
 
 from openadapt_grounding.eval.methods.base import EvaluationMethod, EvaluationPrediction
 from openadapt_grounding.eval.methods.cropping import (
-    CropRegion,
     CroppingStrategy,
+    CropRegion,
     FixedCropping,
     NoCropping,
     ScreenSeekeRCropping,
 )
 
 __all__ = [
-    "EvaluationMethod",
-    "EvaluationPrediction",
     "CropRegion",
     "CroppingStrategy",
-    "NoCropping",
+    "EvaluationMethod",
+    "EvaluationPrediction",
     "FixedCropping",
+    "NoCropping",
     "ScreenSeekeRCropping",
 ]

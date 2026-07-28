@@ -9,12 +9,10 @@ import io
 import math
 import re
 from dataclasses import dataclass
-from typing import List, Optional, Tuple
 
 from PIL import Image
 
 from openadapt_grounding.types import Element
-
 
 # Constants from UI-TARS action_parser.py
 IMAGE_FACTOR = 28
@@ -44,7 +42,7 @@ def smart_resize(
     factor: int = IMAGE_FACTOR,
     min_pixels: int = MIN_PIXELS,
     max_pixels: int = MAX_PIXELS,
-) -> Tuple[int, int]:
+) -> tuple[int, int]:
     """Smart resize matching UI-TARS/Qwen2.5-VL preprocessing.
 
     Rescales dimensions so:
@@ -88,13 +86,13 @@ class GroundingResult:
     """Result of a grounding query."""
 
     found: bool
-    x: Optional[float] = None  # Normalized 0-1
-    y: Optional[float] = None  # Normalized 0-1
+    x: float | None = None  # Normalized 0-1
+    y: float | None = None  # Normalized 0-1
     confidence: float = 0.0
     raw_response: str = ""
     thought: str = ""
 
-    def to_pixels(self, width: int, height: int) -> Tuple[int, int]:
+    def to_pixels(self, width: int, height: int) -> tuple[int, int]:
         """Convert normalized coords to pixel coordinates.
 
         Args:
@@ -273,7 +271,7 @@ class UITarsClient:
     def _parse_response(
         self,
         raw_response: str,
-        image_size: Tuple[int, int],
+        image_size: tuple[int, int],
     ) -> GroundingResult:
         """Parse UI-TARS response and extract coordinates.
 
@@ -329,7 +327,7 @@ class UITarsClient:
             thought=thought,
         )
 
-    def parse(self, image: Image.Image) -> List[Element]:
+    def parse(self, image: Image.Image) -> list[Element]:
         """Parse all UI elements in the image.
 
         Note: UI-TARS is optimized for grounding (finding specific elements),

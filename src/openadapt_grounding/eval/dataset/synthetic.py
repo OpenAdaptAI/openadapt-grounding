@@ -2,7 +2,6 @@
 
 import random
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
 
 from PIL import Image, ImageDraw, ImageFont
 
@@ -125,7 +124,7 @@ class SyntheticGenerator:
         self,
         width: int = 1920,
         height: int = 1080,
-        seed: Optional[int] = None,
+        seed: int | None = None,
     ):
         """Initialize the generator.
 
@@ -142,7 +141,7 @@ class SyntheticGenerator:
         self._font = self._load_font()
         self._font_small = self._load_font(size=12)
 
-    def _load_font(self, size: int = 14) -> Optional[ImageFont.FreeTypeFont]:
+    def _load_font(self, size: int = 14) -> ImageFont.FreeTypeFont | None:
         """Try to load a TrueType font."""
         font_paths = [
             "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
@@ -155,7 +154,7 @@ class SyntheticGenerator:
         for path in font_paths:
             try:
                 return ImageFont.truetype(path, size)
-            except (OSError, IOError):
+            except OSError:
                 continue
 
         return None
@@ -165,7 +164,7 @@ class SyntheticGenerator:
         sample_id: str,
         difficulty: str = "medium",
         theme: str = "light",
-    ) -> Tuple[Image.Image, Sample]:
+    ) -> tuple[Image.Image, Sample]:
         """Generate a single synthetic sample.
 
         Args:
@@ -192,8 +191,8 @@ class SyntheticGenerator:
         params = element_params.get(difficulty, element_params["medium"])
         num_elements = random.randint(*params["count"])
 
-        elements: List[AnnotatedElement] = []
-        occupied_regions: List[Tuple[int, int, int, int]] = []
+        elements: list[AnnotatedElement] = []
+        occupied_regions: list[tuple[int, int, int, int]] = []
 
         for i in range(num_elements):
             elem = self._generate_element(
@@ -239,8 +238,8 @@ class SyntheticGenerator:
         min_size: int,
         max_size: int,
         theme: str,
-        occupied: List[Tuple[int, int, int, int]],
-    ) -> Optional[AnnotatedElement]:
+        occupied: list[tuple[int, int, int, int]],
+    ) -> AnnotatedElement | None:
         """Generate a single UI element."""
         # Choose element type with weighted distribution
         elem_type = random.choices(
@@ -276,8 +275,8 @@ class SyntheticGenerator:
             return None  # Could not find non-overlapping position
 
         # Draw element based on type
-        text: Optional[str] = None
-        instruction: Optional[str] = None
+        text: str | None = None
+        instruction: str | None = None
 
         if elem_type == ElementType.BUTTON:
             text = random.choice(BUTTON_TEXTS)
@@ -342,7 +341,7 @@ class SyntheticGenerator:
         y: int,
         w: int,
         h: int,
-        occupied: List[Tuple[int, int, int, int]],
+        occupied: list[tuple[int, int, int, int]],
         margin: int = 10,
     ) -> bool:
         """Check if rectangle overlaps with any occupied region."""
@@ -411,7 +410,7 @@ class SyntheticGenerator:
         self,
         output_dir: Path,
         num_samples: int = 500,
-        distribution: Optional[Dict[Tuple[str, str], float]] = None,
+        distribution: dict[tuple[str, str], float] | None = None,
     ) -> Dataset:
         """Generate a complete synthetic dataset.
 
@@ -437,7 +436,7 @@ class SyntheticGenerator:
                 ("hard", "dark"): 0.15,
             }
 
-        samples: List[Sample] = []
+        samples: list[Sample] = []
         sample_idx = 0
 
         for (difficulty, theme), fraction in distribution.items():

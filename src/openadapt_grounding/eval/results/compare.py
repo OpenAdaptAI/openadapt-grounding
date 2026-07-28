@@ -1,12 +1,12 @@
 """Compare evaluation results across methods."""
 
 from collections import defaultdict
-from typing import Any, Dict, List
+from typing import Any
 
 from openadapt_grounding.eval.metrics.types import MethodMetrics
 
 
-def compare_methods(all_metrics: List[MethodMetrics]) -> Dict[str, Any]:
+def compare_methods(all_metrics: list[MethodMetrics]) -> dict[str, Any]:
     """Generate comparison summary across all methods.
 
     Args:
@@ -19,7 +19,7 @@ def compare_methods(all_metrics: List[MethodMetrics]) -> Dict[str, Any]:
         return {"error": "No metrics provided"}
 
     # Group by dataset
-    by_dataset: Dict[str, List[MethodMetrics]] = defaultdict(list)
+    by_dataset: dict[str, list[MethodMetrics]] = defaultdict(list)
     for m in all_metrics:
         by_dataset[m.dataset_name].append(m)
 
@@ -50,7 +50,7 @@ def compare_methods(all_metrics: List[MethodMetrics]) -> Dict[str, Any]:
 
     # Summary statistics
     summary = {
-        "total_methods": len(set(m.method_name for m in all_metrics)),
+        "total_methods": len({m.method_name for m in all_metrics}),
         "total_datasets": len(by_dataset),
         "best_overall": by_rate[0].method_name if by_rate else None,
         "best_overall_rate": by_rate[0].detection_rate if by_rate else 0.0,

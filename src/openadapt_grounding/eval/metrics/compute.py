@@ -1,12 +1,11 @@
 """Metrics computation functions."""
 
 from collections import defaultdict
-from typing import List, Tuple
 
 from openadapt_grounding.eval.metrics.types import ElementResult, MethodMetrics
 
 
-def compute_iou(bbox1: Tuple[float, ...], bbox2: Tuple[float, ...]) -> float:
+def compute_iou(bbox1: tuple[float, ...], bbox2: tuple[float, ...]) -> float:
     """Compute IoU between two bboxes in (x, y, w, h) format.
 
     Args:
@@ -41,8 +40,8 @@ def compute_iou(bbox1: Tuple[float, ...], bbox2: Tuple[float, ...]) -> float:
 
 
 def compute_point_distance(
-    point: Tuple[float, float],
-    target_center: Tuple[float, float],
+    point: tuple[float, float],
+    target_center: tuple[float, float],
 ) -> float:
     """Compute Euclidean distance between point and target center.
 
@@ -59,7 +58,7 @@ def compute_point_distance(
 
 
 def aggregate_metrics(
-    results: List[ElementResult],
+    results: list[ElementResult],
     method_name: str,
     dataset_name: str,
 ) -> MethodMetrics:
@@ -107,7 +106,7 @@ def aggregate_metrics(
     for r in results:
         by_size[r.size_category].append(r.found)
 
-    def rate_for_category(items: List[bool]) -> float:
+    def rate_for_category(items: list[bool]) -> float:
         return sum(items) / len(items) if items else 0.0
 
     detection_rate_small = rate_for_category(by_size.get("small", []))

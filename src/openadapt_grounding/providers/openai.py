@@ -1,6 +1,6 @@
 """OpenAI API provider for GPT models."""
 
-from typing import Any, Dict, List, Optional
+from typing import Any, ClassVar
 
 from PIL import Image
 
@@ -27,10 +27,10 @@ class OpenAIProvider(BaseAPIProvider):
         ... )
     """
 
-    SUPPORTED_MODELS: List[str] = [
+    SUPPORTED_MODELS: ClassVar[tuple[str, ...]] = (
         "gpt-5.2",
         "gpt-4o",
-    ]
+    )
 
     @property
     def name(self) -> str:
@@ -66,7 +66,7 @@ class OpenAIProvider(BaseAPIProvider):
                 "Install with: pip install openai"
             )
 
-        client_kwargs: Dict[str, Any] = {"api_key": api_key}
+        client_kwargs: dict[str, Any] = {"api_key": api_key}
 
         if "base_url" in kwargs:
             client_kwargs["base_url"] = kwargs["base_url"]
@@ -84,7 +84,7 @@ class OpenAIProvider(BaseAPIProvider):
         client: Any,
         model: str,
         system: str,
-        content: List[Dict[str, Any]],
+        content: list[dict[str, Any]],
         max_tokens: int = 1024,
         temperature: float = 0.0,
         **kwargs: Any,
@@ -136,7 +136,7 @@ class OpenAIProvider(BaseAPIProvider):
         image: Image.Image,
         media_type: str = "image/png",
         detail: str = "auto",
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Encode a PIL Image for the OpenAI API.
 
         Args:

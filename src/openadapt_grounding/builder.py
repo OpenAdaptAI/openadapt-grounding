@@ -4,7 +4,6 @@ import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List, Optional, Union
 
 from openadapt_grounding.types import Bounds, Element, RegistryEntry
 
@@ -12,10 +11,10 @@ from openadapt_grounding.types import Bounds, Element, RegistryEntry
 class Registry:
     """Collection of stable UI elements."""
 
-    def __init__(self, entries: List[RegistryEntry]):
+    def __init__(self, entries: list[RegistryEntry]):
         self.entries = entries
-        self._by_text: Dict[str, RegistryEntry] = {}
-        self._by_uid: Dict[str, RegistryEntry] = {}
+        self._by_text: dict[str, RegistryEntry] = {}
+        self._by_uid: dict[str, RegistryEntry] = {}
 
         for entry in entries:
             self._by_uid[entry.uid] = entry
@@ -23,15 +22,15 @@ class Registry:
                 # Index by lowercase text for case-insensitive lookup
                 self._by_text[entry.text.lower()] = entry
 
-    def get_by_text(self, text: str) -> Optional[RegistryEntry]:
+    def get_by_text(self, text: str) -> RegistryEntry | None:
         """Find entry by text (case-insensitive)."""
         return self._by_text.get(text.lower())
 
-    def get_by_uid(self, uid: str) -> Optional[RegistryEntry]:
+    def get_by_uid(self, uid: str) -> RegistryEntry | None:
         """Find entry by UID."""
         return self._by_uid.get(uid)
 
-    def find_similar_text(self, query: str) -> Optional[RegistryEntry]:
+    def find_similar_text(self, query: str) -> RegistryEntry | None:
         """Find entry with text containing the query (case-insensitive)."""
         query_lower = query.lower()
         for text, entry in self._by_text.items():
@@ -39,13 +38,13 @@ class Registry:
                 return entry
         return None
 
-    def save(self, path: Union[str, Path]) -> None:
+    def save(self, path: str | Path) -> None:
         """Save registry to JSON file."""
         data = {"entries": [e.to_dict() for e in self.entries]}
         Path(path).write_text(json.dumps(data, indent=2))
 
     @classmethod
-    def load(cls, path: Union[str, Path]) -> "Registry":
+    def load(cls, path: str | Path) -> "Registry":
         """Load registry from JSON file."""
         data = json.loads(Path(path).read_text())
         entries = [RegistryEntry.from_dict(e) for e in data["entries"]]
@@ -67,9 +66,9 @@ class RegistryBuilder:
             iou_threshold: Min IoU to consider two elements the same (for non-text elements)
         """
         self.iou_threshold = iou_threshold
-        self.frames: List[List[Element]] = []
+        self.frames: list[list[Element]] = []
 
-    def add_frame(self, elements: List[Element]) -> None:
+    def add_frame(self, elements: list[Element]) -> None:
         """Add a frame's worth of element detections."""
         self.frames.append(elements)
 
@@ -101,7 +100,7 @@ class RegistryBuilder:
 
         return Registry(stable_entries)
 
-    def _cluster_elements(self) -> Dict[str, List[Element]]:
+    def _cluster_elements(self) -> dict[str, list[Element]]:
         """
         Group elements across frames into clusters.
 
@@ -109,10 +108,10 @@ class RegistryBuilder:
         1. Elements with identical text -> same cluster
         2. Elements without text -> cluster by IoU overlap
         """
-        clusters: Dict[str, List[Element]] = defaultdict(list)
+        clusters: dict[str, list[Element]] = defaultdict(list)
 
         # First pass: cluster by text
-        text_to_cluster: Dict[str, str] = {}
+        text_to_cluster: dict[str, str] = {}
 
         for frame_idx, frame in enumerate(self.frames):
             for elem in frame:
@@ -126,14 +125,14 @@ class RegistryBuilder:
 
         # Second pass: cluster non-text elements by spatial overlap
         # For simplicity, we use a greedy approach
-        non_text_elements: List[tuple] = []  # (frame_idx, element)
+        non_text_elements: list[tuple] = []  # (frame_idx, element)
         for frame_idx, frame in enumerate(self.frames):
             for elem in frame:
                 if not elem.text:
                     non_text_elements.append((frame_idx, elem))
 
         # Greedy clustering for non-text elements
-        spatial_clusters: List[List[Element]] = []
+        spatial_clusters: list[list[Element]] = []
         used = set()
 
         for i, (frame_i, elem_i) in enumerate(non_text_elements):
@@ -161,13 +160,13 @@ class RegistryBuilder:
 
         return clusters
 
-    def _make_cluster_id(self, text: Optional[str], element_type: str) -> str:
+    def _make_cluster_id(self, text: str | None, element_type: str) -> str:
         """Generate a deterministic cluster ID."""
         key = f"{text or ''}:{element_type}"
         return hashlib.md5(key.encode()).hexdigest()[:12]
 
     def _make_entry(
-        self, cluster_id: str, elements: List[Element], total_frames: int
+        self, cluster_id: str, elements: list[Element], total_frames: int
     ) -> RegistryEntry:
         """Create a registry entry from a cluster of elements."""
         # Use most common text
@@ -190,7 +189,7 @@ class RegistryBuilder:
             total_frames=total_frames,
         )
 
-    def _average_bounds(self, bounds_list: List[Bounds]) -> Bounds:
+    def _average_bounds(self, bounds_list: list[Bounds]) -> Bounds:
         """Compute average bounds."""
         n = len(bounds_list)
         if n == 0:

@@ -37,7 +37,16 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0.0",
-    "ruff>=0.1.0",
+    # Bounded on purpose. `ruff>=0.1.0` unpinned means `ruff check` here answers
+    # differently depending on the day it is run: ruff 0.16.0 grew its DEFAULT
+    # rule set from 59 rules to 413, and this project selected no rules
+    # explicitly, so it silently inherited 354 new ones. This tree reported 0
+    # findings under the locked ruff 0.14.11 and 351 under 0.16.0. There is no
+    # lint CI in this repo, so nothing went red -- the failure mode was worse
+    # than red: two people running `ruff check .` a week apart got different
+    # answers and neither was wrong. Raise the ceiling deliberately, with the
+    # findings cleared in the same change.
+    "ruff>=0.16,<0.17",
 ]
 deploy = [
     "boto3>=1.34.0",
@@ -83,6 +92,62 @@ packages = ["src/openadapt_grounding"]
 
 [tool.ruff]
 line-length = 100
+target-version = "py310"
+
+# There is deliberately no `select` here: this project keeps ruff's FULL
+# default rule set. The residual after safe autofix was 58 findings, small
+# enough to open and judge one by one, and the rules doing the judging are the
+# ones worth keeping -- RUF012 found `SUPPORTED_MODELS` handed out by
+# reference, S112 found evaluation runs that reported a dead backend as a 0%
+# score, RUF013 found `crop_sizes or [...]` overriding an explicit empty list,
+# and BLE001 pointed at the OCR catch in `locator.py` that turned a missing
+# tesseract into a confident stale click. Narrowing to `["E","F","I","W"]`
+# would have found none of them.
+#
+# Predictability comes from the bounded `ruff>=0.16,<0.17` in the dev extra
+# above, not from pinning the rule list: ruff only grows its default set in a
+# minor release, so the set cannot move until a person raises that ceiling and
+# owns the new findings in the same change. This repo has no lint CI, so that
+# bound is the only thing making `ruff check .` reproducible here.
+
+[tool.ruff.lint]
+# BLE001 (blind `except Exception`) is the one rule in ruff 0.16's expanded
+# defaults that is wrong for this codebase, so it is disabled deliberately
+# rather than suppressed at twenty-odd individual sites.
+#
+# Sixteen of the remaining sites are in `deploy/deploy.py` and
+# `deploy/uitars/deploy.py`, which are operator-facing CLIs that drive boto3,
+# paramiko and `requests` against live AWS. Every handler prints the exception
+# and degrades on purpose -- returns None, skips auto-shutdown setup, retries
+# the SSH connect, continues cleaning up the next resource -- because a
+# deployment tool that aborts with a traceback halfway through provisioning
+# leaves the operator paying for orphaned infrastructure.
+#
+# There is also nothing to narrow to. botocore raises `ClientError` but also
+# `BotoCoreError`, `NoCredentialsError` and `EndpointConnectionError`; paramiko
+# raises `SSHException` and bare socket errors; `requests` raises its own
+# hierarchy. They share no base. Enumerating them would reintroduce
+# abort-on-first-surprise the next time a vendor added an exception type, which
+# is a behaviour change, not a style change. Where a narrow base class DID
+# exist it was used -- see `requests.RequestException` in
+# `deploy/uitars/deploy.py::Deploy.wait`.
+#
+# Where a blind catch was hiding a defect rather than guarding a boundary, the
+# code was fixed instead of ignored: `locator.ElementLocator._run_ocr`,
+# `eval/methods/omniparser.py`, `eval/methods/uitars.py` and
+# `eval/config.get_settings` all now report why they failed.
+ignore = ["BLE001"]
+
+[tool.ruff.lint.per-file-ignores]
+# RUF022 wants `__all__` sorted alphabetically. All three of these are grouped
+# by subsystem with `# Types` / `# Core` / `# Parsers` / `# Dataset` /
+# `# Metrics` headings, and an alphabetical sort strands every comment against
+# an unrelated name. The grouping documents the package layout and is worth
+# more than the ordering, so the rule is turned off for these three files
+# rather than repo-wide.
+"src/openadapt_grounding/__init__.py" = ["RUF022"]
+"src/openadapt_grounding/eval/__init__.py" = ["RUF022"]
+"src/openadapt_grounding/providers/__init__.py" = ["RUF022"]
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:project.version"]

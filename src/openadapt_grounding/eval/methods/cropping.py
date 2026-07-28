@@ -2,7 +2,6 @@
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import List, Tuple
 
 from PIL import Image
 
@@ -19,7 +18,7 @@ class CropRegion:
     w: float  # Normalized crop width
     h: float  # Normalized crop height
 
-    def crop(self, image: Image.Image) -> Tuple[Image.Image, Tuple[int, int, int, int]]:
+    def crop(self, image: Image.Image) -> tuple[Image.Image, tuple[int, int, int, int]]:
         """Crop the image and return cropped image + pixel offset.
 
         Args:
@@ -48,7 +47,7 @@ class CropRegion:
         return cropped, (px_x, px_y, px_w, px_h)
 
     def transform_element(
-        self, elem: Element, offset: Tuple[int, int, int, int]
+        self, elem: Element, offset: tuple[int, int, int, int]
     ) -> Element:
         """Transform element coordinates from cropped space to original.
 
@@ -75,8 +74,8 @@ class CropRegion:
         )
 
     def transform_point(
-        self, x: float, y: float, offset: Tuple[int, int, int, int]
-    ) -> Tuple[float, float]:
+        self, x: float, y: float, offset: tuple[int, int, int, int]
+    ) -> tuple[float, float]:
         """Transform point from cropped space to original.
 
         Args:
@@ -106,7 +105,7 @@ class CroppingStrategy(ABC):
         self,
         image: Image.Image,
         target: AnnotatedElement,
-    ) -> List[CropRegion]:
+    ) -> list[CropRegion]:
         """Get list of regions to evaluate.
 
         Args:
@@ -128,7 +127,7 @@ class NoCropping(CroppingStrategy):
 
     def get_regions(
         self, image: Image.Image, target: AnnotatedElement
-    ) -> List[CropRegion]:
+    ) -> list[CropRegion]:
         return [CropRegion(0.0, 0.0, 1.0, 1.0)]
 
 
@@ -139,14 +138,19 @@ class FixedCropping(CroppingStrategy):
     what a real system might do with an approximate location.
     """
 
-    def __init__(self, crop_sizes: List[int] = None):
+    def __init__(self, crop_sizes: list[int] | None = None):
         """Initialize with crop sizes.
 
         Args:
             crop_sizes: Sizes in pixels at 1080p resolution.
-                        Converted to normalized during use.
+                        Converted to normalized during use. Pass an empty list
+                        to evaluate the full image only.
         """
-        self.crop_sizes = crop_sizes or [200, 300, 500]
+        # `is None`, not `or`: an explicitly empty `crop_sizes=[]` means "full
+        # image only" and must stay empty. `or` silently substituted the three
+        # default sizes, so a run configured with no fixed crops still
+        # evaluated 200/300/500 and reported their results.
+        self.crop_sizes = [200, 300, 500] if crop_sizes is None else crop_sizes
 
     @property
     def name(self) -> str:
@@ -154,7 +158,7 @@ class FixedCropping(CroppingStrategy):
 
     def get_regions(
         self, image: Image.Image, target: AnnotatedElement
-    ) -> List[CropRegion]:
+    ) -> list[CropRegion]:
         regions = [CropRegion(0.0, 0.0, 1.0, 1.0)]  # Always include full image
 
         img_w, img_h = image.size
@@ -202,7 +206,7 @@ class ScreenSeekeRCropping(CroppingStrategy):
 
     def get_regions(
         self, image: Image.Image, target: AnnotatedElement
-    ) -> List[CropRegion]:
+    ) -> list[CropRegion]:
         regions = [CropRegion(0.0, 0.0, 1.0, 1.0)]  # Always include full image
 
         # If no LLM client, use heuristic regions
@@ -216,7 +220,7 @@ class ScreenSeekeRCropping(CroppingStrategy):
 
         return regions
 
-    def _heuristic_regions(self, target: AnnotatedElement) -> List[CropRegion]:
+    def _heuristic_regions(self, target: AnnotatedElement) -> list[CropRegion]:
         """Fallback heuristic regions based on common UI patterns."""
         cx, cy = target.click_point
         regions = []
@@ -251,7 +255,7 @@ class ScreenSeekeRCropping(CroppingStrategy):
         self,
         image: Image.Image,
         target: AnnotatedElement,
-    ) -> List[CropRegion]:
+    ) -> list[CropRegion]:
         """Use LLM to predict likely regions containing the target.
 
         Future implementation would:

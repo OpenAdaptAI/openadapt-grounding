@@ -1,13 +1,12 @@
 """Chart generation for evaluation results."""
 
 from pathlib import Path
-from typing import List
 
 from openadapt_grounding.eval.metrics.types import MethodMetrics
 
 
 def generate_comparison_charts(
-    metrics: List[MethodMetrics],
+    metrics: list[MethodMetrics],
     output_dir: Path,
 ) -> None:
     """Generate comparison charts as PNG files.
@@ -25,7 +24,12 @@ def generate_comparison_charts(
         import matplotlib
 
         matplotlib.use("Agg")  # Non-interactive backend
-        import matplotlib.pyplot as plt
+        # Availability probe, not a use -- do not delete. `matplotlib.use()`
+        # does not load pyplot, and pyplot is what actually fails when
+        # matplotlib is missing or its backend is broken. Importing it here
+        # turns that into the message below instead of an uncaught ImportError
+        # raised from inside one of the `_generate_*` helpers.
+        import matplotlib.pyplot
     except ImportError:
         print("matplotlib not installed. Skipping chart generation.")
         print("Install with: uv pip install matplotlib")
@@ -63,9 +67,9 @@ def generate_comparison_charts(
 
 
 def _generate_detection_rate_chart(
-    metrics: List[MethodMetrics],
+    metrics: list[MethodMetrics],
     output_dir: Path,
-    colors: List[str],
+    colors: list[str],
 ) -> None:
     """Generate overall detection rate bar chart."""
     import matplotlib.pyplot as plt
@@ -93,16 +97,19 @@ def _generate_detection_rate_chart(
             fontsize=9,
         )
 
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.savefig(output_dir / "detection_rate_overall.png", dpi=150)
-    plt.close()
+    # `fig.*` / `plt.close(fig)` rather than the pyplot global-current-figure
+    # API: the figure handle was bound and then never used, so every save here
+    # depended on this function's figure still being "current".
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right")
+    fig.tight_layout()
+    fig.savefig(output_dir / "detection_rate_overall.png", dpi=150)
+    plt.close(fig)
 
 
 def _generate_size_breakdown_chart(
-    metrics: List[MethodMetrics],
+    metrics: list[MethodMetrics],
     output_dir: Path,
-    colors: List[str],
+    colors: list[str],
 ) -> None:
     """Generate detection rate by size chart."""
     import matplotlib.pyplot as plt
@@ -128,15 +135,15 @@ def _generate_size_breakdown_chart(
     ax.legend()
     ax.set_ylim(0, 100)
 
-    plt.tight_layout()
-    plt.savefig(output_dir / "detection_rate_by_size.png", dpi=150)
-    plt.close()
+    fig.tight_layout()
+    fig.savefig(output_dir / "detection_rate_by_size.png", dpi=150)
+    plt.close(fig)
 
 
 def _generate_latency_accuracy_chart(
-    metrics: List[MethodMetrics],
+    metrics: list[MethodMetrics],
     output_dir: Path,
-    colors: List[str],
+    colors: list[str],
 ) -> None:
     """Generate latency vs accuracy scatter plot."""
     import matplotlib.pyplot as plt
@@ -168,6 +175,6 @@ def _generate_latency_accuracy_chart(
     ax.axvline(x=2000, color="gray", linestyle="--", alpha=0.3, label="2s target")
 
     ax.legend(loc="lower right", fontsize=8)
-    plt.tight_layout()
-    plt.savefig(output_dir / "accuracy_vs_latency.png", dpi=150)
-    plt.close()
+    fig.tight_layout()
+    fig.savefig(output_dir / "accuracy_vs_latency.png", dpi=150)
+    plt.close(fig)

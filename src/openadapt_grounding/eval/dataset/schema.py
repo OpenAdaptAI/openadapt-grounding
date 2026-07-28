@@ -6,7 +6,7 @@ import json
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 
 class ElementType(str, Enum):
@@ -35,13 +35,13 @@ class AnnotatedElement:
     """Ground truth annotation for a single UI element."""
 
     id: str
-    bbox: Tuple[float, float, float, float]  # (x, y, w, h) normalized 0-1
-    text: Optional[str] = None
+    bbox: tuple[float, float, float, float]  # (x, y, w, h) normalized 0-1
+    text: str | None = None
     element_type: ElementType = ElementType.UNKNOWN
-    instruction: Optional[str] = None  # Natural language description for UI-TARS
+    instruction: str | None = None  # Natural language description for UI-TARS
 
     @property
-    def click_point(self) -> Tuple[float, float]:
+    def click_point(self) -> tuple[float, float]:
         """Center point of the element."""
         x, y, w, h = self.bbox
         return (x + w / 2, y + h / 2)
@@ -58,7 +58,7 @@ class AnnotatedElement:
         else:
             return ElementSize.LARGE
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to JSON-serializable dict."""
         return {
             "id": self.id,
@@ -69,7 +69,7 @@ class AnnotatedElement:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> AnnotatedElement:
+    def from_dict(cls, data: dict[str, Any]) -> AnnotatedElement:
         """Create from dict."""
         return cls(
             id=data["id"],
@@ -88,10 +88,10 @@ class Sample:
     image_path: str  # Relative path from dataset root
     width: int  # Original image width in pixels
     height: int  # Original image height in pixels
-    elements: List[AnnotatedElement]
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    elements: list[AnnotatedElement]
+    metadata: dict[str, Any] = field(default_factory=dict)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to JSON-serializable dict."""
         return {
             "id": self.id,
@@ -103,7 +103,7 @@ class Sample:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> Sample:
+    def from_dict(cls, data: dict[str, Any]) -> Sample:
         """Create from dict."""
         return cls(
             id=data["id"],
@@ -121,8 +121,8 @@ class Dataset:
 
     name: str
     version: str
-    samples: List[Sample]
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    samples: list[Sample]
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def save(self, path: Path) -> None:
         """Save dataset to JSON."""

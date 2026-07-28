@@ -6,7 +6,6 @@ See: https://github.com/microsoft/OmniParser
 
 import base64
 import io
-from typing import List, Optional
 
 import requests
 from PIL import Image
@@ -52,7 +51,7 @@ class OmniParserClient:
         except requests.exceptions.RequestException:
             return False
 
-    def parse(self, image: Image.Image) -> List[Element]:
+    def parse(self, image: Image.Image) -> list[Element]:
         """Parse a screenshot and return detected UI elements.
 
         Args:
@@ -112,7 +111,7 @@ class OmniParserClient:
             "som_image_base64": result.get("som_image_base64"),
         }
 
-    def _convert_response(self, result: dict) -> List[Element]:
+    def _convert_response(self, result: dict) -> list[Element]:
         """Convert OmniParser response to Element list.
 
         OmniParser returns bboxes as [x1, y1, x2, y2] (normalized).
@@ -182,7 +181,7 @@ class OmniParserLocal:
     Not yet implemented - requires torch and model weights.
     """
 
-    def __init__(self, model_path: Optional[str] = None):
+    def __init__(self, model_path: str | None = None):
         raise NotImplementedError(
             "Local OmniParser not yet implemented. "
             "Use OmniParserClient with a deployed server instead. "
