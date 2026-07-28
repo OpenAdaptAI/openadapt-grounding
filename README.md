@@ -16,7 +16,7 @@
 > every repository are in the
 > [repository lifecycle registry](https://github.com/OpenAdaptAI/.github/blob/main/REPOSITORY_LIFECYCLE.md).
 
-[![Build Status](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/publish.yml/badge.svg)](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/publish.yml)
+[![Release](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/release.yml/badge.svg)](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/release.yml)
 [![PyPI version](https://img.shields.io/pypi/v/openadapt-grounding.svg)](https://pypi.org/project/openadapt-grounding/)
 [![Downloads](https://img.shields.io/pypi/dm/openadapt-grounding.svg)](https://pypi.org/project/openadapt-grounding/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
