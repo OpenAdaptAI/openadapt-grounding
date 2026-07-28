@@ -1,12 +1,14 @@
 """Runtime element locator using OCR."""
 
+import logging
 from pathlib import Path
-from typing import List, Optional, Tuple, Union
 
 from PIL import Image
 
 from openadapt_grounding.builder import Registry
-from openadapt_grounding.types import Bounds, Element, LocatorResult
+from openadapt_grounding.types import Element, LocatorResult
+
+logger = logging.getLogger(__name__)
 
 
 class ElementLocator:
@@ -14,7 +16,7 @@ class ElementLocator:
 
     def __init__(
         self,
-        registry: Union[str, Path, Registry],
+        registry: str | Path | Registry,
         fuzzy_match: bool = True,
     ):
         """
@@ -56,7 +58,7 @@ class ElementLocator:
             )
 
         # 2. OCR the screenshot
-        ocr_results = self._run_ocr(screenshot)
+        ocr_results, ocr_error = self._run_ocr(screenshot)
 
         # 3. Find matching text
         for ocr_elem in ocr_results:
@@ -74,13 +76,24 @@ class ElementLocator:
         # 4. Fallback: return registry position if no OCR match
         # This is risky but better than nothing for stable UIs
         cx, cy = entry.center
+        # The reason distinguishes "OCR ran and disagreed" from "OCR never
+        # ran". Both used to report `reason="no_ocr_match"`, so a machine with
+        # no tesseract installed got `found=True` at the coordinate recorded at
+        # build time, labelled as if OCR had confirmed no match -- an unchecked
+        # stale click that the caller had no way to detect.
+        debug: dict[str, object] = {"method": "fallback_position"}
+        if ocr_error is not None:
+            debug["reason"] = "ocr_unavailable"
+            debug["ocr_error"] = ocr_error
+        else:
+            debug["reason"] = "no_ocr_match"
         return LocatorResult(
             found=True,
             x=cx,
             y=cy,
             confidence=0.5,  # Lower confidence for fallback
             matched_entry=entry,
-            debug={"method": "fallback_position", "reason": "no_ocr_match"},
+            debug=debug,
         )
 
     def find_by_uid(
@@ -110,18 +123,34 @@ class ElementLocator:
             debug={"method": "stored_position"},
         )
 
-    def _run_ocr(self, image: Image.Image) -> List[Element]:
-        """Run OCR on image and return detected text elements."""
+    def _run_ocr(self, image: Image.Image) -> tuple[list[Element], str | None]:
+        """Run OCR on image and return detected text elements.
+
+        Returns:
+            ``(elements, error)``. ``error`` is None when OCR actually ran; it
+            is a short description when OCR could not run at all, in which case
+            ``elements`` is empty for a reason that has nothing to do with the
+            screenshot.
+
+        An empty list used to be returned for both "OCR ran and saw no text"
+        and "OCR never ran", which let `find()` report a stale registry
+        coordinate as `found=True, reason="no_ocr_match"`. See `find()`.
+        """
         try:
             import pytesseract
-        except ImportError:
-            return []
+        except ImportError as exc:
+            logger.warning("OCR unavailable, pytesseract is not installed: %s", exc)
+            return [], f"pytesseract not installed: {exc}"
 
-        # Get OCR data with bounding boxes
+        # Get OCR data with bounding boxes. The catch stays broad because
+        # pytesseract raises TesseractNotFoundError (an OSError), TesseractError
+        # and PIL decoding errors with no shared base -- but the reason is
+        # returned now instead of discarded.
         try:
             data = pytesseract.image_to_data(image, output_type=pytesseract.Output.DICT)
-        except Exception:
-            return []
+        except Exception as exc:
+            logger.warning("OCR failed: %s: %s", type(exc).__name__, exc)
+            return [], f"{type(exc).__name__}: {exc}"
 
         elements = []
         width, height = image.size
@@ -150,9 +179,9 @@ class ElementLocator:
                 )
             )
 
-        return elements
+        return elements, None
 
-    def _text_matches(self, ocr_text: Optional[str], registry_text: Optional[str]) -> bool:
+    def _text_matches(self, ocr_text: str | None, registry_text: str | None) -> bool:
         """Check if OCR text matches registry text."""
         if not ocr_text or not registry_text:
             return False
@@ -165,8 +194,6 @@ class ElementLocator:
             return True
 
         # Fuzzy: one contains the other
-        if self.fuzzy_match:
-            if ocr_lower in reg_lower or reg_lower in ocr_lower:
-                return True
-
-        return False
+        return self.fuzzy_match and (
+            ocr_lower in reg_lower or reg_lower in ocr_lower
+        )

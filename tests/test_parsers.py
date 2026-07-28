@@ -1,6 +1,5 @@
 """Tests for parser implementations."""
 
-import json
 from unittest.mock import MagicMock, patch
 
 import pytest

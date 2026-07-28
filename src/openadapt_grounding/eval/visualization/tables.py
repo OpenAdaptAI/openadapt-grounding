@@ -1,11 +1,10 @@
 """Console and markdown table formatting for evaluation results."""
 
-from typing import List
 
 from openadapt_grounding.eval.metrics.types import MethodMetrics
 
 
-def print_summary_table(metrics: List[MethodMetrics]) -> None:
+def print_summary_table(metrics: list[MethodMetrics]) -> None:
     """Print a formatted comparison table to console.
 
     Args:
@@ -60,7 +59,7 @@ def print_summary_table(metrics: List[MethodMetrics]) -> None:
     print()
 
 
-def format_markdown_table(metrics: List[MethodMetrics]) -> str:
+def format_markdown_table(metrics: list[MethodMetrics]) -> str:
     """Format results as a markdown table.
 
     Args:

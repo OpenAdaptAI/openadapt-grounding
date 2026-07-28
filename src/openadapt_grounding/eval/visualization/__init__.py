@@ -7,7 +7,7 @@ from openadapt_grounding.eval.visualization.tables import (
 )
 
 __all__ = [
+    "format_markdown_table",
     "generate_comparison_charts",
     "print_summary_table",
-    "format_markdown_table",
 ]

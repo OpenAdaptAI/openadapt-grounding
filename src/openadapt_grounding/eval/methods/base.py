@@ -2,7 +2,7 @@
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
-from typing import Any, Dict, Optional, Tuple
+from typing import Any
 
 from PIL import Image
 
@@ -19,12 +19,12 @@ class EvaluationPrediction:
     """
 
     found: bool
-    click_point: Optional[Tuple[float, float]] = None  # Normalized (x, y)
-    bbox: Optional[Bounds] = None  # (x, y, w, h) normalized
+    click_point: tuple[float, float] | None = None  # Normalized (x, y)
+    bbox: Bounds | None = None  # (x, y, w, h) normalized
     confidence: float = 0.0
     latency_ms: float = 0.0
     attempts: int = 1
-    method_info: Dict[str, Any] = field(default_factory=dict)
+    method_info: dict[str, Any] = field(default_factory=dict)
 
 
 class EvaluationMethod(ABC):

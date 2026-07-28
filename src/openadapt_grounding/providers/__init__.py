@@ -38,23 +38,20 @@ Supported Providers:
     - google: Gemini models (gemini-2.5-pro, gemini-2.5-flash, gemini-2.0-flash)
 """
 
-from typing import Dict, List, Optional, Type
-
-from openadapt_grounding.providers.base import BaseAPIProvider
 from openadapt_grounding.providers.anthropic import AnthropicProvider
-from openadapt_grounding.providers.openai import OpenAIProvider
+from openadapt_grounding.providers.base import BaseAPIProvider
 from openadapt_grounding.providers.google import GoogleProvider
-
+from openadapt_grounding.providers.openai import OpenAIProvider
 
 # Registry of available providers
-_PROVIDERS: Dict[str, Type[BaseAPIProvider]] = {
+_PROVIDERS: dict[str, type[BaseAPIProvider]] = {
     "anthropic": AnthropicProvider,
     "openai": OpenAIProvider,
     "google": GoogleProvider,
 }
 
 # Aliases for convenience
-_PROVIDER_ALIASES: Dict[str, str] = {
+_PROVIDER_ALIASES: dict[str, str] = {
     "claude": "anthropic",
     "gpt": "openai",
     "gemini": "google",
@@ -93,7 +90,7 @@ def get_provider(name: str) -> BaseAPIProvider:
     return _PROVIDERS[resolved_name]()
 
 
-def list_providers() -> List[str]:
+def list_providers() -> list[str]:
     """Return a list of available provider names.
 
     Returns:
@@ -107,24 +104,28 @@ def list_providers() -> List[str]:
     return sorted(_PROVIDERS.keys())
 
 
-def list_all_models() -> Dict[str, List[str]]:
+def list_all_models() -> dict[str, list[str]]:
     """Return all supported models grouped by provider.
 
     Returns:
-        Dict mapping provider names to lists of model identifiers.
+        Dict mapping provider names to new lists of model identifiers.
+        Mutating the returned lists does not affect the providers.
 
     Example:
         >>> models = list_all_models()
         >>> print(models["anthropic"])
         ['claude-opus-4-5-20251101', 'claude-sonnet-4-5-20250929']
     """
+    # `list(...)`, not the class attribute itself: handing back the provider's
+    # own allow-list let a caller who sorted or filtered the result in place
+    # permanently change what `validate_model()` accepts process-wide.
     return {
-        name: provider_class.SUPPORTED_MODELS
+        name: list(provider_class.SUPPORTED_MODELS)
         for name, provider_class in _PROVIDERS.items()
     }
 
 
-def get_provider_for_model(model: str) -> Optional[BaseAPIProvider]:
+def get_provider_for_model(model: str) -> BaseAPIProvider | None:
     """Get the provider instance for a given model.
 
     Args:

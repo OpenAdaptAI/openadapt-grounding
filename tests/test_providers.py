@@ -30,7 +30,6 @@ from openadapt_grounding.providers import (
 )
 from openadapt_grounding.providers.base import BaseAPIProvider
 
-
 # ============================================================================
 # Fixtures
 # ============================================================================

@@ -10,7 +10,7 @@ from openadapt_grounding.eval.metrics.types import ElementResult, MethodMetrics
 __all__ = [
     "ElementResult",
     "MethodMetrics",
+    "aggregate_metrics",
     "compute_iou",
     "compute_point_distance",
-    "aggregate_metrics",
 ]

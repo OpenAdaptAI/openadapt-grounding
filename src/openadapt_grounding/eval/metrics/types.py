@@ -1,7 +1,7 @@
 """Metric result types for evaluation."""
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List
+from typing import Any
 
 
 @dataclass
@@ -17,9 +17,9 @@ class ElementResult:
     size_category: str  # "small", "medium", "large"
     element_type: str
     distance_from_target: float  # Distance from prediction to target center
-    method_info: Dict[str, Any] = field(default_factory=dict)
+    method_info: dict[str, Any] = field(default_factory=dict)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to JSON-serializable dict."""
         return {
             "sample_id": self.sample_id,
@@ -35,7 +35,7 @@ class ElementResult:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "ElementResult":
+    def from_dict(cls, data: dict[str, Any]) -> "ElementResult":
         """Create from dict."""
         return cls(
             sample_id=data["sample_id"],
@@ -70,16 +70,16 @@ class MethodMetrics:
     detection_rate_large: float
 
     # Breakdown by element type
-    detection_rate_by_type: Dict[str, float]
+    detection_rate_by_type: dict[str, float]
 
     # Total counts
     total_elements: int
     detected_elements: int
 
     # Raw results for detailed analysis
-    results: List[ElementResult] = field(default_factory=list)
+    results: list[ElementResult] = field(default_factory=list)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to JSON-serializable dict."""
         return {
             "method_name": self.method_name,
@@ -98,7 +98,7 @@ class MethodMetrics:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "MethodMetrics":
+    def from_dict(cls, data: dict[str, Any]) -> "MethodMetrics":
         """Create from dict."""
         return cls(
             method_name=data["method_name"],

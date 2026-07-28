@@ -3,7 +3,7 @@
 import base64
 import io
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, ClassVar
 
 from PIL import Image
 
@@ -31,8 +31,14 @@ class BaseAPIProvider(ABC):
         ... )
     """
 
-    # Supported models for this provider
-    SUPPORTED_MODELS: List[str] = []
+    # Allow-list of model identifiers this provider accepts. It is the only
+    # guard `validate_model()` has, and it is shared by every instance of the
+    # class -- so it is a `ClassVar` tuple, not a list, on purpose. As a
+    # mutable list, one caller doing `provider.SUPPORTED_MODELS.append(...)`
+    # or sorting the list handed back by `list_all_models()` would silently
+    # and permanently change what every other provider instance in the process
+    # accepts. A tuple turns that into an immediate AttributeError.
+    SUPPORTED_MODELS: ClassVar[tuple[str, ...]] = ()
 
     @property
     @abstractmethod
@@ -65,7 +71,7 @@ class BaseAPIProvider(ABC):
         client: Any,
         model: str,
         system: str,
-        content: List[Dict[str, Any]],
+        content: list[dict[str, Any]],
         max_tokens: int = 1024,
         temperature: float = 0.0,
         **kwargs: Any,
@@ -96,7 +102,7 @@ class BaseAPIProvider(ABC):
         self,
         image: Image.Image,
         media_type: str = "image/png",
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Encode a PIL Image for the API.
 
         Args:
@@ -132,7 +138,7 @@ class BaseAPIProvider(ABC):
         if not self.is_model_supported(model):
             raise ValueError(
                 f"Model '{model}' is not supported by {self.name}. "
-                f"Supported models: {self.SUPPORTED_MODELS}"
+                f"Supported models: {', '.join(self.SUPPORTED_MODELS)}"
             )
 
     @staticmethod
@@ -150,10 +156,11 @@ class BaseAPIProvider(ABC):
         image.save(buffered, format=format)
         return base64.b64encode(buffered.getvalue()).decode("utf-8")
 
-    def get_supported_models(self) -> List[str]:
+    def get_supported_models(self) -> list[str]:
         """Return the list of supported model identifiers.
 
         Returns:
-            List of model identifier strings.
+            A new list of model identifier strings. Mutating it does not
+            affect the provider's allow-list.
         """
-        return self.SUPPORTED_MODELS.copy()
+        return list(self.SUPPORTED_MODELS)

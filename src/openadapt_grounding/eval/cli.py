@@ -9,12 +9,13 @@ Usage:
 
 import json
 from pathlib import Path
-from typing import List, Optional
 
 try:
     import fire
 except ImportError:
     raise ImportError("fire not installed. Run: uv pip install fire")
+
+import builtins
 
 from PIL import Image
 
@@ -49,7 +50,7 @@ class EvalCLI:
         self,
         type: str = "synthetic",
         count: int = 500,
-        output_dir: Optional[str] = None,
+        output_dir: str | None = None,
         seed: int = 42,
     ) -> None:
         """Generate an evaluation dataset.
@@ -86,11 +87,11 @@ class EvalCLI:
         self,
         method: str,
         dataset: str,
-        dataset_dir: Optional[str] = None,
-        output_dir: Optional[str] = None,
-        omniparser_url: Optional[str] = None,
-        uitars_url: Optional[str] = None,
-        limit: Optional[int] = None,
+        dataset_dir: str | None = None,
+        output_dir: str | None = None,
+        omniparser_url: str | None = None,
+        uitars_url: str | None = None,
+        limit: int | None = None,
     ) -> None:
         """Run evaluation for a specific method on a dataset.
 
@@ -153,9 +154,9 @@ class EvalCLI:
 
     def compare(
         self,
-        results_dir: Optional[str] = None,
-        output: Optional[str] = None,
-        charts_dir: Optional[str] = None,
+        results_dir: str | None = None,
+        output: str | None = None,
+        charts_dir: str | None = None,
     ) -> None:
         """Compare all evaluated methods and generate visualizations.
 
@@ -179,7 +180,7 @@ class EvalCLI:
         print(f"Found {len(result_files)} result files")
 
         # Load all results
-        all_metrics: List[MethodMetrics] = []
+        all_metrics: list[MethodMetrics] = []
         for f in result_files:
             try:
                 metrics = load_results(f)
@@ -238,14 +239,14 @@ class EvalCLI:
             print(f"  {name:<25} {desc}")
 
         settings = get_settings()
-        print(f"\nDefault Directories:")
+        print("\nDefault Directories:")
         print(f"  Datasets: {settings.DATASETS_DIR}")
         print(f"  Results:  {settings.RESULTS_DIR}")
         print(f"  Charts:   {settings.CHARTS_DIR}")
 
     def _create_method(
         self, method_name: str, omniparser_url: str, uitars_url: str
-    ) -> Optional[EvaluationMethod]:
+    ) -> EvaluationMethod | None:
         """Create evaluation method from name."""
         # Parse method name
         parts = method_name.lower().split("-")
@@ -266,15 +267,15 @@ class EvalCLI:
 
         # Create method
         if base == "omniparser":
-            from openadapt_grounding.parsers.omniparser import OmniParserClient
             from openadapt_grounding.eval.methods.omniparser import OmniParserMethod
+            from openadapt_grounding.parsers.omniparser import OmniParserClient
 
             client = OmniParserClient(omniparser_url)
             return OmniParserMethod(client, crop_strategy)
 
         elif base == "uitars":
-            from openadapt_grounding.parsers.uitars import UITarsClient
             from openadapt_grounding.eval.methods.uitars import UITarsMethod
+            from openadapt_grounding.parsers.uitars import UITarsClient
 
             client = UITarsClient(uitars_url)
             return UITarsMethod(client, crop_strategy)
@@ -289,8 +290,8 @@ class EvalCLI:
         method: EvaluationMethod,
         dataset: Dataset,
         dataset_path: Path,
-        limit: Optional[int] = None,
-    ) -> List[ElementResult]:
+        limit: int | None = None,
+    ) -> builtins.list[ElementResult]:
         """Run evaluation and return results."""
         try:
             from tqdm import tqdm
@@ -301,7 +302,7 @@ class EvalCLI:
 
         from openadapt_grounding.eval.metrics.compute import compute_iou
 
-        results: List[ElementResult] = []
+        results: list[ElementResult] = []
 
         samples = dataset.samples
         if limit:

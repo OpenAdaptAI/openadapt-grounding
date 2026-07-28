@@ -31,19 +31,17 @@ import subprocess
 import time
 import zipfile
 from pathlib import Path
-from typing import Optional, Tuple
 
 try:
     import boto3
-    from botocore.exceptions import ClientError
     import paramiko
+    from botocore.exceptions import ClientError
 except ImportError:
     raise ImportError(
         "Deploy dependencies not installed. Run: uv pip install openadapt-grounding[deploy]"
     )
 
 from openadapt_grounding.deploy.config import uitars_settings as config
-
 
 CLEANUP_ON_FAILURE = False
 
@@ -60,7 +58,7 @@ def _get_dockerfile_path() -> Path:
 def create_key_pair(
     key_name: str = config.AWS_EC2_KEY_NAME,
     key_path: str = config.AWS_EC2_KEY_PATH,
-) -> Optional[str]:
+) -> str | None:
     """Create an EC2 key pair."""
     ec2_client = boto3.client("ec2", region_name=config.AWS_REGION)
     try:
@@ -79,8 +77,8 @@ def create_key_pair(
 
 
 def get_or_create_security_group_id(
-    ports: list = None,
-) -> Optional[str]:
+    ports: list[int] | None = None,
+) -> str | None:
     """Get existing security group or create a new one."""
     if ports is None:
         ports = [22, config.PORT]
@@ -153,7 +151,7 @@ def deploy_ec2_instance(
     project_name: str = config.PROJECT_NAME,
     key_name: str = config.AWS_EC2_KEY_NAME,
     disk_size: int = config.AWS_EC2_DISK_SIZE,
-) -> Tuple[Optional[str], Optional[str]]:
+) -> tuple[str | None, str | None]:
     """Deploy a new EC2 instance or return existing one."""
     ec2 = boto3.resource("ec2", region_name=config.AWS_REGION)
     ec2_client = boto3.client("ec2", region_name=config.AWS_REGION)
@@ -241,13 +239,13 @@ def deploy_ec2_instance(
 
 
 def configure_ec2_instance(
-    instance_id: Optional[str] = None,
-    instance_ip: Optional[str] = None,
+    instance_id: str | None = None,
+    instance_ip: str | None = None,
     max_ssh_retries: int = 20,
     ssh_retry_delay: int = 20,
     max_cmd_retries: int = 20,
     cmd_retry_delay: int = 30,
-) -> Tuple[Optional[str], Optional[str]]:
+) -> tuple[str | None, str | None]:
     """Configure EC2 instance with Docker and NVIDIA drivers."""
     if not instance_id:
         instance_id, instance_ip = deploy_ec2_instance()
@@ -303,7 +301,7 @@ def configure_ec2_instance(
         print(f"Executing: {command[:60]}...")
         cmd_retries = 0
         while cmd_retries < max_cmd_retries:
-            stdin, stdout, stderr = ssh_client.exec_command(command)
+            _stdin, stdout, stderr = ssh_client.exec_command(command)
             exit_status = stdout.channel.recv_exit_status()
 
             if exit_status == 0:
@@ -325,7 +323,7 @@ def configure_ec2_instance(
 def execute_command(ssh_client: paramiko.SSHClient, command: str) -> None:
     """Execute command and stream output."""
     print(f"Executing: {command[:80]}...")
-    stdin, stdout, stderr = ssh_client.exec_command(
+    _stdin, stdout, stderr = ssh_client.exec_command(
         command, timeout=config.COMMAND_TIMEOUT
     )
 
@@ -674,7 +672,7 @@ class Deploy:
                             raise RuntimeError("Server failed to start")
 
                 server_url = f"http://{instance_ip}:{config.PORT}"
-                print(f"\nDeployment complete!")
+                print("\nDeployment complete!")
                 print(f"Server URL: {server_url}")
                 print(f"API endpoint: {server_url}/v1/chat/completions")
 
@@ -792,7 +790,7 @@ class Deploy:
                 print(f"Error deleting security group: {e}")
 
     @staticmethod
-    def _get_instance_ip() -> Optional[str]:
+    def _get_instance_ip() -> str | None:
         """Get public IP of running instance."""
         ec2 = boto3.resource("ec2", region_name=config.AWS_REGION)
         instances = ec2.instances.filter(
@@ -808,7 +806,7 @@ class Deploy:
         return instance.public_ip_address
 
     @staticmethod
-    def _run_ssh_command(command: str, timeout: int = 60) -> Optional[str]:
+    def _run_ssh_command(command: str, timeout: int = 60) -> str | None:
         """Run command on remote instance via SSH."""
         ip = Deploy._get_instance_ip()
         if not ip:
@@ -828,9 +826,18 @@ class Deploy:
             capture_output=True,
             text=True,
             timeout=timeout,
+            # Explicit: the exit status is inspected below rather than raised,
+            # because these helpers report failure to the operator and let the
+            # calling command decide what to do next.
+            check=False,
         )
-        if result.returncode != 0 and result.stderr:
-            print(f"Error: {result.stderr}")
+        if result.returncode != 0:
+            # Reported on the exit status, not on `result.stderr` being
+            # non-empty. `ssh` propagates the *remote* command's exit code, and
+            # a remote command that fails quietly (non-zero, no stderr) used to
+            # print nothing at all -- so a failed `docker run` looked exactly
+            # like one that succeeded with no output.
+            print(f"Error: ssh exited {result.returncode}: {result.stderr.strip()}")
         return result.stdout
 
     @staticmethod
@@ -858,11 +865,15 @@ class Deploy:
             capture_output=True,
             text=True,
             timeout=60,
+            # Explicit: a failed log fetch is reported below, not raised, so
+            # `deploy logs` on a stopped container still prints something
+            # useful instead of a traceback.
+            check=False,
         )
         if result.stdout:
             print(result.stdout)
-        if result.returncode != 0 and result.stderr and "Warning:" not in result.stderr:
-            print(f"Error: {result.stderr}")
+        if result.returncode != 0 and "Warning:" not in result.stderr:
+            print(f"Error: ssh exited {result.returncode}: {result.stderr.strip()}")
 
     @staticmethod
     def ps() -> None:
@@ -961,20 +972,28 @@ class Deploy:
         print(f"Waiting for server at {url} (timeout={timeout}s)...")
 
         elapsed = 0
+        last_error: str | None = None
         while elapsed < timeout:
             try:
                 response = requests.get(url, timeout=5)
+            except requests.RequestException as exc:
+                # Narrowed from a bare `except Exception: pass`. The server
+                # being unreachable is the expected state while it boots, but
+                # discarding the reason meant "wrong security group", "wrong
+                # IP" and "model still loading" all printed the identical
+                # "Not ready" line for the full 10-minute timeout.
+                last_error = f"{type(exc).__name__}: {exc}"
+            else:
                 if response.status_code == 200:
                     print(f"\nServer is healthy! (took {elapsed}s)")
                     return True
-            except Exception:
-                pass
+                last_error = f"HTTP {response.status_code}"
 
-            print(f"  [{elapsed}s] Not ready, waiting {interval}s...")
+            print(f"  [{elapsed}s] Not ready ({last_error}), waiting {interval}s...")
             time.sleep(interval)
             elapsed += interval
 
-        print(f"\nTimeout after {timeout}s - server not healthy")
+        print(f"\nTimeout after {timeout}s - server not healthy (last: {last_error})")
         return False
 
     @staticmethod
@@ -1028,10 +1047,11 @@ class Deploy:
 
         # Test grounding with OpenAI API
         try:
-            from openai import OpenAI
-            from PIL import Image, ImageDraw
             import base64
             import io
+
+            from openai import OpenAI
+            from PIL import Image, ImageDraw
 
             # Generate test image
             img = Image.new('RGB', (400, 300), '#f0f0f0')
@@ -1105,18 +1125,18 @@ Click on the Login button"""
                 if 30 <= x <= 150 and 30 <= y <= 70:
                     print("SUCCESS: Coordinates are within Login button bounds!")
                 else:
-                    print(f"Note: Coordinates may need scaling (raw model output)")
+                    print("Note: Coordinates may need scaling (raw model output)")
 
             if save_output:
                 assets_dir = Path(__file__).parent.parent.parent.parent / "assets"
                 assets_dir.mkdir(exist_ok=True)
 
                 img.save(assets_dir / "uitars_test_input.png")
-                print(f"\nSaved test image to assets/uitars_test_input.png")
+                print("\nSaved test image to assets/uitars_test_input.png")
 
                 with open(assets_dir / "uitars_test_result.txt", 'w') as f:
                     f.write(result)
-                print(f"Saved result to assets/uitars_test_result.txt")
+                print("Saved result to assets/uitars_test_result.txt")
 
         except ImportError as e:
             print(f"Missing dependency: {e}")

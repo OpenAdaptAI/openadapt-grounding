@@ -3,11 +3,10 @@
 import json
 import random
 from pathlib import Path
-from typing import List, Optional, Tuple
 
 from PIL import Image, ImageDraw, ImageFont
 
-from openadapt_grounding import Element, Registry, RegistryBuilder
+from openadapt_grounding import Element, RegistryBuilder
 
 
 def _load_font(size: int = 16) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
@@ -28,7 +27,7 @@ FONT_SMALL = _load_font(12)
 def generate_ui(
     width: int = 800,
     height: int = 600,
-) -> Tuple[Image.Image, List[Element]]:
+) -> tuple[Image.Image, list[Element]]:
     """Generate a synthetic login UI with known elements."""
     img = Image.new("RGB", (width, height), color="#f0f0f0")
     draw = ImageDraw.Draw(img)
@@ -100,11 +99,11 @@ def generate_ui(
 
 
 def simulate_flickering(
-    elements: List[Element],
+    elements: list[Element],
     num_frames: int = 10,
     dropout_rate: float = 0.3,
     seed: int = 42,
-) -> List[List[Element]]:
+) -> list[list[Element]]:
     """Simulate OmniParser flickering by randomly dropping elements per frame."""
     random.seed(seed)
     frames = []
@@ -121,7 +120,7 @@ def simulate_flickering(
 
 def draw_detections(
     img: Image.Image,
-    elements: List[Element],
+    elements: list[Element],
     color: str = "red",
     label: str = "",
     show_count: bool = True,
@@ -154,7 +153,7 @@ def draw_detections(
 
 
 def make_gif(
-    frames: List[Image.Image],
+    frames: list[Image.Image],
     output_path: Path,
     duration_ms: int = 500,
 ) -> None:
@@ -174,8 +173,8 @@ def make_gif(
 
 def make_comparison_gif(
     base_img: Image.Image,
-    raw_frames: List[List[Element]],
-    stable_elements: List[Element],
+    raw_frames: list[list[Element]],
+    stable_elements: list[Element],
     output_path: Path,
     duration_ms: int = 500,
 ) -> None:
@@ -206,8 +205,8 @@ def make_comparison_gif(
 
 
 def compute_metrics(
-    frames: List[List[Element]],
-    ground_truth: List[Element],
+    frames: list[list[Element]],
+    ground_truth: list[Element],
 ) -> dict:
     """Compute detection metrics."""
     total_gt = len(ground_truth)
@@ -360,7 +359,7 @@ def print_results(results: dict) -> None:
         print(f"  {status} {r['scale']}x ({r['resolution']}): {r['elements_found']} elements")
 
     print(f"\n📁 Outputs saved to: {results['output_dir']}/")
-    for name, filename in results["files"].items():
+    for filename in results["files"].values():
         print(f"  - {filename}")
     print()
 

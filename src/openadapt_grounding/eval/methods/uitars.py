@@ -1,7 +1,8 @@
 """UI-TARS evaluation method."""
 
+import logging
 import time
-from typing import Optional
+from typing import Any
 
 from PIL import Image
 
@@ -9,6 +10,8 @@ from openadapt_grounding.eval.dataset.schema import AnnotatedElement
 from openadapt_grounding.eval.methods.base import EvaluationMethod, EvaluationPrediction
 from openadapt_grounding.eval.methods.cropping import CroppingStrategy, NoCropping
 from openadapt_grounding.parsers.uitars import UITarsClient
+
+logger = logging.getLogger(__name__)
 
 
 class UITarsMethod(EvaluationMethod):
@@ -20,7 +23,7 @@ class UITarsMethod(EvaluationMethod):
     def __init__(
         self,
         client: UITarsClient,
-        cropping: Optional[CroppingStrategy] = None,
+        cropping: CroppingStrategy | None = None,
         bbox_tolerance: float = 0.02,
     ):
         """Initialize UI-TARS evaluation method.
@@ -64,6 +67,13 @@ class UITarsMethod(EvaluationMethod):
         # Get cropped regions to evaluate
         regions = self.cropping.get_regions(image, target_element)
 
+        # Grounding failures are recorded, not swallowed. Dropping them
+        # silently made an unreachable or erroring UI-TARS server
+        # indistinguishable from a genuine miss, so a backend outage was
+        # published as "0% accuracy" in the method comparison instead of an
+        # invalid run.
+        errors: list[str] = []
+
         for region in regions:
             attempts += 1
             cropped_image, offset = region.crop(image)
@@ -71,7 +81,15 @@ class UITarsMethod(EvaluationMethod):
             # Ground element in cropped region
             try:
                 result = self.client.ground(cropped_image, instruction)
-            except Exception:
+            except Exception as exc:
+                logger.warning(
+                    "UI-TARS failed on region %d of %d for element %s: %s",
+                    attempts,
+                    len(regions),
+                    target_element.id,
+                    exc,
+                )
+                errors.append(f"{type(exc).__name__}: {exc}")
                 continue
 
             if result.found and result.x is not None and result.y is not None:
@@ -81,6 +99,12 @@ class UITarsMethod(EvaluationMethod):
                 # Check if point is within target bbox (with tolerance)
                 if self._point_in_bbox(orig_x, orig_y, target_element.bbox):
                     latency_ms = (time.perf_counter() - start_time) * 1000
+                    hit_info: dict[str, Any] = {
+                        "thought": result.thought,
+                        "instruction": instruction,
+                    }
+                    if errors:
+                        hit_info["region_errors"] = errors
                     return EvaluationPrediction(
                         found=True,
                         click_point=(orig_x, orig_y),
@@ -88,18 +112,20 @@ class UITarsMethod(EvaluationMethod):
                         confidence=result.confidence,
                         latency_ms=latency_ms,
                         attempts=attempts,
-                        method_info={
-                            "thought": result.thought,
-                            "instruction": instruction,
-                        },
+                        method_info=hit_info,
                     )
 
         latency_ms = (time.perf_counter() - start_time) * 1000
+        method_info: dict[str, Any] = {"instruction": instruction}
+        if errors:
+            # Carried into the stored results JSON so a "not found" caused by a
+            # broken backend is visible after the fact.
+            method_info["region_errors"] = errors
         return EvaluationPrediction(
             found=False,
             latency_ms=latency_ms,
             attempts=attempts,
-            method_info={"instruction": instruction},
+            method_info=method_info,
         )
 
     def _build_instruction(self, element: AnnotatedElement) -> str:
@@ -124,7 +150,7 @@ class UITarsMethod(EvaluationMethod):
             return f"Click on the {elem_type}"
 
     def _point_in_bbox(
-        self, x: float, y: float, bbox: tuple, tolerance: Optional[float] = None
+        self, x: float, y: float, bbox: tuple, tolerance: float | None = None
     ) -> bool:
         """Check if point (x, y) is within bbox (bx, by, bw, bh).
 

@@ -1,7 +1,7 @@
 """Frame collection utilities for temporal smoothing."""
 
 import time
-from typing import Callable, List, Optional
+from collections.abc import Callable
 
 from PIL import Image
 
@@ -16,7 +16,7 @@ def collect_frames(
     num_frames: int = 10,
     min_stability: float = 0.5,
     delay_ms: int = 0,
-    on_frame: Optional[Callable[[int, List[Element]], None]] = None,
+    on_frame: Callable[[int, list[Element]], None] | None = None,
 ) -> Registry:
     """Collect multiple detection frames and build a stable registry.
 
@@ -61,7 +61,7 @@ def collect_live_frames(
     num_frames: int = 10,
     min_stability: float = 0.5,
     delay_ms: int = 100,
-    on_frame: Optional[Callable[[int, Image.Image, List[Element]], None]] = None,
+    on_frame: Callable[[int, Image.Image, list[Element]], None] | None = None,
 ) -> Registry:
     """Collect frames from live screenshots for temporal smoothing.
 
@@ -120,7 +120,7 @@ def analyze_stability(
     Returns:
         Dict with stability metrics per element and overall stats
     """
-    all_frames: List[List[Element]] = []
+    all_frames: list[list[Element]] = []
 
     for _ in range(num_frames):
         elements = parser.parse(image)
@@ -128,7 +128,7 @@ def analyze_stability(
 
     # Group elements by text (simple clustering)
     text_counts: dict[str, int] = {}
-    text_bounds: dict[str, List[tuple]] = {}
+    text_bounds: dict[str, list[tuple]] = {}
 
     for frame in all_frames:
         for elem in frame:

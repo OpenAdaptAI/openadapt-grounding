@@ -1,7 +1,8 @@
 """OmniParser evaluation method."""
 
+import logging
 import time
-from typing import Optional
+from typing import Any
 
 from PIL import Image
 
@@ -10,6 +11,8 @@ from openadapt_grounding.eval.methods.base import EvaluationMethod, EvaluationPr
 from openadapt_grounding.eval.methods.cropping import CroppingStrategy, NoCropping
 from openadapt_grounding.parsers.omniparser import OmniParserClient
 from openadapt_grounding.types import Element
+
+logger = logging.getLogger(__name__)
 
 
 class OmniParserMethod(EvaluationMethod):
@@ -26,7 +29,7 @@ class OmniParserMethod(EvaluationMethod):
     def __init__(
         self,
         client: OmniParserClient,
-        cropping: Optional[CroppingStrategy] = None,
+        cropping: CroppingStrategy | None = None,
         iou_threshold: float = 0.3,
         text_match_threshold: float = 0.8,
     ):
@@ -70,8 +73,13 @@ class OmniParserMethod(EvaluationMethod):
         # Get cropped regions to evaluate
         regions = self.cropping.get_regions(image, target_element)
 
-        best_match: Optional[Element] = None
+        best_match: Element | None = None
         best_score = 0.0
+        # Parse failures are recorded, not swallowed. Dropping them silently
+        # made an unreachable or erroring OmniParser server indistinguishable
+        # from a genuine miss, so a backend outage was published as "0%
+        # accuracy" in the method comparison instead of an invalid run.
+        errors: list[str] = []
 
         for region in regions:
             attempts += 1
@@ -80,7 +88,15 @@ class OmniParserMethod(EvaluationMethod):
             # Parse cropped region
             try:
                 elements = self.client.parse(cropped_image)
-            except Exception:
+            except Exception as exc:
+                logger.warning(
+                    "OmniParser failed on region %d of %d for element %s: %s",
+                    attempts,
+                    len(regions),
+                    target_element.id,
+                    exc,
+                )
+                errors.append(f"{type(exc).__name__}: {exc}")
                 continue
 
             # Find best matching element
@@ -100,6 +116,12 @@ class OmniParserMethod(EvaluationMethod):
         latency_ms = (time.perf_counter() - start_time) * 1000
 
         if best_match is not None and best_score >= self.iou_threshold:
+            method_info: dict[str, Any] = {
+                "matched_text": best_match.text,
+                "score": best_score,
+            }
+            if errors:
+                method_info["region_errors"] = errors
             return EvaluationPrediction(
                 found=True,
                 click_point=best_match.center,
@@ -107,14 +129,19 @@ class OmniParserMethod(EvaluationMethod):
                 confidence=best_score,
                 latency_ms=latency_ms,
                 attempts=attempts,
-                method_info={"matched_text": best_match.text, "score": best_score},
+                method_info=method_info,
             )
 
+        method_info = {"best_score": best_score}
+        if errors:
+            # Carried into the stored results JSON so a "not found" caused by a
+            # broken backend is visible after the fact.
+            method_info["region_errors"] = errors
         return EvaluationPrediction(
             found=False,
             latency_ms=latency_ms,
             attempts=attempts,
-            method_info={"best_score": best_score},
+            method_info=method_info,
         )
 
     def _compute_match_score(

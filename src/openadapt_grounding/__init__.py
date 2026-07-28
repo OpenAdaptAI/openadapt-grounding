@@ -17,6 +17,7 @@ from openadapt_grounding.parsers import (
 )
 from openadapt_grounding.types import Bounds, Element, LocatorResult, RegistryEntry
 
+
 # Lazy import for providers (requires optional dependencies)
 def get_provider(name: str):
     """Get a VLM API provider by name.

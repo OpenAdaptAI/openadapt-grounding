@@ -1,6 +1,6 @@
 """Base protocol for UI element parsers."""
 
-from typing import List, Protocol, runtime_checkable
+from typing import Protocol, runtime_checkable
 
 from PIL import Image
 
@@ -15,7 +15,7 @@ class Parser(Protocol):
     This allows swapping between different backends (OmniParser, etc.)
     """
 
-    def parse(self, image: Image.Image) -> List[Element]:
+    def parse(self, image: Image.Image) -> list[Element]:
         """Parse a screenshot and return detected UI elements.
 
         Args:

@@ -1,10 +1,10 @@
 """Core data types for openadapt-grounding."""
 
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any
 
 # Normalized bounds: (x, y, width, height) where all values are 0.0-1.0
-Bounds = Tuple[float, float, float, float]
+Bounds = tuple[float, float, float, float]
 
 
 @dataclass
@@ -12,12 +12,12 @@ class Element:
     """A detected UI element from a single frame."""
 
     bounds: Bounds  # Normalized (x, y, w, h)
-    text: Optional[str] = None
+    text: str | None = None
     element_type: str = "unknown"
     confidence: float = 1.0
 
     @property
-    def center(self) -> Tuple[float, float]:
+    def center(self) -> tuple[float, float]:
         """Get center point in normalized coordinates."""
         x, y, w, h = self.bounds
         return (x + w / 2, y + h / 2)
@@ -49,7 +49,7 @@ class RegistryEntry:
     """A stable element in the registry (survived temporal filtering)."""
 
     uid: str
-    text: Optional[str]
+    text: str | None
     bounds: Bounds  # Average/representative bounds
     element_type: str
     detection_count: int  # How many frames it appeared in
@@ -63,12 +63,12 @@ class RegistryEntry:
         return self.detection_count / self.total_frames
 
     @property
-    def center(self) -> Tuple[float, float]:
+    def center(self) -> tuple[float, float]:
         """Get center point in normalized coordinates."""
         x, y, w, h = self.bounds
         return (x + w / 2, y + h / 2)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to JSON-serializable dict."""
         return {
             "uid": self.uid,
@@ -80,7 +80,7 @@ class RegistryEntry:
         }
 
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> "RegistryEntry":
+    def from_dict(cls, data: dict[str, Any]) -> "RegistryEntry":
         """Create from dict."""
         return cls(
             uid=data["uid"],
@@ -97,13 +97,13 @@ class LocatorResult:
     """Result of attempting to locate an element."""
 
     found: bool
-    x: Optional[float] = None  # Normalized X coordinate
-    y: Optional[float] = None  # Normalized Y coordinate
+    x: float | None = None  # Normalized X coordinate
+    y: float | None = None  # Normalized Y coordinate
     confidence: float = 0.0
-    matched_entry: Optional[RegistryEntry] = None
-    debug: Dict[str, Any] = field(default_factory=dict)
+    matched_entry: RegistryEntry | None = None
+    debug: dict[str, Any] = field(default_factory=dict)
 
-    def to_pixels(self, width: int, height: int) -> Optional[Tuple[int, int]]:
+    def to_pixels(self, width: int, height: int) -> tuple[int, int] | None:
         """Convert normalized coordinates to pixel coordinates."""
         if not self.found or self.x is None or self.y is None:
             return None
