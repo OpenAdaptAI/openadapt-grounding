@@ -1,0 +1,17 @@
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xetex 2016.5.22)  14 MAY 2026 07:54
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**README.md
+(./README.md
+./README.md:1: You can't use `macro parameter character #' in vertical mode.
+l.1 #
+      OpenAdapt Grounding
+? 
+./README.md:1: Emergency stop.
+l.1 #
+      OpenAdapt Grounding
+End of file on the terminal!
+
+No pages of output.
