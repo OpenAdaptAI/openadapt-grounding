@@ -1,20 +1,8 @@
 # OpenAdapt Grounding
 
-> [!IMPORTANT]
-> **Status: Research. Not required by the product.** This package explores
-> making grounding-model detections stable for GUI element localization. Healthy
-> compiled replays make no model calls; a grounding model is an optional,
-> explicitly enabled fallback rung, and this research is not part of that
-> supported path.
->
-> The OpenAdapt product is the demonstration compiler,
-> [`openadapt-flow`](https://github.com/OpenAdaptAI/openadapt-flow), installed
-> via the [`OpenAdapt`](https://github.com/OpenAdaptAI/OpenAdapt) launcher
-> (`pip install openadapt`): it compiles a demonstrated GUI workflow into a
-> deterministic, locally executable program. Healthy runs make no model calls,
-> and it halts instead of guessing when verification fails. Lifecycle labels for
-> every repository are in the
-> [repository lifecycle registry](https://github.com/OpenAdaptAI/.github/blob/main/REPOSITORY_LIFECYCLE.md).
+> [!NOTE]
+> Research: GUI element localization, not part of the supported replay path.
+> The product is [openadapt-flow](https://github.com/OpenAdaptAI/openadapt-flow), installed with `pip install openadapt`.
 
 [![Release](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/release.yml/badge.svg)](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/release.yml)
 [![PyPI version](https://img.shields.io/pypi/v/openadapt-grounding.svg)](https://pypi.org/project/openadapt-grounding/)
