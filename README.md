@@ -47,9 +47,9 @@ and it is arranged as a ladder from cheapest to most expensive:
 
 ## The OpenAdapt stack
 
-OpenAdapt is a governed demonstration compiler: record a workflow once, compile
-the recording into a deterministic program, and replay that program with zero
-model calls on the healthy path. When the live screen does not match what was
+OpenAdapt is a governed demonstration compiler: a person or an agent records a
+workflow, OpenAdapt compiles the recording into a deterministic program, and
+replays that program with zero model calls on the healthy path. When the live screen does not match what was
 demonstrated it halts instead of guessing, using identity gates and independent
 effect verification. Every substrate is first-class: web and desktop recording
 are validated, RDP and Windows replay are early, and Citrix is exploratory.
