@@ -1,7 +1,7 @@
 # OpenAdapt Grounding
 
-> [!NOTE]
-> Research: GUI element localization, not part of the supported replay path.
+> [!WARNING]
+> Archived research, no longer maintained: GUI element localization, not part of the supported replay path.
 > The product is [openadapt-flow](https://github.com/OpenAdaptAI/openadapt-flow), installed with `pip install openadapt`.
 
 [![Release](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/release.yml/badge.svg)](https://github.com/OpenAdaptAI/openadapt-grounding/actions/workflows/release.yml)
